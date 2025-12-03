@@ -1,0 +1,233 @@
+.path-mod-nextblocks .blocklySvg {
+    background-color: #f9f9f9 !important;
+}
+
+.path-mod-nextblocks .blocklyTreeLabel {
+    color: white;
+}
+
+.path-mod-nextblocks .blocklyToolboxContents {
+    padding: 0.5em;
+}
+
+.path-mod-nextblocks .blocklyTreeRow {
+    padding: 3px;
+    margin-bottom: 0.5em;
+    border-radius: 4px;
+    height: initial;
+}
+
+.path-mod-nextblocks .customIcon {
+    color: white;
+}
+
+.path-mod-nextblocks .blocklyTreeRowContentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.path-mod-nextblocks .blocklyDiv {
+    position: absolute;
+}
+
+.path-mod-nextblocks #nextblocks-container {
+    height: 70vh;
+}
+
+.path-mod-nextblocks .h-10 {
+    height: 10%;
+}
+
+.path-mod-nextblocks .h-15 {
+    height: 15%;
+}
+
+.path-mod-nextblocks .border {
+    border: 1px solid #000;
+}
+
+.path-mod-nextblocks .chat {
+    box-sizing: border-box;
+}
+
+.path-mod-nextblocks .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.path-mod-nextblocks .chat-container {
+    position: relative;
+}
+
+.path-mod-nextblocks .messages {
+    height: 300px;
+    width: 500px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    padding: 1em;
+    overflow: scroll;
+}
+
+.path-mod-nextblocks .msg {
+    margin-bottom: 5px;
+}
+
+.path-mod-nextblocks .msg-text {
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.path-mod-nextblocks .msg-normal .msg-text {
+    background: rgb(39, 112, 215);
+    color: white;
+}
+
+.path-mod-nextblocks .msg-notification .msg-text,
+.path-mod-nextblocks .msg-join .msg-text,
+.path-mod-nextblocks .msg-left .msg-text {
+    background: #eee;
+    border: 1px solid #ccc;
+}
+
+.path-mod-nextblocks .msg-notification .msg-sender,
+.path-mod-nextblocks .msg-join .msg-sender,
+.path-mod-nextblocks .msg-left .msg-sender {
+    display: none;
+}
+
+.path-mod-nextblocks #showCodeButton {
+    margin: 0 !important;
+}
+
+.path-mod-nextblocks .code-div {
+    background-color: #f9f9f9;
+    height: 100%;
+    border: 1px solid #eee;
+    padding: 10px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.path-mod-nextblocks #output-div {
+    background-color: black !important;
+    color: white !important;
+}
+
+.path-mod-nextblocks #output-div * {
+    background-color: transparent !important;
+    color: inherit !important;
+}
+
+.path-mod-nextblocks #output-div.tests-active {
+    background-color: white !important;
+    color: black !important;
+}
+
+.path-mod-nextblocks #output-div.tests-active * {
+    background-color: transparent !important;
+    color: black !important;
+}
+
+.path-mod-nextblocks .reactions-heading img {
+    width: 70% !important;
+    height: auto !important;
+}
+
+.path-mod-nextblocks .selected-button {
+    background-color: #66ff66 !important;
+}
+
+.path-mod-nextblocks .custom-comment-dialog {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background: #fff;
+}
+
+.path-mod-nextblocks .comment-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.path-mod-nextblocks .comment-content {
+    background: #f9f9f9;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.path-mod-nextblocks .new-comment-text {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+}
+.path-mod-nextblocks .blocklyCommentIcon {
+    display: none !important;
+}
+
+.path-mod-nextblocks .blocklyWarningIcon {
+    cursor: pointer;
+    pointer-events: auto !important;
+}
+
+.path-mod-nextblocks .blocklyWarningIcon:hover {
+    fill: #FF5722;
+    transform: scale(1.1);
+}
+
+.path-mod-nextblocks .message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.path-mod-nextblocks .message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.path-mod-nextblocks .user {
+    font-weight: bold;
+    color: #333;
+}
+
+.path-mod-nextblocks .time {
+    color: #666;
+}
+
+.path-mod-nextblocks .message-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 1.4;
+    padding: 8px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.path-mod-nextblocks .msg-form {
+    display: flex;
+    width: 100%;
+}
+
+.path-mod-nextblocks .msg-field {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+    resize: none;
+    min-height: 50px;
+    max-height: 150px;
+    overflow-y: auto;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}

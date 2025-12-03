@@ -1,0 +1,45 @@
+/* Slider podstawowy */
+.headerslider-container {
+  position: relative;
+  overflow: hidden;
+  max-height: 400px;
+}
+
+.headerslider {
+  display: flex;
+  transition: transform 0.45s ease;
+  will-change: transform;
+  /* jeśli masz inline transform z procentami — zostanie nadpisane JS-em */
+}
+
+.headerslider .slide {
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.headerslider img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* Strzałki */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 12px;
+  background: rgba(117, 156, 183,0.45);
+  color: #074B88;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  user-select: none;
+  z-index: 99999;
+  pointer-events: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+.slider-arrow.left { left: 12px; }
+.slider-arrow.right { right: 12px; }
+.slider-arrow:active { transform: translateY(-50%) scale(0.98); }
+

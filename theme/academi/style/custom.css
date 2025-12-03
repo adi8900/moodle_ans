@@ -1,0 +1,153 @@
+/* ==========================================
+   Stats Banner - Academi Theme
+   BG #074B88 + mobile fixes
+   ========================================== */
+[[setting:customcss]]
+
+.stats-banner {
+    background-color: #074B88;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 60px;
+    padding: 60px 80px;
+    border-radius: 0;
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,0.15);
+    flex-wrap: wrap;
+}
+
+/* wymuszenie paddingu desktop (zostanie wyłączone na mobile) */
+body#page-site-index .stats-banner {
+    padding-left: 80px !important;
+}
+
+/* lewa kolumna – tytuł */
+.stats-left {
+    flex: 0 0 260px;
+    text-align: left;
+    min-width: 220px;
+    margin-left: 30px;
+}
+
+.stats-title {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    font-size: 2.2rem;
+    color: #f6f7fb;
+}
+.stats-title span { color: #e6c05d; }
+
+/* prawa kolumna – statystyki */
+.stats-container {
+    flex: 1 1 auto;
+    gap: 56px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.stat-item {
+    position: relative;
+    min-width: 170px;
+    text-align: center;
+    padding: 0 28px;
+}
+
+/* pionowy separator */
+.stat-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background-color: rgba(255,255,255,.25);
+}
+
+/* elementy */
+.stat-icon   { font-size: 2.2rem; margin-bottom: 6px; color: #fff; }
+.stat-number { font-size: 1.6rem; font-weight: 700; line-height: 1.2; }
+.stat-hr     { width: 72px; height: 1px; background: rgba(255,255,255,.45); margin: 8px auto 10px; }
+.stat-label  { font-size: .78rem; text-transform: uppercase; letter-spacing: .12rem; color: rgba(255,255,255,.9); }
+
+/* =========================
+   RESPONSYWNOŚĆ – mobile
+   ========================= */
+
+/* Tablet i mniejsze */
+@media (max-width: 992px) {
+    .stats-banner {
+        padding: 32px 20px !important;   /* mniejsze wewnętrzne odstępy */
+        gap: 24px;                        /* mniejsza przestrzeń między kolumnami */
+        justify-content: center;
+    }
+    /* wyłącz wymuszenie desktopowego paddingu */
+    body#page-site-index .stats-banner { padding-left: 20px !important; }
+
+    .stats-left {
+        margin-left: 0 !important;
+        flex-basis: 100%;
+        min-width: 0;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+    .stats-title { font-size: 1.9rem; }
+
+    /* Ułóż statystyki w dwóch kolumnach */
+    .stats-container {
+        flex: 0 0 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 20px 28px;
+        justify-items: center;
+    }
+
+    .stat-item {
+        padding: 0 10px;
+        min-width: 0;                    /* zapobiega rozpychaniu */
+    }
+
+    /* Bez pionowych separatorów na mobile */
+    .stat-item:not(:last-child)::after { display: none; }
+
+    /* Delikatne pomniejszenie typografii */
+    .stat-icon   { font-size: 2rem;  }
+    .stat-number { font-size: 1.4rem; }
+    .stat-label  { font-size: .75rem; letter-spacing: .1rem; }
+}
+
+/* Bardzo wąskie telefony */
+@media (max-width: 480px) {
+    .stats-title { font-size: 1.6rem; }
+    .stats-container {
+        grid-template-columns: 1fr;      /* jedna kolumna */
+        gap: 16px;
+    }
+    .stat-hr { width: 56px; }
+}
+/* Header Slider */
+.header-slider {
+    margin-top: 0;
+    position: relative;
+}
+
+.header-slider-wrapper {
+    display: flex;
+    overflow: hidden;
+}
+
+.header-slide {
+    flex: 0 0 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.header-slide-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 4px solid #ddd;
+}
+

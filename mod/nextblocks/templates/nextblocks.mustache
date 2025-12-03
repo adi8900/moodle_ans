@@ -1,0 +1,141 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_nextblocks/nextblocks
+
+    Main NextBlocks Page
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * none
+
+    Example context (json):
+    {
+    }
+}}
+
+{{^showSubmitButton}}
+    {{#str}} submissionreport, mod_nextblocks {{/str}}
+{{/showSubmitButton}}
+
+{{#showGrader}}
+    <div class="container mt-6 mb-6">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="border p-6" role="alert">
+                    <h4> {{studentName}} {{#str}} nextblocksreport, mod_nextblocks {{/str}} </h4>
+                    <p> {{studentName}}{{#str}} studentscodegraded, mod_nextblocks {{/str}}</p>
+                    {{currentGrade}} / {{maxGrade}}
+                    <hr>
+                    {{{graderForm}}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/showGrader}}
+
+{{! The main page content }}
+
+{{{title}}}
+
+<hr>
+
+<div id="nextblocks-container" class="container-fluid mt-6 mb-6">
+    <div class="row align-items-center justify-content-between mb-3">
+        <div class="col-md-3" style="margin-top: 100px;">
+            <input id="showCodeButton" type="submit" class="btn btn-primary m-2" value="Toggle text code"/>
+        </div>
+        <div class="col-md-6">
+            <div class="row justify-content-center">
+                <div class="col-md-4 reactions-heading">
+                    <div class="row">
+                        <div class="col text-center">
+                            {{{reactionsHeading}}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <img id="emoji-hard" class="emoji-img img-fluid border border-secondary p-1 bg-secondary rounded" src="pix/emoji-hard.png" alt="Hard" role="button">
+                            <div id="percentage-hard"></div>
+                        </div>
+                        <div class="col text-center">
+                            <img id="emoji-medium" class="emoji-img img-fluid border border-secondary p-1 bg-secondary rounded" src="pix/emoji-think.png" alt="Medium">
+                            <div id="percentage-medium"></div>
+                        </div>
+                        <div class="col text-center">
+                            <img id="emoji-easy" class="emoji-img img-fluid border border-secondary p-1 bg-secondary rounded" src="pix/emoji-easy.png" alt="Easy">
+                            <div id="percentage-easy"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" style="margin-top: 100px;">
+            <input id="showBlockLimits" type="submit" class="btn btn-primary m-2 float-right" value="Toggle block limits"/>
+        </div>
+    </div>
+
+    <div class="row h-100">
+        <div id="blocklyArea" class="col-md-12 h-100">
+            <div id="blocklyDiv" class="mw-100 h-100"></div>
+        </div>
+    </div>
+
+    <div class="row h-75 mt-3" id="terminal-container" style="background-color: black; color: white;">
+        <div class="col-md-12 h-100">
+            <div class="row h-15">
+                <div class="col-md-12 text-center">
+                    <input id="runButton" type="submit" class="btn btn-primary m-2" value="{{#str}} nextblocks_run, mod_nextblocks {{/str}}" />
+                    {{{runTestsButton}}}
+                </div>
+            </div>
+            <div class="row h-75">
+                <div id="output-div" class="col-md-12 h-100 p-2"></div>
+                <input type="text" id="input-box"
+                       placeholder="Enter your answer here"
+                       style="display: none; position: absolute; top: 10px; left: 10px; z-index: 1000; width: 90%;" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12" style="text-align: center;">
+            <input id="saveButton" type="submit" class="btn btn-primary m-2" value="{{#str}} nextblocks_save, mod_nextblocks {{/str}}"/>
+            {{#showSubmitButton}}
+                <input id="submitButton" type="submit" class="btn btn-primary m-2" value="{{#str}} nextblocks_submit, mod_nextblocks {{/str}}"/>
+            {{/showSubmitButton}}
+            <input id="cancelButton" type="submit" class="btn btn-primary m-2" value="{{#str}} nextblocks_cancel, mod_nextblocks {{/str}}"/>
+        </div>
+    </div>
+</div>
+
+<div id="codeDiv" class="container mt-6 mb-6"></div>
+
+<hr>
+<div class="container" style="margin-top: 700px;">
+    <div class="chat-box">
+        <div id="messages" class="messages"></div>
+        <form action="" class="msg-form">
+            <input type="text" name="msg" id="msg" class="chat-input msg-field" placeholder="Write message">
+        </form>
+    </div>
+</div>

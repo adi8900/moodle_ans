@@ -1,0 +1,23 @@
+{{! theme/academi/templates/headerslider.mustache }}
+{{#enabled}}
+<div class="headerslider-container">
+
+    <div class="slider-arrow left">&#10094;</div>
+    <div class="slider-arrow right">&#10095;</div>
+
+    <div class="headerslider">
+        {{#slides}}
+            <div class="slide">
+                {{#link}}
+                    <a href="{{link}}" target="_blank">
+                        <img src="{{image}}" alt="Slide image" class="img-fluid">
+                    </a>
+                {{/link}}
+                {{^link}}
+                    <img src="{{image}}" alt="Slide image" class="img-fluid">
+                {{/link}}
+            </div>
+        {{/slides}}
+    </div>
+</div>
+{{/enabled}}

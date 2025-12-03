@@ -1,0 +1,22 @@
+<div class="stats-banner">
+
+    <div class="stats-left">
+        <h2 class="stats-title">
+            {{#str}} stats_title_main, theme_academi {{/str}}<br>
+            <span>{{#str}} stats_title_gold, theme_academi {{/str}}</span>
+        </h2>
+    </div>
+
+    <div class="stats-container d-flex justify-content-center align-items-start">
+
+        {{#stats}}
+        <div class="stat-item">
+            <div class="fa {{icon}} stat-icon"></div>
+            <div class="stat-number">{{value}}</div>
+            <div class="stat-hr"></div>
+            <div class="stat-label">{{label}}</div>
+        </div>
+        {{/stats}}
+
+    </div>
+</div>

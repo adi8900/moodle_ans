@@ -1,0 +1,14 @@
+<div class="category-tiles">
+  {{#categories}}
+    <div class="category-tile">
+      <a href="{{link}}">
+        <img src="{{imgurl}}" alt="{{name}}" class="category-img">
+        <div class="category-name">{{name}}</div>
+      </a>
+    </div>
+  {{/categories}}
+
+  {{^categories}}
+    <p>No categories found.</p>
+  {{/categories}}
+</div>

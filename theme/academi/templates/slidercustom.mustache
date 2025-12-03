@@ -1,0 +1,41 @@
+{{! Slider partial for Academi theme. Expects "slides" array in context. }}
+{{#slides}}
+  {{! only start wrapper for first iteration }}
+  {{#first}}
+<div class="academi-slider-wrapper">
+  <div id="{{carouselid}}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="{{interval}}">
+    <div class="carousel-inner">
+  {{/first}}
+    <div class="carousel-item {{#active}}active{{/active}}">
+      {{#link}}
+        <a href="{{link}}" {{#external}}target="_blank" rel="noopener noreferrer"{{/external}}>
+          <img src="{{img}}" class="d-block w-100" alt="{{alt}}">
+        </a>
+      {{/link}}
+      {{^link}}
+        <img src="{{img}}" class="d-block w-100" alt="{{alt}}">
+      {{/link}}
+    </div>
+  {{#last}}
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#{{carouselid}}" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">{{str_previous}}</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#{{carouselid}}" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">{{str_next}}</span>
+    </button>
+
+    <div class="carousel-indicators">
+      {{#indicators}}
+        <button type="button" data-bs-target="#{{../carouselid}}" data-bs-slide-to="{{index}}" {{#isfirst}}class="active" aria-current="true"{{/isfirst}} aria-label="{{label}}"></button>
+      {{/indicators}}
+    </div>
+
+  </div>
+</div>
+  {{/last}}
+{{/slides}}
+

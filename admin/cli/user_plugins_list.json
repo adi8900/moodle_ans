@@ -1,0 +1,14 @@
+[
+    {
+        "typ": "qtype",
+        "nazwa": "matrix",
+        "wersja": "2025052700",
+        "component": "qtype_matrix"
+    },
+    {
+        "typ": "local",
+        "nazwa": "list_user_plugins",
+        "wersja": "",
+        "component": "local_list_user_plugins"
+    }
+]
