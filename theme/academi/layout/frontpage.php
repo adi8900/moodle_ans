@@ -5,8 +5,6 @@ require_once(dirname(__FILE__) . '/includes/layoutdata.php');
 require_once($CFG->dirroot . '/theme/academi/classes/helper.php');
 
 use theme_academi\helper;
-
-// Get header slider data.
 $headerslider = \theme_academi\helper::get_headerslider();
 $sliderconfig = [];
 require_once(dirname(__FILE__) .'/includes/homeslider.php');
@@ -40,6 +38,6 @@ $templatecontext += [
     'bodyattributes' => $bodyattributes,
     'jumbotronclass' => $jumbotronclass,
 ];
-// Render main frontpage layout.
 echo $OUTPUT->render_from_template('theme_academi/frontpage', $templatecontext);
+
 

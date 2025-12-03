@@ -1,4 +1,4 @@
-/* ==========================================
+\/* ==========================================
    Stats Banner - Academi Theme
    BG #074B88 + mobile fixes
    ========================================== */
@@ -80,11 +80,10 @@ body#page-site-index .stats-banner {
 /* Tablet i mniejsze */
 @media (max-width: 992px) {
     .stats-banner {
-        padding: 32px 20px !important;   /* mniejsze wewnętrzne odstępy */
-        gap: 24px;                        /* mniejsza przestrzeń między kolumnami */
+        padding: 32px 20px !important;
+        gap: 24px;
         justify-content: center;
     }
-    /* wyłącz wymuszenie desktopowego paddingu */
     body#page-site-index .stats-banner { padding-left: 20px !important; }
 
     .stats-left {
@@ -96,7 +95,6 @@ body#page-site-index .stats-banner {
     }
     .stats-title { font-size: 1.9rem; }
 
-    /* Ułóż statystyki w dwóch kolumnach */
     .stats-container {
         flex: 0 0 100%;
         display: grid;
@@ -107,13 +105,11 @@ body#page-site-index .stats-banner {
 
     .stat-item {
         padding: 0 10px;
-        min-width: 0;                    /* zapobiega rozpychaniu */
+        min-width: 0;
     }
 
-    /* Bez pionowych separatorów na mobile */
     .stat-item:not(:last-child)::after { display: none; }
 
-    /* Delikatne pomniejszenie typografii */
     .stat-icon   { font-size: 2rem;  }
     .stat-number { font-size: 1.4rem; }
     .stat-label  { font-size: .75rem; letter-spacing: .1rem; }
@@ -123,11 +119,12 @@ body#page-site-index .stats-banner {
 @media (max-width: 480px) {
     .stats-title { font-size: 1.6rem; }
     .stats-container {
-        grid-template-columns: 1fr;      /* jedna kolumna */
+        grid-template-columns: 1fr;
         gap: 16px;
     }
     .stat-hr { width: 56px; }
 }
+
 /* Header Slider */
 .header-slider {
     margin-top: 0;
@@ -151,3 +148,1541 @@ body#page-site-index .stats-banner {
     border-bottom: 4px solid #ddd;
 }
 
+/* =======================================================
+   DARK MODE – GLOBAL
+   ======================================================= */
+
+body.dark-mode,
+body.dark-mode #page,
+body.dark-mode #page-content,
+body.dark-mode .page-content,
+body.dark-mode #region-main,
+body.dark-mode [role="main"] {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Nagłówki, teksty */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #ffffff !important;
+}
+
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label {
+    color: #e5e5e5 !important;
+}
+
+/* Linki globalne */
+body.dark-mode a {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode a:hover {
+    color: #a3c9ff !important;
+}
+
+/* Karty / panele / bloki */
+body.dark-mode .card,
+body.dark-mode .card-body,
+body.dark-mode .well,
+body.dark-mode .panel,
+body.dark-mode .block,
+body.dark-mode .block_card {
+    background-color: #1c1c1c !important;
+    border-color: #333 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Dla urządzeń mobilnych – usuń tło */
+@media (max-width: 768px) {
+    body.dark-mode .card,
+    body.dark-mode .card-body,
+    body.dark-mode .well,
+    body.dark-mode .panel,
+    body.dark-mode .block,
+    body.dark-mode .block_card {
+        background-color: initial !important; /* lub transparent */
+    }
+}
+
+/* Formularze */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: #3a6fe6 !important;
+    box-shadow: 0 0 4px #3a6fe6 !important;
+}
+
+/* Tabele */
+body.dark-mode table {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode table tr:nth-child(even) {
+    background-color: #181818 !important;
+}
+
+/* Ikony */
+body.dark-mode i.fa,
+body.dark-mode .fa {
+    color: #e0e0e0 !important;
+}
+
+/* =======================================================
+   DARK MODE – HEADER / NAVBAR
+   ======================================================= */
+
+body.dark-mode .header-main {
+    background-color: #1a1a1a !important;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .header-main .container-fluid {
+    background-color: transparent !important;
+}
+
+body.dark-mode .header-main nav.navbar {
+    background-color: #1a1a1a !important;
+    color: #e8e8e8 !important;
+}
+
+body.dark-mode .header-main .navbar-brand img {
+    filter: brightness(0.8);
+}
+
+body.dark-mode .header-main .navbar-brand {
+    color: #f0f0f0 !important;
+}
+
+/* Główne linki w headerze */
+body.dark-mode .header-main .navbar-nav .nav-link {
+    color: #d0d0d0 !important;
+}
+
+body.dark-mode .header-main .navbar-nav .nav-link:hover,
+body.dark-mode .header-main .navbar-nav .nav-link:focus {
+    color: #ffffff !important;
+}
+
+body.dark-mode .header-main .navbar-nav .nav-link.active {
+    color: #ffffff !important;
+    border-bottom: 2px solid #4a90e2;
+}
+
+/* Dropdowny */
+body.dark-mode .dropdown-menu {
+    background-color: #1b1b1b !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode .dropdown-menu .dropdown-item {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .dropdown-menu .dropdown-item:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+/* =======================================================
+   DARK MODE – KAFELKI INSTYTUTÓW (NIEBIESKI AKCENT)
+   ======================================================= */
+
+body.dark-mode #frontpage-category-names {
+    background: transparent !important;
+    color: #e6e6e6 !important;
+}
+
+/* Tytuł sekcji: “Instytuty Akademii…” */
+body.dark-mode #frontpage-category-names .frontpage-categories-title {
+    color: #4aa3ff !important;
+}
+
+/* Kontener kafelków */
+body.dark-mode #frontpage-category-names .category-tiles-container {
+    background: transparent !important;
+}
+
+/* Pojedynczy kafelek */
+body.dark-mode #frontpage-category-names .category-tile.card {
+    background-color: #181818 !important;
+    border: 1px solid #2e2e2e !important;
+    border-radius: 12px !important;
+    color: #e6e6e6 !important;
+}
+
+/* Obrazek kafelka */
+body.dark-mode #frontpage-category-names .category-tile .category-image img {
+    filter: brightness(0.85) contrast(1.12);
+}
+
+/* Tytuł instytutu */
+body.dark-mode #frontpage-category-names .category-tile .card-title a {
+    color: #4aa3ff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+body.dark-mode #frontpage-category-names .category-tile .card-title a {
+    color: #fff !important;
+}
+}
+
+body.dark-mode #frontpage-category-names .category-tile .card-title a:hover {
+    color: #75b9ff !important;
+}
+
+/* "Liczba kursów: X" */
+body.dark-mode #frontpage-category-names .category-tile .text-muted {
+    color: #9acaff !important;
+}
+
+/* Kafelek hover */
+body.dark-mode #frontpage-category-names .category-tile.card:hover {
+    box-shadow: 0 0 14px rgba(74, 163, 255, 0.4) !important;
+    transform: translateY(-2px);
+    transition: 0.2s ease;
+}
+
+/* =======================================================
+   DARK MODE – SEKCJE, AKTYWNOŚCI, KAFELKI
+   ======================================================= */
+
+body.dark-mode .course-content,
+body.dark-mode #courseformat-frontpage-main-topic,
+body.dark-mode .sitetopic {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Pojedyncza sekcja */
+body.dark-mode .sitetopic .section.course-section.main,
+body.dark-mode .section.main {
+    background-color: #181818 !important;
+    border: 1px solid #074B88 !important;
+    border-radius: 10px !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+/* Nagłówki sekcji */
+body.dark-mode .sectionname,
+body.dark-mode h2.sectionname,
+body.dark-mode h3.sectionname,
+body.dark-mode .course-section-header h2.sectionname,
+body.dark-mode .course-section-header h3.sectionname {
+    color: #4aa3ff !important;
+}
+
+/* Lista sekcji */
+body.dark-mode ul.topics.section-list.frontpage {
+    background-color: transparent !important;
+}
+
+/* Aktywności */
+body.dark-mode li.activity {
+    background-color: #202020 !important;
+    border: 1px solid #333 !important;
+    border-radius: 10px !important;
+    padding: 12px !important;
+    margin-bottom: 15px !important;
+}
+
+body.dark-mode li.activity:hover {
+    box-shadow: 0 0 12px rgba(0,0,0,0.6) !important;
+}
+
+/* Nazwa aktywności */
+body.dark-mode .activityname a,
+body.dark-mode .activityname span.instancename {
+    color: #4aa3ff !important;
+}
+
+body.dark-mode .activityname a:hover {
+    color: #75b9ff !important;
+}
+
+/* Badge */
+body.dark-mode .activitybadge {
+    background-color: #0f1b2e !important;
+    border: 1px solid #4aa3ff !important;
+    color: #bcdcff !important;
+}
+
+/* Ikony aktywności */
+body.dark-mode .activity-icon img,
+body.dark-mode .activityiconcontainer img,
+body.dark-mode img.activityicon {
+    filter: brightness(0.8) saturate(1.2);
+}
+
+/* Teksty pomocnicze */
+body.dark-mode .text-muted,
+body.dark-mode .small,
+body.dark-mode small {
+    color: #9acaff !important;
+}
+
+/* Focus / zaznaczenia */
+body.dark-mode .focus-control:focus,
+body.dark-mode .focus-control:hover {
+    background-color: #2a2a2a !important;
+    border-radius: 10px !important;
+}
+
+/* Checkboxy */
+body.dark-mode input[type=checkbox] {
+    accent-color: #8ab4f8 !important;
+}
+
+/* =======================================================
+   DARK MODE – PAGE HEADER / BREADCRUMB
+   ======================================================= */
+
+body.dark-mode #page-header {
+    background-color: #121212 !important;
+    border-bottom: 1px solid #222 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Breadcrumb */
+body.dark-mode #page-navbar .breadcrumb {
+    background: transparent !important;
+    color: #9acaff !important;
+}
+
+body.dark-mode #page-navbar .breadcrumb .breadcrumb-item,
+body.dark-mode #page-navbar .breadcrumb a {
+    color: #9acaff !important;
+}
+
+body.dark-mode #page-navbar .breadcrumb .breadcrumb-item.active {
+    color: #4aa3ff !important;
+}
+
+/* Nagłówek strony */
+body.dark-mode .page-context-header .page-header-headings h1,
+body.dark-mode .page-context-header .page-header-headings .h2 {
+    color: #4aa3ff !important;
+}
+
+/* Search w nagłówku */
+body.dark-mode #page-header .simplesearchform .form-control {
+    background-color: #1c1c1c !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode #page-header .simplesearchform .form-control::placeholder {
+    color: #888 !important;
+}
+
+body.dark-mode #page-header .simplesearchform .btn.btn-primary.search-icon {
+    background-color: #245caa !important;
+    border-color: #245caa !important;
+}
+
+body.dark-mode #page-header .simplesearchform .btn.btn-primary.search-icon:hover {
+    background-color: #2f74d1 !important;
+    border-color: #2f74d1 !important;
+}
+
+/* =======================================================
+   DARK MODE – BLOK #topofscroll
+   ======================================================= */
+
+body.dark-mode #topofscroll.main-inner {
+    background-color: #111 !important;
+    color: #e6e6e6 !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+}
+
+body.dark-mode #topofscroll.main-inner h1,
+body.dark-mode #topofscroll.main-inner h2,
+body.dark-mode #topofscroll.main-inner h3,
+body.dark-mode #topofscroll.main-inner h4,
+body.dark-mode #topofscroll.main-inner h5 {
+    color: #4aa3ff !important;
+}
+
+body.dark-mode #topofscroll.main-inner a {
+    color: #4aa3ff !important;
+}
+
+body.dark-mode #topofscroll.main-inner a:hover {
+    color: #75b9ff !important;
+}
+
+body.dark-mode #topofscroll.main-inner p,
+body.dark-mode #topofscroll.main-inner span {
+    color: #e6e6e6 !important;
+}
+
+body.dark-mode #topofscroll.main-inner .card,
+body.dark-mode #topofscroll.main-inner .card-body {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+    color: #e6e6e6 !important;
+}
+
+/* =======================================================
+   DARK MODE – PASEK ZAKŁADEK ADMINA
+   (Ogólne / Użytkownicy / Kursy / …)
+   ======================================================= */
+
+/* Bazowe zakładki */
+body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link {
+    color: #9acaff !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: .25rem .25rem 0 0 !important;
+    transition: 0.15s ease;
+}
+
+/* Hover */
+body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link:hover {
+    color: #cfe3ff !important;
+    background-color: #1b1b1b !important;
+    border-color: #2a2a2a #2a2a2a #111111 !important;
+}
+
+/* Aktywna zakładka */
+body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link.active,
+body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link.active_tree_node {
+    color: #ffffff !important;
+    background-color: #245caa !important;
+    border-color: #245caa #245caa #111111 !important;
+    font-weight: 600 !important;
+}
+
+/* =======================================================
+   DARK MODE – GŁÓWNE MENU (PRZYCIEMNIONE)
+   ======================================================= */
+
+/* Domyślny kolor linków – ciemny niebieski */
+body.dark-mode .navbar-nav .nav-link,
+body.dark-mode .more-nav.navbar-nav .nav-link {
+    color: #5f8dd6 !important;
+    transition: 0.15s ease-in-out;
+}
+
+/* Hover – średni, ale nie jasny */
+body.dark-mode .navbar-nav .nav-link:hover,
+body.dark-mode .more-nav.navbar-nav .nav-link:hover {
+    color: #87b2ff !important;
+}
+
+/* Aktywny link */
+body.dark-mode .navbar-nav .nav-link.active,
+body.dark-mode .more-nav.navbar-nav .nav-link.active {
+    color: #2e6cd1 !important;
+    font-weight: 600 !important;
+}
+
+/* Dropdown toggle („Więcej”) */
+body.dark-mode .navbar-nav .dropdown-toggle.nav-link {
+    color: #5f8dd6 !important;
+}
+
+body.dark-mode .navbar-nav .dropdown-toggle.nav-link:hover {
+    color: #87b2ff !important;
+}
+
+/* Dropdown menu tło */
+body.dark-mode .navbar-nav .dropdown-menu[data-region="moredropdown"] {
+    background-color: #111 !important;
+    border: 0px solid #222 !important;
+}
+
+/* Dropdown elementy */
+body.dark-mode .navbar-nav .dropdown-menu .dropdown-item {
+    color: #5f8dd6 !important;
+}
+
+body.dark-mode .navbar-nav .dropdown-menu .dropdown-item:hover {
+    background-color: #1c1c1c !important;
+    color: #87b2ff !important;
+}
+
+/* =======================================================
+   DARK MODE – Przycisk "Dodaj aktywność lub zasób"
+   (OSTATECZNA WERSJA Z #181818)
+   ======================================================= */
+
+/* Tło kontenera */
+body.dark-mode .divider-content {
+    background-color: #181818 !important;
+}
+
+/* Przycisk */
+body.dark-mode .divider-content .add-content {
+    background-color: #181818 !important;
+    color: #5f8dd6 !important;
+    border: 1px solid #232323 !important;
+    border-radius: 4px !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 2px 8px !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transition: 0.15s ease-in-out;
+}
+
+/* Ikona plusa */
+body.dark-mode .divider-content .add-content i {
+    color: #5f8dd6 !important;
+}
+
+/* Tekst obok (jeśli jest) */
+body.dark-mode .divider-content .activity-add-text {
+    color: #5f8dd6 !important;
+}
+
+/* Hover */
+body.dark-mode .divider-content .add-content:hover {
+    background-color: #1f1f1f !important;
+    border-color: #2e2e2e !important;
+    color: #87b2ff !important;
+}
+
+body.dark-mode .divider-content .add-content:hover i,
+body.dark-mode .divider-content .add-content:hover .activity-add-text {
+    color: #87b2ff !important;
+}
+
+/* Kliknięcie */
+body.dark-mode .divider-content .add-content:active {
+    background-color: #252525 !important;
+    transform: scale(0.97);
+}
+/* ============================================
+   DARK MODE – górny pasek z USOS, szukajką, ikonkami i usermenu
+   ============================================ */
+
+/* Tło całego paska (ten <div class="container-fluid navbar-nav">) */
+body.dark-mode .container-fluid.navbar-nav {
+    background-color: #181818 !important;   /* jak chciałeś – ciemne tło */
+    border-top: 1px solid #222 !important;
+    border-bottom: 1px solid #222 !important;
+}
+
+/* Lewa część – USOSweb / Mobilny USOS */
+body.dark-mode .address-head span,
+body.dark-mode .address-head i {
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .address-head a {
+    color: #8ab4f8 !important;
+    text-decoration: none;
+}
+
+body.dark-mode .address-head a:hover {
+    color: #a3c9ff !important;
+}
+
+/* Ikony i linki po prawej (szukajka, dzwonek, wiadomości) */
+body.dark-mode #usernavigation .nav-link,
+body.dark-mode #usernavigation .popover-region-toggle,
+body.dark-mode #usernavigation .icon-no-margin i {
+    color: #e5e5e5 !important;
+}
+
+/* licznik powiadomień / wiadomości */
+body.dark-mode #usernavigation .count-container {
+    background-color: #b3261e !important;
+    color: #fff !important;
+}
+
+/* Search w tym pasku */
+body.dark-mode #usernavigation .simplesearchform .form-control {
+    background-color: #1f1f1f !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode #usernavigation .simplesearchform .form-control::placeholder {
+    color: #888 !important;
+}
+
+body.dark-mode #usernavigation .simplesearchform .btn-submit,
+body.dark-mode #usernavigation .simplesearchform .btn-close {
+    background: #2a2a2a !important;
+    border: 1px solid #444 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Przycisk "☀ Jasny" */
+body.dark-mode #usernavigation .btn.btn-sm.btn-outline-secondary {
+    background-color: transparent !important;
+    border-color: #666 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode #usernavigation .btn.btn-sm.btn-outline-secondary:hover {
+    background-color: #2a2a2a !important;
+    border-color: #8ab4f8 !important;
+    color: #ffffff !important;
+}
+
+/* User menu – przycisk z avatarem */
+body.dark-mode .usermenu .btn.dropdown-toggle {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .usermenu .btn.dropdown-toggle:hover {
+    background-color: #222 !important;
+}
+
+/* Tekst "Tryb edycji" + przełącznik */
+body.dark-mode .editmode-switch-form label.form-check-label,
+body.dark-mode .editmode-switch-form span.form-check-label {
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .editmode-switch-form .form-check-input {
+    background-color: #181818 !important;
+    border-color: #555 !important;
+}
+
+
+/* ============================================
+   DARK MODE – GÓRNY HEADER (#header)
+   USOS + szukajka + ikony + usermenu + Tryb edycji
+   ============================================ */
+
+/* Cały pasek nawigacji */
+body.dark-mode #header.navbar {
+    background-color: #181818 !important;   /* ten sam kolor co obok */
+    border-bottom: 1px solid #222 !important;
+    box-shadow: none !important;
+}
+
+/* Wewnętrzny container w headerze */
+body.dark-mode #header .container-fluid.navbar-nav {
+    background-color: #181818 !important;
+}
+
+/* Lewa część – USOSweb / Mobilny USOS */
+body.dark-mode #header .address-head span,
+body.dark-mode #header .address-head i {
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode #header .address-head a {
+    color: #8ab4f8 !important;
+    text-decoration: none;
+}
+
+body.dark-mode #header .address-head a:hover {
+    color: #a3c9ff !important;
+}
+
+/* Prawa część – szukajka, dzwonek, wiadomości, ikony */
+body.dark-mode #header #usernavigation .nav-link,
+body.dark-mode #header #usernavigation .popover-region-toggle,
+body.dark-mode #header #usernavigation .icon-no-margin i {
+    color: #e5e5e5 !important;
+}
+
+/* Liczniki powiadomień / wiadomości */
+body.dark-mode #header #usernavigation .count-container {
+    background-color: #b3261e !important;
+    color: #ffffff !important;
+}
+
+/* Search w headerze */
+body.dark-mode #header #usernavigation .simplesearchform .form-control {
+    background-color: #212121 !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode #header #usernavigation .simplesearchform .form-control::placeholder {
+    color: #888 !important;
+}
+
+body.dark-mode #header #usernavigation .simplesearchform .btn-submit,
+body.dark-mode #header #usernavigation .simplesearchform .btn-close {
+    background-color: #2a2a2a !important;
+    border: 1px solid #444 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Przycisk "☀ Jasny" */
+body.dark-mode #header #usernavigation .btn.btn-sm.btn-outline-secondary {
+    background-color: transparent !important;
+    border-color: #666 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode #header #usernavigation .btn.btn-sm.btn-outline-secondary:hover {
+    background-color: #2a2a2a !important;
+    border-color: #8ab4f8 !important;
+    color: #ffffff !important;
+}
+
+/* User menu – przycisk z avatarem */
+body.dark-mode #header .usermenu .btn.dropdown-toggle {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode #header .usermenu .btn.dropdown-toggle:hover {
+}
+
+/* Dropdown usermenu */
+body.dark-mode #header .usermenu .dropdown-menu {
+    background-color: #1b1b1b !important;
+}
+
+body.dark-mode #header .usermenu .dropdown-menu .dropdown-item {
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode #header .usermenu .dropdown-menu .dropdown-item:hover {
+    background-color: #2a2a2a !important;
+    color: #8ab4f8 !important;
+}
+
+/* Pionowa linia .divider – niech będzie ciemna, a nie jasna */
+body.dark-mode #header .divider.border-start {
+    border-color: #333 !important;
+}
+
+/* Tekst "Tryb edycji" + przełącznik */
+body.dark-mode #header .editmode-switch-form label.form-check-label,
+body.dark-mode #header .editmode-switch-form span.form-check-label {
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode #header .editmode-switch-form .form-check-input {
+    background-color: #181818 !important;
+    border-color: #555 !important;
+}
+
+/* ============================================
+   DARK MODE – kafelki aktywności (zawsze ciemne)
+   ============================================ */
+
+/* Zabieramy tło z <li class="activity">, żeby nie dublować ramek */
+body.dark-mode li.activity {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* Właściwa karta: .activity-item */
+body.dark-mode li.activity .activity-item {
+    background-color: #181818 !important;   /* ciemne tło non-stop */
+    border: 1px solid #2e2e2e !important;
+    border-radius: 10px !important;
+    padding: 12px 16px !important;
+}
+
+/* Siatka w środku – bez własnego tła */
+body.dark-mode li.activity .activity-item .activity-grid {
+    background: transparent !important;
+}
+
+/* Delikatny efekt przy hover, ale dalej ciemno */
+body.dark-mode li.activity .activity-item:hover {
+    background-color: #1f1f1f !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6) !important;
+}
+
+body.dark-mode .course-section .section-item{
+border: #074B88;
+}
+/* ============================================
+   DARK MODE – szuflada bloków (blocks drawer)
+   ============================================ */
+
+/* Cała szuflada (nagłówek + content) */
+body.dark-mode .drawerheader,
+body.dark-mode .drawercontent {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Nagłówek szuflady – górny pasek z iksem */
+body.dark-mode .drawerheader {
+    border-bottom: 1px solid #222 !important;
+    padding: 0.5rem 0.75rem !important;
+}
+
+/* Przycisk zamykania (X) */
+body.dark-mode .drawerheader .btn.drawertoggle {
+    background-color: #181818 !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+    border-radius: 4px !important;
+}
+
+body.dark-mode .drawerheader .btn.drawertoggle i {
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .drawerheader .btn.drawertoggle:hover {
+    background-color: #222 !important;
+    border-color: #4aa3ff !important;
+}
+
+/* Wnętrze szuflady – tło pod blokami */
+body.dark-mode .drawercontent {
+    background-color: #181818 !important;
+}
+
+/* Sekcja "Bloki" */
+body.dark-mode .drawercontent section[aria-label="Bloki"] {
+    background-color: #181818 !important;
+}
+
+/* Przycisk "Dodaj blok" */
+body.dark-mode .drawercontent .add_block_button .block-add {
+    color: #8ab4f8 !important;
+    text-decoration: none !important;
+    background-color: #181818 !important;
+    border-radius: 6px !important;
+    padding: 4px 10px !important;
+    display: inline-flex !important;
+    align-items: center;
+}
+
+body.dark-mode .drawercontent .add_block_button .block-add i {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode .drawercontent .add_block_button .block-add:hover {
+    background-color: #222 !important;
+    color: #a3c9ff !important;
+}
+
+body.dark-mode .drawercontent .add_block_button .block-add:hover i {
+    color: #a3c9ff !important;
+}
+
+/* Region bloków, żeby nie był biały jak coś wrzucisz */
+body.dark-mode #block-region-side-pre {
+    background-color: transparent !important;
+    color: #e5e5e5 !important;
+}
+
+/* ============================================
+   DARK MODE – modal "Dodaj blok"
+   (i ogólnie wszystkie modale)
+   ============================================ */
+
+/* Całe okno modala */
+body.dark-mode .modal-content {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+    border: 1px solid #333 !important;
+    border-radius: 10px !important;
+}
+
+/* Nagłówek modala */
+body.dark-mode .modal-header {
+    background-color: #181818 !important;
+    border-bottom: 1px solid #222 !important;
+}
+
+body.dark-mode .modal-header .modal-title {
+    color: #4aa3ff !important;   /* niebieski tytuł "Dodaj blok" */
+}
+
+/* Krzyżyk (btn-close) – żeby był jasny na ciemnym tle */
+body.dark-mode .modal-header .btn-close {
+    filter: invert(1) brightness(1.2);
+    opacity: 0.9;
+}
+
+body.dark-mode .modal-header .btn-close:hover {
+    opacity: 1;
+}
+
+/* Treść modala */
+body.dark-mode .modal-body {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Lista bloków */
+body.dark-mode .modal-body .list-group-item {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+    border-color: #333 !important;
+}
+
+/* Hover na elemencie listy */
+body.dark-mode .modal-body .list-group-item:hover {
+    background-color: #222 !important;
+    color: #a3c9ff !important;
+}
+
+/* Stopka modala */
+body.dark-mode .modal-footer {
+    background-color: #181818 !important;
+    border-top: 1px solid #222 !important;
+}
+
+/* Przycisk "Anuluj" */
+body.dark-mode .modal-footer .btn.btn-secondary {
+    background-color: #2a2a2a !important;
+    border-color: #444 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .modal-footer .btn.btn-secondary:hover {
+    background-color: #333 !important;
+    border-color: #4aa3ff !important;
+    color: #ffffff !important;
+}
+
+/* ============================================================
+   UNIVERSAL DARK MODE FOR ALL BLOCKS (GLOBAL)
+   ============================================================ */
+
+/* Każdy blok (karta) */
+body.dark-mode .block,
+body.dark-mode .block .card,
+body.dark-mode .block .card-body,
+body.dark-mode .card-text,
+body.dark-mode .block .content,
+body.dark-mode .content,
+body.dark-mode .block-region .block,
+body.dark-mode .block-region .card {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+    border: 1px solid #2e2e2e !important;
+    border-radius: 10px !important;
+}
+
+/* Nagłówki bloków */
+body.dark-mode .block .header,
+body.dark-mode .block .header .title,
+body.dark-mode .block h2,
+body.dark-mode .card-header {
+    background-color: #181818 !important;
+    color: #4aa3ff !important;
+    border-bottom: 1px solid #222 !important;
+}
+
+/* Tekst w blokach */
+body.dark-mode .block .card-text,
+body.dark-mode .block .content,
+body.dark-mode .block .no-overflow,
+body.dark-mode .block .footer,
+body.dark-mode .block .myprofileitem {
+    color: #e5e5e5 !important;
+}
+
+/* Linki w blokach */
+body.dark-mode .block a {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode .block a:hover {
+    color: #a3c9ff !important;
+}
+
+/* Ikony (np. avatary, PDF, kalendarz) */
+body.dark-mode .block img,
+body.dark-mode .block .icon,
+body.dark-mode .block i.fa {
+    filter: brightness(0.85) contrast(1.1);
+}
+
+/* Lista w blokach (np. ostatnia aktywność, kalendarz) */
+body.dark-mode .block ul li {
+    background: transparent !important;
+    color: #e5e5e5 !important;
+}
+
+/* Elementy „footer” bloku */
+body.dark-mode .block .footer {
+    background-color: #181818 !important;
+    border-top: 1px solid #222 !important;
+}
+
+/* Specjalnie dla profilu (avatar + dane) */
+body.dark-mode .myprofileitem.fullname,
+body.dark-mode .myprofileitem.city,
+body.dark-mode .myprofileitem.picture {
+    color: #e5e5e5 !important;
+}
+
+/* Email w profilu */
+body.dark-mode .myprofileitem.city a {
+    color: #8ab4f8 !important;
+}
+/*kokpit rzeczy */
+body.dark-mode .myprofileitem.city a:hover {
+    color: #a3c9ff !important;
+}
+body.dark-mode .card-footer.menu {
+    background-color: #1a1a1a !important;
+    color: #000 !important;
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: #181818 !important;
+    color: #000 !important;
+}
+body.dark-mode button.btn.btn-icon.coursemenubtn.aabtn:hover,
+body.dark-mode button.btn.btn-icon.coursemenubtn.aabtn:focus {
+    background-color: #074b88 !important;
+    color: #fff !important;
+}
+body.dark-mode button,
+body.dark-mode .btn {
+    border-color: #333333 !important;
+}
+body.dark-mode.page-mycourses .block_myoverview .block-cards,
+body.dark-mode .page-mycourses.block_myoverview .block-cards,
+body.dark-mode .page-mycourses .block_myoverview .block-cards {
+    border-top: 1px solid #333333 !important;
+    border-top-color: #333333 !important;
+    box-shadow: none !important;
+}
+/*Kalendarz dark mode*/
+body.dark-mode td.day {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    transition: background 0.2s ease;
+}
+
+body.dark-mode td.day:hover {
+    background-color: #1f2a3a !important;  
+    color: #ffffff !important;            
+}
+
+/* ============================================
+   DARK MODE – pełne tło paska zakładek admina
+   ============================================ */
+
+/* Cały kontener secondary-navigation */
+body.dark-mode .secondary-navigation {
+    background-color: #111 !important;
+    border-bottom: 1px solid #222 !important;
+}
+
+/* <nav class="moremenu navigation observed"> */
+body.dark-mode .secondary-navigation .moremenu.navigation {
+    background-color: #111 !important;
+}
+
+/* UL z zakładkami */
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs {
+    background-color: #111 !important;
+}
+
+/* LI – żeby nie miały swojego białego tła */
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs > li.nav-item {
+    background-color: #111 !important;
+}
+
+/* Linki zakładek (nieaktywne) */
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs > li.nav-item > a.nav-link {
+    background-color: transparent !important;      /* tło bierze z #181818 pod spodem */
+    color: #5f8dd6 !important;
+    border: 1px solid transparent !important;
+    border-radius: .25rem .25rem 0 0 !important;
+    font-weight: 500 !important;
+    padding: 8px 14px !important;
+    transition: 0.15s ease-in-out;
+}
+
+/* Hover */
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs > li.nav-item > a.nav-link:hover {
+    color: #87b2ff !important;
+    background-color: #1f1f1f !important;
+    border-color: #2a2a2a #2a2a2a #181818 !important;
+}
+
+/* Aktywna zakładka */
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs > li.nav-item > a.nav-link.active,
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs > li.nav-item > a.nav-link.active_tree_node {
+    color: #ffffff !important;
+    background-color: #245caa !important;
+    border-color: #245caa #245caa #181818 !important;
+    font-weight: 600 !important;
+}
+
+/* "Więcej" – ciągle na ciemnym tle */
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs > li.dropdownmoremenu > a.dropdown-toggle.nav-link {
+    background-color: #181818 !important;
+    color: #5f8dd6 !important;
+    border: 1px solid #222 !important;
+}
+
+/* Dropdown menu pod "Więcej" */
+body.dark-mode .secondary-navigation .moremenu.navigation .dropdown-menu[data-region="moredropdown"] {
+    background-color: #1b1b1b !important;
+    border: 1px solid #333 !important;
+}
+
+body.dark-mode .secondary-navigation .moremenu.navigation .dropdown-menu .dropdown-item {
+    color: #9acaff !important;
+}
+
+body.dark-mode .secondary-navigation .moremenu.navigation .dropdown-menu .dropdown-item:hover {
+    background-color: #2a2a2a !important;
+    color: #4aa3ff !important;
+}
+
+/*************************************************
+ * DARK MODE – SZUFLADA WIADOMOŚCI / MESSAGE DRAWER
+ **************************************************/
+body.dark-mode .drawer[data-region="right-hand-drawer"] {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+    border-left: 1px solid #222;
+}
+
+/* Wnętrze aplikacji wiadomości */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message-app {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Górny pasek z X, header itp. */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .closewidget a,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .closewidget i {
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .header-container,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .header-container > div,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .border-bottom.p-1,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .border-bottom.p-1.px-sm-2 {
+    background-color: #181818 !important;
+    border-bottom-color: #222 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Teksty w headerze */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .header-container strong,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .header-container p,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .header-container span {
+    color: #e5e5e5 !important;
+}
+
+/* Ikony w headerze */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .header-container i {
+    color: #e5e5e5 !important;
+}
+
+/* Pole szukania, ustawienia, itp. wewnątrz drawera */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .simplesearchform .form-control {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .simplesearchform .form-control::placeholder {
+    color: #888 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .simplesearchform .btn.btn-submit {
+    background-color: #245caa !important;
+    border-color: #245caa !important;
+    color: #fff !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .simplesearchform .btn.btn-submit i {
+    color: #fff !important;
+}
+
+/* Zakładki "Kontakty" / "Prośby" */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .nav.nav-pills .nav-link {
+    background-color: transparent !important;
+    color: #9acaff !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .nav.nav-pills .nav-link.active {
+    background-color: #245caa !important;
+    color: #ffffff !important;
+}
+
+/* Tło list (contacts, requests, placeholdery) */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .list-group,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .lazy-load-list {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Bąbelki wiadomości */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message.received {
+    background-color: transparent !important;
+    color: #e5e5e5 !important;
+    border: 1px solid #2a2a2a !important;
+}
+
+.message-app .message.send .tail {
+    border-bottom-color: #1c4d8f !important;
+}
+
+.message {
+    background-color: #1c1c1c !important; /* kolor całego dymka */
+}
+
+.message-app .message.received .tail {
+    border-bottom-color: #2a2a2a !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message.send {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid #245caa !important;
+}
+
+/* Ogonki przy dymkach – lekko przyciemnić */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message .tail {
+    background-color: inherit !important;
+}
+
+/* Tekst wewnątrz wiadomości */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message h6,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message p,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message a {
+    color: inherit !important;
+}
+
+/* Data typu "30 października" */
+body.dark-mode .drawer[data-region="right-hand-drawer"] h6.day {
+    color: #9acaff !important;
+}
+
+/* Tło scrolowanej części z wiadomościami */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .content-message-container {
+    background-color: #111 !important;
+}
+
+/* Placeholdery (szare pulsujące) – lekko przyciemnić biel */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .bg-pulse-grey {
+    background-color: #2a2a2a !important;
+}
+
+/* Confirm dialog w środku drawera */
+body.dark-mode .drawer[data-region="right-hand-drawer"] [data-region="confirm-dialogue-container"] {
+    background: rgba(0,0,0,0.6) !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] [data-region="confirm-dialogue"] {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] [data-region="confirm-dialogue"] .text-muted {
+    color: #c0c0c0 !important;
+}
+
+/* Przyciski w confirm-dialogu */
+body.dark-mode .drawer[data-region="right-hand-drawer"] [data-region="confirm-dialogue"] .btn-primary {
+    background-color: #245caa !important;
+    border-color: #245caa !important;
+    color: #fff !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] [data-region="confirm-dialogue"] .btn-secondary {
+    background-color: #333 !important;
+    border-color: #444 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Linki ogólnie w drawerze */
+body.dark-mode .drawer[data-region="right-hand-drawer"] a {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] a:hover {
+    color: #a3c7ff !important;
+}
+
+/* Ikony w drawerze */
+body.dark-mode .drawer[data-region="right-hand-drawer"] i {
+    color: #e5e5e5 !important;
+}
+
+/* Kontener body drawera */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .body-container {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+}
+
+/*************************************************
+ * DARK MODE – stopka wiadomości (textarea + emoji)
+ *************************************************/
+
+/* Kontener stopki z textarea */
+body.dark-mode .drawer[data-region="right-hand-drawer"] [data-region="content-messages-footer-container"] {
+    background-color: #111 !important;
+    border-top: 1px solid #222 !important;
+}
+
+/* Textarea "Napisz wiadomość..." */
+body.dark-mode .drawer[data-region="right-hand-drawer"] textarea[data-region="send-message-txt"] {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] textarea[data-region="send-message-txt"]::placeholder {
+    color: #888 !important;
+}
+
+/* Przyciski obok textarea (emoji, wyślij) */
+body.dark-mode .drawer[data-region="right-hand-drawer"] [data-region="content-messages-footer-container"] .btn.btn-icon {
+    background-color: transparent !important;
+    border: none !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] [data-region="content-messages-footer-container"] .btn.btn-icon i {
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] [data-region="content-messages-footer-container"] .btn.btn-icon:hover i {
+    color: #87b2ff !important;
+}
+
+/* KARTA EMOJI PICKERA */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+    border: 1px solid #333 !important;
+}
+
+/* Header z kategoriami emoji */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .card-header {
+    background-color: #181818 !important;
+    border-bottom: 1px solid #222 !important;
+}
+
+/* Przyciski kategorii */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button {
+    background-color: #181818 !important;
+    border-color: #333 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button.selected {
+    background-color: #245caa !important;
+    border-color: #245caa !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button i {
+    color: inherit !important;
+}
+
+/* Body kartki emoji */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .card-body {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Pole wyszukiwania emoji */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .input-group-text {
+    background-color: #181818 !important;
+    border-color: #333 !important;
+    color: #aaa !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .input-group-text i {
+    color: #aaa !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card input[data-region="search-input"] {
+    background-color: #181818 !important;
+    border-color: #333 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card input[data-region="search-input"]::placeholder {
+    color: #888 !important;
+}
+
+/* Lista emoji */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .emojis-container {
+    background-color: #181818 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-name {
+    color: #9acaff !important;
+}
+
+/* Przycisk z pojedynczym emoji */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .emoji-button {
+    background-color: #181818 !important;
+    border: 1px solid transparent !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .emoji-button:hover {
+    background-color: #245caa !important;
+    border-color: #245caa !important;
+}
+
+/* Stopka karty emoji (podgląd krótkiej nazwy) */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .card-footer {
+    background-color: #181818 !important;
+    border-top: 1px solid #222 !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .emoji-short-name {
+    color: #b0b0b0 !important;
+}
+
+/* ======================================
+   DARK MODE – całkowicie przezroczysty ogonek
+   ====================================== */
+/*
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message .tail {
+    border: none !important;
+    background: transparent !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+*/
+
+/* ====================================================
+   DARK MODE – footer edit mode (delete message)
+   ==================================================== */
+
+/* Kontener całego bloku */
+body.dark-mode [data-region="content-messages-footer-edit-mode-container"] {
+    background-color: #111 !important;       /* pełne czarne tło */
+    border-top: 1px solid #111 !important;
+}
+
+/* Tło sekcji w środku */
+body.dark-mode [data-region="content-messages-footer-edit-mode-container"] .d-flex {
+    background-color: #111 !important;
+}
+
+/* Sam przycisk */
+body.dark-mode [data-region="content-messages-footer-edit-mode-container"] button.btn-icon {
+    background-color: #181818 !important;    /* ciemne tło */
+    border: 1px solid #333 !important;       /* delikatna ramka */
+    border-radius: 6px !important;
+    padding: 6px !important;
+}
+
+/* Ikona kosza – twarde nadpisanie (żadnych inherit) */
+body.dark-mode [data-region="content-messages-footer-edit-mode-container"] i.fa-trash-can {
+    color: #ff4d4d !important;       /* czerwony – 100% widoczny */
+    opacity: 1 !important;
+}
+
+/* Hover efekt */
+body.dark-mode [data-region="content-messages-footer-edit-mode-container"] button.btn-icon:hover {
+    background-color: #222 !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode [data-region="content-messages-footer-edit-mode-container"] button.btn-icon:hover i.fa-trash-can {
+    color: #ff2a2a !important;       /* mocniejszy hover */
+}
+
+/* Ikona loadera */
+body.dark-mode [data-region="content-messages-footer-edit-mode-container"] .loading-icon i {
+    color: #ff4d4d !important;
+}
+
+/* tooltip (bootstrap) */
+body.dark-mode .tooltip-inner {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+    border: 1px solid #333 !important;
+}
+
+body.dark-mode .tooltip-arrow::before {
+    border-top-color: #181818 !important;
+}
+body.dark-mode ul.nav.more-nav.navbar-nav > li.nav-item > a.nav-link:hover {
+    background-color: #2a2a2a !important;  /* grayish hover */
+    color: #ffffff !important;             /* readable text */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Optional: keep non-hover links with dark background */
+body.dark-mode ul.nav.more-nav.navbar-nav > li.nav-item > a.nav-link {
+    background-color: transparent !important;
+    color: #4aa3ff !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Dropdown items inside “More” menu */
+body.dark-mode ul.nav.more-nav.navbar-nav li.dropdown-menu li a.dropdown-item:hover {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+}
+[data-region="view-conversation"] {
+    background-color: transparent !important; /* or any other color you want */
+}
+/* Kolor dymka */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message.send {
+    background-color: #1c4d8f !important;
+    color: #ffffff !important;
+    border: 1px solid #245caa !important;
+}
+
+/* Usuń kolor z ogonka – jakikolwiek sposób był użyty w HTML/CSS */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message.send .tail,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message.send .tail::before,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message.send .tail::after {
+    background: transparent !important;
+    border-top-color: transparent !important;
+}
+/* Kolor dymka */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message.received {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border: 1px solid #2a2a2a !important;
+}
+
+/* Usuń kolor z ogonka – jakikolwiek sposób był użyty w HTML/CSS */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message.received .tail,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message.received .tail::before,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .message.received .tail::after {
+    background: transparent !important;
+    border-top-color: transparent !important;
+}
+body.dark-mode .border-top {
+    border-top: var(--bs-border-width) var(--bs-border-style) #2a2a2a !important;
+}
+
+body.dark-mode img.icon {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%);
+}
+
+body.dark-mode table {
+    background-color: #111111 !important;
+}
+
+body.dark-mode.path-mod .activity-header:not(:empty) {
+    background-color: #181818 !important;
+}

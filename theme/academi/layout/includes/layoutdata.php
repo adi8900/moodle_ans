@@ -27,7 +27,41 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/course/lib.php');
 require_once(dirname(__FILE__) .'/themedata.php');
+global $SESSION, $PAGE;
 
+// Obsługa parametru darkmode=on/off
+$darkmodeparam = optional_param('darkmode', null, PARAM_ALPHA);
+if ($darkmodeparam === 'on') {
+    if (isloggedin() && !isguestuser()) {
+        set_user_preference('theme_academi_darkmode', 1);
+    } else {
+        $SESSION->theme_academi_darkmode = 1;
+    }
+} else if ($darkmodeparam === 'off') {
+    if (isloggedin() && !isguestuser()) {
+        set_user_preference('theme_academi_darkmode', 0);
+    } else {
+        unset($SESSION->theme_academi_darkmode);
+    }
+}
+
+// Odczyt trybu
+$darkmodeenabled = false;
+if (isloggedin() && !isguestuser()) {
+    $darkmodeenabled = (bool)get_user_preferences('theme_academi_darkmode', 0);
+} else if (!empty($SESSION->theme_academi_darkmode)) {
+    $darkmodeenabled = true;
+}
+
+
+// URL-e dla guzika
+$darkmodeonurl  = new moodle_url($PAGE->url, ['darkmode' => 'on']);
+$darkmodeoffurl = new moodle_url($PAGE->url, ['darkmode' => 'off']);
+
+// Dodaj do $templatecontext dla każdego layoutu
+$templatecontext['darkmodeenabled'] = $darkmodeenabled;
+$templatecontext['darkmodeonurl'] = $darkmodeonurl->out(false);
+$templatecontext['darkmodeoffurl'] = $darkmodeoffurl->out(false);
 $preset = optional_param('preset', 0, PARAM_TEXT);
 if (!empty($preset) && isset($preset)) {
     set_config('preset', $preset, 'theme_academi');
@@ -52,7 +86,9 @@ if (isloggedin()) {
 if (defined('BEHAT_SITE_RUNNING')) {
     $blockdraweropen = true;
 }
-
+if (!isset($extraclasses) || !is_array($extraclasses)) {
+    $extraclasses = [];
+}
 $extraclasses = ['uses-drawers'];
 if ($courseindexopen) {
     $extraclasses[] = 'drawer-open-index';
@@ -70,7 +106,9 @@ if (!$courseindex) {
 
 $themestyleheader = theme_academi_get_setting('themestyleheader');
 $extraclasses[] = ($themestyleheader) ? 'theme-based-header' : 'moodle-based-header';
-
+if ($darkmodeenabled) {
+    $extraclasses[] = 'dark-mode';
+}
 $forceblockdraweropen = $OUTPUT->firstview_fakeblocks();
 
 $secondarynavigation = false;

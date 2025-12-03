@@ -107,28 +107,39 @@
                 {{/primarymoremenu}}
 
                 <ul class="navbar-nav d-none d-md-flex my-1 px-1">
+                    <!-- page_heading_menu -->
                     {{{ output.page_heading_menu }}}
                 </ul>
             {{/themestyleheader}}
 
         <div id="usernavigation" class="navbar-nav">
-            
-<div class="d-flex align-items-center">
-                <button id="dark-mode-toggle" class="btn btn-secondary" style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px;" aria-label="Tryb ciemny" title="Tryb ciemny">
-                    <i class="fa fa-moon" aria-hidden="true"></i>
-                    <span class="sr-only">Tryb ciemny</span> </button>
-            </div>            {{#langmenu}}
+            {{#langmenu}}
                 {{> theme_boost/language_menu }}
             {{/langmenu}}
             {{{ output.search_box }}}
             {{{ output.navbar_plugin_output }}}
-            <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+         {{#darkmodeonurl}}
+            <div class="d-flex align-items-center mx-2">
+                {{#darkmodeenabled}}
+                    <a class="btn btn-sm btn-outline-secondary" href="{{{ darkmodeoffurl }}}">
+                        ☀ Jasny
+                    </a>
+                {{/darkmodeenabled}}
+                {{^darkmodeenabled}}
+                    <a class="btn btn-sm btn-outline-secondary" href="{{{ darkmodeonurl }}}">
+                        🌙 Ciemny
+                    </a>
+                {{/darkmodeenabled}}
+            </div>
+            {{/darkmodeonurl}}            
+<div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
                 {{#usermenu}}
                     {{> core/user_menu }}
                 {{/usermenu}}
             </div>
             {{{ output.edit_switch }}}
         </div>
-        </div>
+        <!-- search_box -->
+    </div>
 </nav>
 {{> theme_boost/primary-drawer-mobile }}
