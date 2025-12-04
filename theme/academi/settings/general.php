@@ -58,6 +58,24 @@ $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// --- DARK MODE LOGOS ---
+
+// Dark mode logo file upload option - custom
+$name = 'theme_academi/logo_dark';
+$title = get_string('logo_dark','theme_academi');
+$description = get_string('logodesc_dark','theme_academi');
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'logo_dark');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// English dark mode logo file upload  - custom
+$name = 'theme_academi/logo_en_dark';
+$title = get_string('logo_en_dark','theme_academi');
+$description = get_string('logodesc_en_dark','theme_academi');
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'logo_en_dark');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 // Favicon upload option.
 $name = 'theme_academi/favicon';
 $title = get_string('favicon', 'theme_academi', null, true);

@@ -284,3 +284,7 @@ $string['stats_title_main'] = 'Our';
 $string['stats_title_gold'] = 'Statistics';
 $string['logo_en'] = 'Logo - English';
 $string['logodesc_en'] = 'Please upload your custom logo here if you want to add it to the header. The image should be 37px high and any reasonable width (minimum:250px) that suits.';
+$string['logo_dark'] = 'Logo - Dark mode';
+$string['logodesc_dark'] = 'Please upload your custom logo here if you want to add it to the header. The image should be 37 px high and any reasonable width (minimum:250px) that suits.';
+$string['logo_en_dark'] = 'Logo - Dark mode in English';
+$string['logodesc_en_dark'] = 'Please upload your custom logo here if you want to add it to the header. The image should be 37 px high and any reasonable width (minimum:250px) that suits.';

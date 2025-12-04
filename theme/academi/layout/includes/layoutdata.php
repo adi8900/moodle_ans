@@ -152,3 +152,36 @@ $templatecontext += [
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton,
 ];
+/* --- POCZĄTEK: NADPISYWANIE LOGO DLA DARK MODE --- */
+
+// Ten kod wykonuje się TYLKO jeśli wykryto tryb ciemny w liniach wyżej
+if ($darkmodeenabled) {
+
+    // 1. Definiujemy URL-e do ciemnych wersji logo
+    $logo_dark_pl = $PAGE->theme->setting_file_url('logo_dark', 'logo_dark');
+    $logo_dark_en = $PAGE->theme->setting_file_url('logo_en_dark', 'logo_en_dark');
+    
+    // 2. Sprawdzamy język
+    $currentlang = current_language();
+    $is_english = (strpos($currentlang, 'en') === 0);
+
+    // 3. Logika wyboru
+    if ($is_english) {
+        // --- JĘZYK ANGIELSKI + DARK MODE ---
+        if (!empty($logo_dark_en)) {
+            // Mamy dedykowane angielskie ciemne
+            $templatecontext['logourl'] = $logo_dark_en;
+        } elseif (!empty($logo_dark_pl)) {
+            // Nie ma angielskiego ciemnego, używamy polskiego ciemnego (lepsze to niż jasne)
+            $templatecontext['logourl'] = $logo_dark_pl;
+        }
+        // Jeśli nie ma żadnego ciemnego, zostaje jasne angielskie (ustawione w themedata.php)
+    } else {
+        // --- JĘZYK POLSKI + DARK MODE ---
+        if (!empty($logo_dark_pl)) {
+            $templatecontext['logourl'] = $logo_dark_pl;
+        }
+        // Jeśli nie ma polskiego ciemnego, zostaje jasne polskie
+    }
+}
+/* --- KONIEC: NADPISYWANIE LOGO DLA DARK MODE --- */
