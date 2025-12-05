@@ -877,7 +877,7 @@ body.dark-mode #header .editmode-switch-form span.form-check-label {
 }
 
 body.dark-mode #header .editmode-switch-form .form-check-input {
-    background-color: #181818 !important;
+    background-color: #4aa3f0 !important;
     border-color: #555 !important;
 }
 
@@ -1684,5 +1684,886 @@ body.dark-mode table {
 }
 
 body.dark-mode.path-mod .activity-header:not(:empty) {
+    background-color: #181818 !important;
+}
+
+/********************************************
+ * DARK MODE – okno "Modyfikuj plik" (YUI)
+ ********************************************/
+body.dark-mode .moodle-dialogue-wrap.moodle-dialogue-content.yui3-widget-stdmod {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+    border-radius: 8px !important;
+    border: 1px solid #333 !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Header */
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-hd {
+    background-color: #181818 !important;
+    border-bottom: 1px solid #222 !important;
+    padding: 0.75rem 1rem !important;
+}
+
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-hd h3,
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-hd h5 {
+    color: #e5e5e5 !important;
+    margin: 0 !important;
+}
+
+/* X (close) */
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-hd .closebutton {
+    background: transparent !important;
+    border: none !important;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-hd .closebutton::before,
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-hd .closebutton::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 14px;
+    height: 2px;
+    background-color: #e5e5e5;
+    transform-origin: center;
+}
+
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-hd .closebutton::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-hd .closebutton::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-hd .closebutton:hover::before,
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-hd .closebutton:hover::after {
+    background-color: #ff4d4d;
+}
+
+/* Body */
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-bd {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Filemanager tło + spinner */
+body.dark-mode .moodle-dialogue-wrap .filemanager.fp-select.fp-file {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .moodle-dialogue-wrap .fp-select-loading i {
+    color: #8ab4f8 !important;
+}
+
+/* Etykiety */
+body.dark-mode .moodle-dialogue-wrap .form-control-label,
+body.dark-mode .moodle-dialogue-wrap .col-form-label {
+    color: #e5e5e5 !important;
+}
+
+/* Inputy / selecty */
+body.dark-mode .moodle-dialogue-wrap .form-control,
+body.dark-mode .moodle-dialogue-wrap .form-select {
+    background-color: #181818 !important;
+    border-color: #333 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .moodle-dialogue-wrap .form-control::placeholder {
+    color: #888 !important;
+}
+
+/* Listy opcji w selectach (dla przeglądarek które to łapią) */
+body.dark-mode .moodle-dialogue-wrap select.form-control option,
+body.dark-mode .moodle-dialogue-wrap select.form-select option {
+    background-color: #181818;
+    color: #e5e5e5;
+}
+
+/* Linki w środku (pomoc, itp.) */
+body.dark-mode .moodle-dialogue-wrap a {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode .moodle-dialogue-wrap a:hover {
+    color: #a3c7ff !important;
+}
+
+/* Ikony */
+body.dark-mode .moodle-dialogue-wrap i.icon {
+    color: #e5e5e5 !important;
+}
+
+/* Ikonka pomoc (kółko z ?) – niebieskawa */
+body.dark-mode .moodle-dialogue-wrap i.fa-circle-question {
+    color: #8ab4f8 !important;
+}
+
+/* Przyciski górne (Pobierz / Usuń / Skompresuj / itd.) */
+body.dark-mode .moodle-dialogue-wrap .fp-select .btn.btn-secondary {
+    background-color: #333 !important;
+    border-color: #444 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .moodle-dialogue-wrap .fp-select .btn.btn-secondary:hover {
+    background-color: #3d3d3d !important;
+    border-color: #555 !important;
+}
+
+/* Przyciski dół (Dokonaj zmian / Anuluj) */
+body.dark-mode .moodle-dialogue-wrap .fp-select-buttons .btn-primary {
+    background-color: #245caa !important;
+    border-color: #245caa !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .moodle-dialogue-wrap .fp-select-buttons .btn-primary:hover {
+    background-color: #2d6fd0 !important;
+    border-color: #2d6fd0 !important;
+}
+
+body.dark-mode .moodle-dialogue-wrap .fp-select-buttons .btn-secondary {
+    background-color: #333 !important;
+    border-color: #444 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .moodle-dialogue-wrap .fp-select-buttons .btn-secondary:hover {
+    background-color: #3d3d3d !important;
+    border-color: #555 !important;
+}
+
+/* Info o pliku na dole */
+body.dark-mode .moodle-dialogue-wrap .fp-info {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .moodle-dialogue-wrap .fp-info hr {
+    border-top-color: #333 !important;
+}
+
+body.dark-mode .moodle-dialogue-wrap .fp-info .fp-fileinfo .fp-value {
+    color: #c0c0c0 !important;
+}
+
+/* Daty, rozmiary – lekko przygaszone */
+body.dark-mode .moodle-dialogue-wrap .fp-info .fp-datemodified,
+body.dark-mode .moodle-dialogue-wrap .fp-info .fp-datecreated,
+body.dark-mode .moodle-dialogue-wrap .fp-info .fp-size,
+body.dark-mode .moodle-dialogue-wrap .fp-info .fp-dimensions {
+    color: #c0c0c0 !important;
+}
+
+/* Thumbnail – tło pod obrazkiem */
+body.dark-mode .moodle-dialogue-wrap .fp-thumbnail {
+    background-color: #181818 !important;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+/* Stopka dialogu (jak jest używana) */
+body.dark-mode .moodle-dialogue-wrap .moodle-dialogue-ft {
+    background-color: #111 !important;
+    border-top: 1px solid #222 !important;
+}
+/********************************************
+ * DARK MODE – powiadomienia (dzwonek w headerze)
+ ********************************************/
+body.dark-mode .popover-region-notifications .popover-region-container {
+    background-color: #181818 !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6) !important;
+}
+
+/* Header popovera */
+body.dark-mode .popover-region-notifications .popover-region-header-container {
+    background-color: #181818 !important;
+    border-bottom: 1px solid #222 !important;
+}
+
+body.dark-mode .popover-region-notifications .popover-region-header-text {
+    color: #e5e5e5 !important;
+}
+
+/* Akcje w headerze (oznacz wszystko przeczytane, zębatka, X) */
+body.dark-mode .popover-region-notifications .popover-region-header-actions .btn.btn-link {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode .popover-region-notifications .popover-region-header-actions .btn.btn-link i {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode .popover-region-notifications .popover-region-header-actions .btn.btn-link:hover i {
+    color: #a3c7ff !important;
+}
+
+/* Główna zawartość */
+body.dark-mode .popover-region-notifications .popover-region-content-container {
+    background-color: #181818 !important;
+}
+
+/* Pojedyncze powiadomienie */
+body.dark-mode .popover-region-notifications .content-item-container.notification {
+    background-color: #111 !important;
+    border-bottom: 1px solid #222 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Nieprzeczytane – delikatne wyróżnienie */
+body.dark-mode .popover-region-notifications .content-item-container.notification.unread {
+    background-color: #202020 !important;
+    border-left: 3px solid #245caa !important;
+}
+
+/* Link obejmujący powiadomienie */
+body.dark-mode .popover-region-notifications .content-item-container.notification a.context-link {
+    color: inherit !important;
+}
+
+/* Ikona powiadomienia */
+body.dark-mode .popover-region-notifications .notification-image i {
+    color: #8ab4f8 !important;
+}
+
+/* Tekst powiadomienia */
+body.dark-mode .popover-region-notifications .notification-message {
+    color: #e5e5e5 !important;
+}
+
+/* Czas */
+body.dark-mode .popover-region-notifications .timestamp {
+    color: #b0b0b0 !important;
+}
+
+/* Link „Zobacz całość” */
+body.dark-mode .popover-region-notifications a.view-more {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode .popover-region-notifications a.view-more:hover {
+    color: #a3c7ff !important;
+}
+
+/* „Nie masz powiadomień” */
+body.dark-mode .popover-region-notifications .empty-message {
+    background-color: #181818 !important;
+    color: #b0b0b0 !important;
+}
+
+/* Loader w środku popovera */
+body.dark-mode .popover-region-notifications .loading-icon i {
+    color: #8ab4f8 !important;
+}
+
+/* Stopka – „Wyświetl wszystko” */
+body.dark-mode .popover-region-notifications .popover-region-footer-container {
+    background-color: #181818 !important;
+    border-top: 1px solid #222 !important;
+}
+
+body.dark-mode .popover-region-notifications .see-all-link .popover-region-seeall-text {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode .popover-region-notifications .see-all-link:hover .popover-region-seeall-text {
+    color: #a3c7ff !important;
+}
+
+/* Kolor całego elementu breadcrumb (LI) w dark mode */
+body.dark-mode .breadcrumb-item {
+    background-color: #181818 !important;
+    color: #4aa3ff !important;
+    padding: 6px 10px !important;
+    border-radius: 6px !important;
+}
+
+/* Kolor linku w breadcrumb */
+body.dark-mode .breadcrumb-item a {
+    color: #8ab4f8 !important;
+}
+
+/* Hover linku */
+body.dark-mode .breadcrumb-item a:hover {
+    color: #a3c7ff !important;
+}
+
+/* Separator między elementami */
+body.dark-mode .breadcrumb-item + .breadcrumb-item::before {
+    color: #4a4a4a !important;
+}
+
+/* DARK MODE – usuń strzałkę przy ostatnim breadcrumb ("Academi") */
+body.dark-mode nav[aria-label="Pasek nawigacyjny"] .breadcrumb-item:last-child::after,
+body.dark-mode nav[aria-label="Pasek nawigacyjny"] .breadcrumb-item:last-child::before {
+    content: none !important;
+    border: none !important;
+    background: transparent !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* DARK MODE – X w wyszukiwarce w navbarze */
+body.dark-mode .navbar .input-group .btn-close[data-action="closesearch"] {
+    /* usuń domyślną ikonę bootstrapową */
+    background-image: none !important;
+    background-color: transparent !important;
+
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none !important;
+    box-shadow: none !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 1 !important;
+}
+
+/* czerwony X jako pseudo-element */
+body.dark-mode .navbar .input-group .btn-close[data-action="closesearch"]::after {
+    content: "×";
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #ff4d4d;          /* czerwony X */
+}
+
+/* mały hover – jaśniejszy czerwony */
+body.dark-mode .navbar .input-group .btn-close[data-action="closesearch"]:hover::after {
+    color: #ff7777;
+}
+
+/* =========================================================
+   DARK MODE – pełny blok rozwiniętej wyszukiwarki w navbarze
+   (bez ruszania samego inputu i X)
+   ========================================================= */
+
+/* Kontener collapse */
+body.dark-mode #searchform-navbar {
+    background-color: #111 !important;
+    border-bottom: 1px solid #222 !important;
+    padding: 8px 0 !important;
+}
+
+/* Formularz w środku */
+body.dark-mode .searchform-navbar {
+    background-color: #111 !important;
+}
+
+/* Input-group otaczająca pole + X + ikonę lupy */
+body.dark-mode .searchform-navbar .input-group {
+    background-color: #111 !important;
+    border: 1px solid #222 !important;
+    border-radius: 6px !important;
+    padding: 2px !important;
+}
+
+/* Przyciski w input-group */
+body.dark-mode .searchform-navbar .btn-submit {
+    background-color: #181818 !important;
+    border-left: 1px solid #333 !important;
+    border-radius: 6px !important;
+}
+
+/* Ikona lupy – jasna */
+body.dark-mode .searchform-navbar .btn-submit i {
+    color: #e8e8e8 !important;
+}
+
+body.dark-mode .searchform-navbar .btn-submit:hover i {
+    color: #ffffff !important;
+}
+
+/* Upewniamy się, że wrapper niczego nie rozjaśnia */
+body.dark-mode .collapse.show#searchform-navbar {
+    background-color: #111 !important;
+}
+
+.editing .activity-item:hover .activityiconcontainer,
+.editing .activity-item:hover .activityiconcontainer *,
+.editing .activity-item:hover .badge,
+.editing .activity-item.selected .activityiconcontainer,
+.editing .activity-item.selected .badge {
+    mix-blend-mode: normal !important;
+}
+/********************************************
+ * DARK MODE – okno "Prześlij ten plik"
+ ********************************************/
+
+/* Główny kontener uploadu */
+body.dark-mode .fp-upload-form {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+}
+
+/* Środek (fp-content-center), żeby nie było białych plam */
+body.dark-mode .fp-upload-form .fp-content-center {
+    background-color: #111 !important;
+}
+
+/* Etykiety pól */
+body.dark-mode .fp-upload-form label,
+body.dark-mode .fp-upload-form .form-control-label,
+body.dark-mode .fp-upload-form .col-form-label {
+    color: #e5e5e5 !important;
+}
+
+/* Tekst w środku formularza */
+body.dark-mode .fp-upload-form .fp-formset {
+    color: #e5e5e5 !important;
+}
+
+/* Inputy tekstowe */
+body.dark-mode .fp-upload-form input.form-control[type="text"] {
+    background-color: #181818 !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode .fp-upload-form input.form-control[type="text"]::placeholder {
+    color: #888 !important;
+}
+
+/* Select "Wybierz licencję" */
+body.dark-mode .fp-upload-form select.form-control {
+    background-color: #181818 !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Pole file input – obramowanie lekko jaśniejsze */
+body.dark-mode .fp-upload-form input[type="file"] {
+    background-color: #181818 !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Ikonka pomocy przy licencji */
+body.dark-mode .fp-upload-form .fp-setlicense .btn.btn-link {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode .fp-upload-form .fp-setlicense .btn.btn-link i {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode .fp-upload-form .fp-setlicense .btn.btn-link:hover,
+body.dark-mode .fp-upload-form .fp-setlicense .btn.btn-link:hover i {
+    color: #a3c7ff !important;
+}
+
+/* Przycisk "Prześlij ten plik" */
+body.dark-mode .fp-upload-form .fp-upload-btn.btn-primary {
+    background-color: #245caa !important;
+    border-color: #245caa !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .fp-upload-form .fp-upload-btn.btn-primary:hover {
+    background-color: #2d6fd0 !important;
+    border-color: #2d6fd0 !important;
+}
+
+/* Kontener z przyciskiem na dole */
+body.dark-mode .fp-upload-form .mdl-align {
+    margin-top: 8px !important;
+}
+/* Target your collapse button specifically */
+body.dark-mode a.btn.btn-icon.icons-collapse-expand {
+    background-color: #074B88 !important; /* blue background */
+    color: #000 !important;               /* black arrow icons */
+    border-color: #074B88 !important;     /* match border to background */
+}
+
+/* Ensure arrow icons inside the button are black */
+body.dark-mode a.btn.btn-icon.icons-collapse-expand i {
+    color: #000 !important;
+}
+
+/* Optional: keep hover consistent */
+body.dark-mode a.btn.btn-icon.icons-collapse-expand:hover,
+body.dark-mode a.btn.btn-icon.icons-collapse-expand:focus {
+    background-color: #074B88 !important;
+    color: #000 !important;
+}
+
+body.dark-mode .activitybadge {
+    position: relative;
+}
+
+/* Hide badges with no visible text or icons */
+body.dark-mode .activitybadge:empty,
+body.dark-mode .activitybadge:empty::before,
+body.dark-mode .activitybadge:empty::after,
+body.dark-mode .activitybadge:only-child:empty {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+}
+
+/* Ensure non-empty badges still display normally */
+body.dark-mode .activitybadge:not(:empty) {
+    display: inline-block !important;
+    font-size: inherit !important;
+    color: inherit !important;
+    background-color: inherit !important;
+    border: inherit !important;
+    padding: 0.25em 0.5em !important; /* or whatever your theme uses */
+    border-radius: 0.5rem !important;
+}
+
+body.dark-mode .course-content .divider-content i,
+body.dark-mode .course-content .divider.always-visible .divider-content i {
+    color: #074B88 !important; /* Your blue color for icon */
+}
+
+body.dark-mode .course-content .divider-content::before,
+body.dark-mode .course-content .divider-content::after {
+    background-color: transparent !important; /* Ensure no weird gradients hide the icon */
+}
+
+/* Optional: make the plus background contrast better */
+body.dark-mode .course-content .divider-content {
+    background: none !important;
+}
+
+/*************************************************
+ * QUIZ – DARK MODE POPRAWKA KONTRASTU
+ *************************************************/
+
+/* Całe pytanie – ramka */
+body.dark-mode.path-mod-quiz #responseform .que {
+    background-color: #111 !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+}
+
+/* Jasne niebieskie tło w środku pytania -> ciemne */
+body.dark-mode.path-mod-quiz #responseform .que .formulation {
+    background-color: #181818 !important;
+    padding: 16px !important;
+    color: #e5e5e5 !important;
+}
+
+/* Treść pytania i tekst w środku */
+body.dark-mode.path-mod-quiz #responseform .que .qtext,
+body.dark-mode.path-mod-quiz #responseform .que .qtext p,
+body.dark-mode.path-mod-quiz #responseform .que .formulation p,
+body.dark-mode.path-mod-quiz #responseform .que .formulation span,
+body.dark-mode.path-mod-quiz #responseform .que .formulation label {
+    color: #e5e5e5 !important;
+}
+
+/* Blok z odpowiedziami (Prawda/Fałsz itd.) */
+body.dark-mode.path-mod-quiz #responseform .que .answer,
+body.dark-mode.path-mod-quiz #responseform .que fieldset.ablock {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* Radio / checkbox – niebieski akcent, ale wyraźny */
+body.dark-mode.path-mod-quiz #responseform .que input[type="radio"],
+body.dark-mode.path-mod-quiz #responseform .que input[type="checkbox"] {
+    accent-color: #4aa3ff;
+}
+
+/* Krótkie odpowiedzi / pola numeryczne */
+body.dark-mode.path-mod-quiz #responseform .que .form-control {
+    background-color: #111 !important;
+    border: 1px solid #444 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode.path-mod-quiz #responseform .que .form-control::placeholder {
+    color: #888 !important;
+}
+
+/* Lewy panel info pytania */
+body.dark-mode.path-mod-quiz #responseform .que .info {
+    background-color: #111 !important;
+    border-right: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode.path-mod-quiz #responseform .que .info .state,
+body.dark-mode.path-mod-quiz #responseform .que .info .grade {
+    color: #c0c0c0 !important;
+}
+
+/* Linki w panelu info (Oflaguj, Edytuj pytanie) */
+body.dark-mode.path-mod-quiz #responseform .que .questionflag a,
+body.dark-mode.path-mod-quiz #responseform .que .editquestion a {
+    color: #8ab4f8 !important;
+}
+
+body.dark-mode.path-mod-quiz #responseform .que .questionflag a:hover,
+body.dark-mode.path-mod-quiz #responseform .que .editquestion a:hover {
+    color: #a3c7ff !important;
+}
+
+/* Ikonka flagi – jasna w ciemnym tle */
+body.dark-mode.path-mod-quiz #responseform .que .questionflagimage {
+    filter: invert(100%) hue-rotate(180deg) !important;
+}
+
+/* Badge wersji pytania */
+body.dark-mode.path-mod-quiz #responseform .que .badge.bg-primary {
+    background-color: #245caa !important;
+    color: #ffffff !important;
+}
+
+/* TinyMCE – ciemny motyw */
+body.dark-mode.path-mod-quiz #responseform .tox.tox-tinymce {
+    background-color: #111 !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode.path-mod-quiz #responseform .tox .tox-editor-header,
+body.dark-mode.path-mod-quiz #responseform .tox .tox-toolbar__primary,
+body.dark-mode.path-mod-quiz #responseform .tox .tox-menubar {
+    background-color: #181818 !important;
+    border-bottom: 1px solid #222 !important;
+}
+
+body.dark-mode.path-mod-quiz #responseform .tox .tox-mbtn,
+body.dark-mode.path-mod-quiz #responseform .tox .tox-tbtn {
+    background-color: #181818 !important;
+    color: #e5e5e5 !important;
+}
+
+body.dark-mode.path-mod-quiz #responseform .tox .tox-mbtn:hover,
+body.dark-mode.path-mod-quiz #responseform .tox .tox-tbtn:hover {
+    background-color: #245caa !important;
+    color: #ffffff !important;
+}
+
+/* Wnętrze edytora (tekst ucznia) */
+body.dark-mode.path-mod-quiz #responseform iframe.tox-edit-area__iframe {
+    background-color: #111 !important;
+}
+
+/* Jeśli łapie body TinyMCE w tym samym arkuszu */
+body.dark-mode.path-mod-quiz #responseform .mce-content-body {
+    background-color: #111 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Info-box nad quizem (ten pomarańczowy) też przyciemnijmy */
+body.dark-mode.path-mod-quiz .quizattempt .box.generalbox,
+body.dark-mode.path-mod-quiz .quizattempt .box.info,
+body.dark-mode.path-mod-quiz .quizattempt .generalbox.info {
+    background-color: #181818 !important;
+    border-color: #333 !important;
+    color: #e5e5e5 !important;
+}
+
+/********************************************
+ * DARK MODE – alert-warning (ostrzeżenie)
+ ********************************************/
+body.dark-mode .alert.alert-warning {
+    background-color: #2a2515 !important;     /* ciemny, ciepły brąz–żółty */
+    border: 1px solid #5c4a1a !important;      /* lekko złota ramka */
+    color: #f0d48a !important;                 /* jasny żółtawy tekst */
+    border-radius: 8px !important;
+}
+
+/* Tekst wewnętrzny */
+body.dark-mode .alert.alert-warning p {
+    color: #f0d48a !important;
+}
+
+/* Usunięcie animacji fade, jeśli robi artefakty */
+body.dark-mode .alert.alert-warning.fade.in {
+    opacity: 1 !important;
+}
+
+/*************************************************
+ * QUIZ – DARK MODE poprawka lewego panelu (info)
+ *************************************************/
+
+/* Główna ramka pytania */
+body.dark-mode.path-mod-quiz #responseform .que {
+    border: 1px solid #333 !important;         /* jedna, czysta ramka */
+    background-color: #111 !important;
+    border-radius: 8px !important;
+    overflow: hidden;                          /* usuwa pseudo-bordery */
+}
+
+/* Lewy panel info pytania */
+body.dark-mode.path-mod-quiz #responseform .que .info {
+    background-color: #111 !important;
+    border: none !important;                   /* wyłącz border, robił podwójną linię */
+    box-shadow: none !important;               /* Motyw Academi dorzuca shadow – wyłączamy */
+    padding: 10px !important;
+}
+
+/* Usuwamy wszelkie pseudo-linie generowane przez motyw */
+body.dark-mode.path-mod-quiz #responseform .que .info::before,
+body.dark-mode.path-mod-quiz #responseform .que .info::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Usuwamy też pseudo-bordery z .que */
+body.dark-mode.path-mod-quiz #responseform .que::before,
+body.dark-mode.path-mod-quiz #responseform .que::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Tekst w panelu */
+body.dark-mode.path-mod-quiz #responseform .que .info h3.no,
+body.dark-mode.path-mod-quiz #responseform .que .info .state,
+body.dark-mode.path-mod-quiz #responseform .que .info .grade {
+    color: #e5e5e5 !important;
+}
+
+/* Linki */
+body.dark-mode.path-mod-quiz #responseform .que .info a {
+    color: #8ab4f8 !important;
+}
+body.dark-mode.path-mod-quiz #responseform .que .info a:hover {
+    color: #a3c7ff !important;
+}
+
+/* DARK MODE - tabele */
+body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-datatable-table),
+body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-datatable-table) thead,
+body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-datatable-table) tbody,
+body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-datatable-table) tfoot,
+body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-datatable-table) tr,
+body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-datatable-table) td,
+body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-datatable-table) th {
+    border-color: #074b88 !important;
+}
+
+body.dark-mode .block, body.dark-mode .block .card, body.dark-mode .block .card-body, body.dark-mode .card-text, body.dark-mode .block .content, body.dark-mode .content, body.dark-mode .block-region .block, body.dark-mode .block-region .card {
+    background-color: #181818 !important;
+    border: 0 !important;
+    color: #e5e5e5 !important;
+    border-radius: 10px !important;
+}
+body.dark-mode table.generaltable.generalbox.quizreviewsummary {
+    background-color: #1e1e1e !important; /* dark table background */
+    border: 1px solid #333333 !important; /* table border */
+    color: #e5e5e5 !important;            /* default text color */
+}
+
+body.dark-mode table.generaltable.generalbox.quizreviewsummary th.cell,
+body.dark-mode table.generaltable.generalbox.quizreviewsummary td.cell {
+    background-color: #1e1e1e !important; /* dark background for cells */
+    color: #e5e5e5 !important;            /* readable text */
+    border: 1px solid #333333 !important; /* cell borders */
+}
+
+/* Optional: header accent color */
+body.dark-mode table.generaltable.generalbox.quizreviewsummary th.cell {
+    color: #74b0ff !important; /* blue for headers */
+}
+
+body.dark-mode .slotnumber,
+body.dark-mode .slotnumber .inplaceeditable,
+body.dark-mode .slotnumber .quickeditlink,
+body.dark-mode .slotnumber .quickediticon {
+    background-color: #1e1e1e !important;
+    color: #e5e5e5 !important;      
+}
+
+/*************************************************
+ * Pytania - QUIZ
+ *************************************************/
+
+/* Hover effect for quick edit link */
+body.dark-mode .slotnumber .quickeditlink:hover {
+    background-color: #2a2a2a !important;
+    color: #74b0ff !important; /* subtle blue highlight for interaction */
+}
+
+/* Pen icon color adjustment */
+body.dark-mode .slotnumber .quickediticon i {
+    color: #74b0ff !important; /* same blue as hover text */
+}
+
+/* Optional: remove default link underline in dark mode */
+body.dark-mode .slotnumber .quickeditlink {
+    text-decoration: none !important;
+}
+body.dark-mode .editing_move i.fa-arrows-up-down-left-right {
+    font-family: "Font Awesome 6 Free" !important; /* solid FA */
+    font-weight: 900 !important;                   /* solid icons need font-weight 900 */
+    color: #74b0ff;                                /* optional: blue arrow in dark mode */
+}
+ .editing_move i.fa-arrows-up-down-left-right {
+    font-family: "Font Awesome 6 Free" !important; /* solid FA */
+    font-weight: 900 !important;                   /* solid icons need font-weight 900 */
+    color: #74b0ff;                                /* optional: blue arrow in dark mode */
+}
+
+/* Ikony TinyMCE w dark mode – rozjaśnienie / wybielenie */
+body.dark-mode .tox .tox-icon svg,
+body.dark-mode .tox .tox-icon img,
+body.dark-mode .tox .tox-icon image {
+    filter: invert(1) brightness(1.2);
+}
+body.dark-mode .table thead th,
+body.dark-mode .generaltable thead th {
+    background-color: #2b2b2b !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+}
+
+/* Links inside headers */
+body.dark-mode .table thead th a,
+body.dark-mode .generaltable thead th a {
+    color: #e0e0e0 !important;
+}
+
+/* Table body rows */
+body.dark-mode .table tbody tr,
+body.dark-mode .generaltable tbody tr {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+/* Links inside table body */
+body.dark-mode .table tbody tr a,
+body.dark-mode .generaltable tbody tr a {
+    color: #e0e0e0 !important;
+}
+
+/* Optional: striped rows */
+body.dark-mode .table-striped tbody tr:nth-of-type(odd),
+body.dark-mode .generaltable.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #262626 !important;
+}
+
+/* Sparkles AI + H5P + Rownania – wymuszone rozjaśnienie w dark mode */
+body.dark-mode .tox image[href*="tiny_aiplacement"],
+body.dark-mode .tox image[href*="tiny_h5p"],
+body.dark-mode .tox image[href*="tiny_equation"] {
+    filter: saturate(0.5) !important;
+}
+
+/* Druga lista MCE */
+body.dark-mode .tox-toolbar__overflow.tox-toolbar__overflow--open {
     background-color: #181818 !important;
 }
