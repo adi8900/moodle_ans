@@ -53,6 +53,10 @@ if (isloggedin() && !isguestuser()) {
     $darkmodeenabled = true;
 }
 
+// wymuszenie trybu jasnego dla podstrony logowania
+if ($PAGE->pagetype == 'login-index' || $PAGE->pagelayout == 'login' || $PAGE->pagelayout == 'secure') {
+    $darkmodeenabled = false;
+}
 
 // URL-e dla guzika
 $darkmodeonurl  = new moodle_url($PAGE->url, ['darkmode' => 'on']);
