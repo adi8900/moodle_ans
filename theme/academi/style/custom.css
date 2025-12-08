@@ -1,4 +1,4 @@
-\/* ==========================================
+/* ==========================================
    Stats Banner - Academi Theme
    BG #074B88 + mobile fixes
    ========================================== */
@@ -1339,15 +1339,15 @@ body.dark-mode .drawer[data-region="right-hand-drawer"] .message.received {
     border: 1px solid #2a2a2a !important;
 }
 
-.message-app .message.send .tail {
+body.dark-mode .message-app .message.send .tail {
     border-bottom-color: #1c4d8f !important;
 }
 
-.message {
-    background-color: #1c1c1c !important; /* kolor całego dymka */
+body.dark-mode .message {
+    background-color: #2a2a2a !important; /* kolor całego dymka */
 }
 
-.message-app .message.received .tail {
+body.dark-mode .message-app .message.received .tail {
     border-bottom-color: #2a2a2a !important;
 }
 
@@ -1485,12 +1485,6 @@ body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .cate
     background-color: #181818 !important;
     border-color: #333 !important;
     color: #e5e5e5 !important;
-}
-
-body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button.selected {
-    background-color: #245caa !important;
-    border-color: #245caa !important;
-    color: #ffffff !important;
 }
 
 body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button i {
@@ -2566,4 +2560,523 @@ body.dark-mode .tox image[href*="tiny_equation"] {
 /* Druga lista MCE */
 body.dark-mode .tox-toolbar__overflow.tox-toolbar__overflow--open {
     background-color: #181818 !important;
+}
+
+body.dark-mode .list-group{
+--bs-list-group-action-hover-bg: #111;
+}
+
+/* Główny kontener edytora */
+body.dark-mode .tox.tox-tinymce {
+    background-color: #181818 !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Nagłówek edytora (menu + toolbar) */
+body.dark-mode .tox-editor-header,
+body.dark-mode .tox-menubar,
+body.dark-mode .tox-toolbar,
+body.dark-mode .tox-toolbar__primary {
+    background-color: #111 !important;
+    border-bottom: 1px solid #333 !important;
+}
+
+/* Overflow toolbar (to co się rozwija na dole paska) */
+body.dark-mode .tox-toolbar__overflow {
+    background-color: #111 !important;
+    border-top: 1px solid #333 !important;
+}
+
+/* Grupy przycisków */
+body.dark-mode .tox-toolbar__group {
+    background-color: transparent !important;
+}
+
+/* Przyciski w toolbarze / menubarze */
+body.dark-mode .tox .tox-tbtn,
+body.dark-mode .tox .tox-mbtn {
+    background: transparent !important;
+    border: none !important;
+    color: #e5e5e5 !important;
+}
+
+/* Hover / active */
+body.dark-mode .tox .tox-tbtn:hover,
+body.dark-mode .tox .tox-tbtn:focus,
+body.dark-mode .tox .tox-mbtn:hover,
+body.dark-mode .tox .tox-mbtn:focus {
+    background-color: #222 !important;
+}
+
+/* Tekst w menubarze (Edytuj, Widok, Wstaw...) */
+body.dark-mode .tox .tox-mbtn__select-label {
+    color: #e5e5e5 !important;
+}
+
+#message-drawer .list-group-item {
+    border-bottom: none !important;
+}
+
+body.dark-mode .tox .tox-icon svg image[href*="tiny_recordrtc"][href$="/video"] {
+filter: brightness(0.8) saturate(1.2);
+}
+
+/* Link "Kliknij, aby wprowadzić" – dark mode */
+body.dark-mode a.form-control[data-passwordunmask="edit"],
+body.dark-mode a.form-control[data-passwordunmask="edit"]:hover,
+body.dark-mode a.form-control[data-passwordunmask="edit"]:focus,
+body.dark-mode a.form-control[data-passwordunmask="edit"]:active {
+    background-color: #181818 !important;
+    border: 1px solid #333 !important;
+    color: #e5e5e5 !important;
+    text-decoration: none !important;
+}
+
+/* Tekst w środku */
+body.dark-mode a.form-control[data-passwordunmask="edit"] em {
+    color: #b9c9ff !important;
+}
+
+/* Ikona pióra */
+body.dark-mode a.form-control[data-passwordunmask="edit"] i.fa-pen {
+    color: #87b2ff !important;
+}
+
+/* Ramka całego edytora – jedna ciemna linia dookoła */
+body.dark-mode .tox .tox-editor-container {
+    border: 1px solid #2b2b2b !important;
+    background-color: #111 !important;
+}
+
+/* Usuń wewnętrzne białe linie między paskami */
+body.dark-mode .tox .tox-editor-header,
+body.dark-mode .tox .tox-menubar,
+body.dark-mode .tox .tox-toolbar-overlord,
+body.dark-mode .tox .tox-toolbar__primary {
+    border-top: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/* Usuń dodatkową linię z overflow toolbara */
+body.dark-mode .tox .tox-toolbar__overflow {
+    border-top: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/* Usuń linię-ankorę pod toolbarami */
+body.dark-mode .tox .tox-anchorbar {
+    border-top: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/* GŁÓWNY KONTENER WIADOMOŚCI */
+body.dark-mode .message-app.main {
+    background: #121212 !important;
+    color: #e9ecef !important;
+    border-color: #333 !important;
+}
+
+/* Tło kolumn (lista rozmów / prawa strona) */
+body.dark-mode .message-app .conversationcontainer,
+body.dark-mode .message-app .col-8 {
+    background: #121212 !important;
+    color: #e9ecef !important;
+}
+
+/* Header panelu po lewej (search + przyciski) */
+body.dark-mode .message-app .panel-header-container,
+body.dark-mode .message-app .panel-header-container .border-bottom {
+    background: #171717 !important;
+    border-color: #333 !important;
+}
+
+/* Inputy (szukajki, textarea, itp.) */
+body.dark-mode .message-app .form-control,
+body.dark-mode .message-app textarea.form-control {
+    background: #1e1e1e !important;
+    color: #f8f9fa !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode .message-app .form-control::placeholder,
+body.dark-mode .message-app textarea.form-control::placeholder {
+    color: #888 !important;
+}
+
+/* Przyciski typu "btn", w tym ikony przy inputach, emoji, wysyłanie */
+body.dark-mode .message-app .btn,
+body.dark-mode .message-app .btn-link {
+    color: #e9ecef !important;
+}
+
+body.dark-mode .message-app .btn.btn-submit,
+body.dark-mode .message-app .btn-primary {
+    background: #0d6efd !important;
+    border-color: #0d6efd !important;
+    color: #fff !important;
+}
+
+/* Ikony */
+body.dark-mode .message-app i.icon {
+    color: #e9ecef !important;
+}
+
+body.dark-mode .message-app .text-muted i.icon,
+body.dark-mode .message-app .text-muted {
+    color: #9ca3af !important;
+}
+
+/* Sekcje: Oznaczone, Grupowe, Prywatne (nagłówki kart) */
+body.dark-mode .message-app .card-header {
+    background: #181818 !important;
+    border-color: #333 !important;
+    color: #e9ecef !important;
+}
+
+/* Rozwijane listy (favourites / group / messages) */
+body.dark-mode .message-app .lazy-load-list,
+body.dark-mode .message-app .section {
+    background: #121212 !important;
+    border-color: #333 !important;
+}
+
+/* Pozycje listy rozmów */
+body.dark-mode .message-app .list-group-item {
+    background: #181818 !important;
+    border-color: #333 !important;
+    color: #e9ecef !important;
+}
+
+body.dark-mode .message-app .list-group-item:hover,
+body.dark-mode .message-app .list-group-item:focus {
+    background: #222 !important;
+}
+
+/* Status online / badge */
+body.dark-mode .message-app .badge.bg-primary {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+}
+
+/* Prawa strona – placeholdery / content */
+body.dark-mode .message-app .body-container {
+    background: #121212 !important;
+}
+
+body.dark-mode .message-app .bg-light {
+    background: #171717 !important;
+}
+
+/* Wszystkie .bg-white wewnątrz messengera → ciemne tło */
+body.dark-mode .message-app .bg-white {
+    background: #181818 !important;
+    color: #e9ecef !important;
+}
+
+/* Skeletony ładowania */
+body.dark-mode .message-app .bg-pulse-grey {
+    background: #2b2b2b !important;
+}
+
+/* Nawigacja w zakładce „Kontakty / Prośby” */
+body.dark-mode .message-app .nav-pills .nav-link {
+    background: transparent !important;
+    color: #e9ecef !important;
+}
+
+body.dark-mode .message-app .nav-pills .nav-link.active {
+    background: #0d6efd !important;
+    color: #fff !important;
+}
+
+/* Header / footer po prawej */
+body.dark-mode .message-app .header-container [data-region],
+body.dark-mode .message-app .footer-container [data-region] {
+    background: #171717 !important;
+    border-color: #333 !important;
+    color: #e9ecef !important;
+}
+
+/* Pole wpisywania wiadomości w konwersacji */
+body.dark-mode .message-app [data-region="view-conversation"] textarea.form-control {
+    background: #1e1e1e !important;
+    border-color: #444 !important;
+}
+
+/* Okienko emoji pickera */
+body.dark-mode .message-app .emoji-picker.card {
+    background: #181818 !important;
+    color: #e9ecef !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode .message-app .emoji-picker .card-header,
+body.dark-mode .message-app .emoji-picker .card-footer {
+    background: #151515 !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode .message-app .emoji-picker .btn-outline-secondary.selected {
+    border-color: #245caa !important;
+}
+
+/* Domyślny kolor ikonek w dark mode */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button i {
+    color: #e5e5e5 !important;
+    transition: color 0.15s ease;
+}
+
+/* Zmiana koloru po najechaniu / focusie */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button:hover i,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button:focus i {
+    color: #87b2ff !important;
+}
+
+/* Wybrana kategoria (gdy nie jest hoverowana) */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button.selected i {
+    color: #245caa !important;
+}
+
+/* Wybrana + hover – opcjonalnie jaśniejszy */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button.selected:hover i {
+    color: #87b2ff !important;
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker.card .category-button.selected 
+{ 
+color: #245caa !important;}
+
+body.dark-mode .message-app .emoji-picker .btn-outline-secondary {
+    background: transparent !important;
+    border-color: #444 !important;
+    color: #e9ecef !important;
+}
+
+/* Dialogi potwierdzeń (te z białym tłem) */
+body.dark-mode .message-app [data-region="confirm-dialogue"] {
+    background: #181818 !important;
+    color: #e9ecef !important;
+}
+
+/* Teksty informacyjne typu „Szukaj osób i wiadomości”, „Brak wyników” */
+body.dark-mode .message-app p,
+body.dark-mode .message-app h3,
+body.dark-mode .message-app .h6 {
+    color: #e9ecef !important;
+}
+
+/* USUNIĘCIE GŁÓWNEJ RAMKI WOKÓŁ MESSENGERA */
+body.dark-mode .message-app.main {
+    border: none !important;
+}
+
+/* USUNIĘCIE LINII MIĘDZY LEWĄ A PRAWĄ KOLUMNĄ */
+body.dark-mode .message-app .border-end,
+body.dark-mode .message-app .conversationcontainer .border-end {
+    border: none !important;
+}
+
+/* USUNIĘCIE LINII WEWNĘTRZNYCH (np. w headerach / sekcjach) */
+body.dark-mode .message-app .border-bottom,
+body.dark-mode .message-app .card-header,
+body.dark-mode .message-app .section {
+    border-bottom: none !important;
+}
+
+/* Dla pewności — usunięcie WSZYSTKICH borderów w messengerze */
+body.dark-mode .message-app * {
+    border-color: transparent !important;
+}
+
+/* Tło i tekst wysłanych wiadomości */
+body.dark-mode .message.send {
+    background-color: #1c4d8f !important;  /* niebieski */
+    color: #ffffff !important;             /* biały tekst */
+    border: none !important;
+}
+
+/* Tekst w środku wiadomości */
+body.dark-mode .message.send * {
+    color: #ffffff !important;
+}
+
+/* Czas wiadomości po prawej */
+body.dark-mode .message.send .time {
+    color: #e6e6e6 !important;
+}
+
+/* -------- IKONY W PICKERZE EMOJI – DARK MODE -------- */
+
+/* Domyślny kolor ikon */
+body.dark-mode .category-button i {
+    color: #cccccc !important;
+    transition: color .15s ease;
+}
+
+/* Hover – zmiana koloru */
+body.dark-mode .category-button:hover i,
+body.dark-mode .category-button:focus i {
+    color: #87b2ff !important;
+}
+
+/* Wybrana kategoria */
+body.dark-mode .category-button.selected i {
+    color: #245caa !important;
+}
+
+/* Wybrana + hover */
+body.dark-mode .category-button.selected:hover i {
+    color: #87b2ff !important;
+}
+
+/* TŁO PRZYCISKU TEŻ MOŻE BLOKOWAĆ KLIK — więc neutralizujemy Bootstrap */
+body.dark-mode .category-button {
+    background: transparent !important;
+    border-color: #3a3a3a !important;
+}
+
+/* Hover całego przycisku – żeby klik działał poprawnie */
+body.dark-mode .category-button:hover {
+    background: #1e1e1e !important;
+    border-color: #4a4a4a !important;
+}
+
+body.dark-mode .category-button.selected,
+body.dark-mode .emoji-picker .category-button.selected,
+body.dark-mode .message-app .emoji-picker .category-button.selected {
+    border-color: #486183 !important;
+}
+
+/* HOVER – ikona zmienia kolor na niebieski */
+body.dark-mode .card-header .category-button:hover i {
+    color: #4a8ad4 !important;
+}
+
+/* HOVER – ramka też niebieska */
+body.dark-mode .card-header .category-button:hover {
+    border-color: #4a8ad4 !important;
+}
+
+/* SELECTED – taki sam border jak w drugim pickerze (#486183) */
+body.dark-mode .card-header .category-button.selected {
+    border-color: #486183 !important;
+}
+
+/* SELECTED – ikona też lekko niebieskawa */
+body.dark-mode .card-header .category-button.selected i {
+    color: #6ca0d8 !important;
+}
+
+/* HOVER + CLICK (SELECTED) dla pickera z tego HTML-a – w prawym drawerze */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker .btn-outline-secondary:hover {
+    border-color: #4a8ad4 !important;   /* niebieski na hover */
+}
+
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker .btn-outline-secondary.selected {
+    border-color: #486183 !important;   /* ten sam kolor co w tamtym */
+}
+
+/* Ikonka też na niebiesko przy hover/selected */
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker .btn-outline-secondary:hover i,
+body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker .btn-outline-secondary.selected i {
+    color: #4a8ad4 !important;
+}
+
+body.dark-mode .table>:not(caption)>*>* {
+    background-color: #2b2b2b;
+    color: white;
+}
+
+body.dark-mode .activity-item .activity-dates {
+color: #a9afb6;
+}
+
+/*Line under the message drawer in messages*/
+body.dark-mode [data-region="lazy-load-list"] .list-group-item {
+    border: none !important;
+}
+body.dark-mode [data-region="lazy-load-list"] {
+    border-bottom: none !important;
+}
+
+/* Dark mode: change background for all "more" dropdown menus */
+body.dark-mode .dropdown-menu[data-region="moredropdown"] {
+    background-color: #2c2c2c !important; /* dark grey, replace as needed */
+    color: #e5e5e5 !important;           /* light text for contrast */
+}
+
+/* Dark mode: change hover state for dropdown items */
+body.dark-mode .dropdown-menu[data-region="moredropdown"] .dropdown-item:hover {
+    background-color: #3a3a3a !important; /* slightly lighter on hover */
+    color: #ffffff !important;           /* ensure hover text is readable */
+}
+/* Dark mode: background for the "More" dropdown items */
+body.dark-mode .dropdown-menu[data-region="moredropdown"] .nav-item {
+    background-color: #2c2c2c !important; /* change to desired dark bg */
+}
+
+/* Dark mode: text color */
+body.dark-mode .dropdown-menu[data-region="moredropdown"] .nav-item .dropdown-item {
+    color: #e5e5e5 !important; /* readable light text */
+}
+
+/* Dark mode: hover effect */
+body.dark-mode .dropdown-menu[data-region="moredropdown"] .nav-item .dropdown-item:hover {
+    background-color: #3a3a3a !important; /* slightly lighter on hover */
+    color: #ffffff !important;
+}
+/* Dark mode only for highlight-like spans */
+body.dark-mode span.highlight,
+body.dark-mode span.gradedattempt {
+    color: #00bcd4 !important;         /* bright cyan-ish text for contrast */
+    background-color: #222 !important; /* dark background for highlight */
+    border: 1px solid #074b88 !important; /* matching border */
+    padding: 2px 4px;                  /* small padding for readability */
+    border-radius: 3px;                /* rounded corners */
+}
+/* Dark mode pagination background */
+body.dark-mode .pagination .page-item .page-link {
+    background-color: #111 !important; /* dark background for page links */
+    color: #e5e5e5 !important;        /* light text for contrast */
+    border-color: #555 !important;    /* subtle border for separation */
+}
+
+/* Optional: hover/active states for better visibility */
+body.dark-mode .pagination .page-item .page-link:hover,
+body.dark-mode .pagination .page-item.active .page-link {
+    background-color: #074b88 !important; /* slightly lighter on hover/active */
+    color: #fff !important;
+    border-color: #555 !important;
+}
+body.dark-mode .bg-white.border-radius {
+    background-color: #222 !important;  /* dark background */
+    color: #e5e5e5 !important;          /* readable text */
+    border-color: #444 !important;      /* darker border for contrast */
+}
+body.dark-mode div.border-radius.border {
+    border: 1px solid gray !important;
+    background-color: #222 !important;
+    color: #e5e5e5 !important;
+}
+body.dark-mode button[data-filteraction="showall"] {
+    --bs-btn-color: white !important;   /* text color */
+    --bs-btn-bg: #074b88 !important;
+    --bs-link-hover-color: #063c6d !important;
+      /* optional: background */
+}
+body.dark-mode button[data-filteraction="showall"]:hover {
+   background-color:#063c6d;
+}
+body.dark-mode .input-group-text {
+--bs-tertiary-bg: #1e1e1e !important;
+border: var(--bs-border-width) solid #404040 !important;
+border-radius: 0 !important;
+}
+
+.form-select {
+ --bs-form-select-bg-img: none;
 }
