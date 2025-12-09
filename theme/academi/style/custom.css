@@ -3080,3 +3080,200 @@ border-radius: 0 !important;
 .form-select {
  --bs-form-select-bg-img: none;
 }
+
+/* --- Dark mode dla tabeli gradereport-grader-table --- */
+body.dark-mode .gradereport-grader-table {
+  background: #0f1112 !important;
+  color: #d8dee9 !important;
+  border-collapse: separate !important;
+  width: 100% !important;
+  box-shadow: none !important;
+}
+
+/* Nagłówki i komórki */
+body.dark-mode .gradereport-grader-table th,
+body.dark-mode .gradereport-grader-table td {
+  background: transparent !important;
+  color: #d8dee9 !important;
+  border-color: rgba(255,255,255,0.06) !important;
+  padding: .5rem .75rem !important;
+}
+
+/* Pierwsza kolumna - uczestnicy */
+body.dark-mode .gradereport-grader-table th.topleft,
+body.dark-mode .gradereport-grader-table th.header.user {
+  background: transparent !important;
+  color: #e6f0ff !important;
+  font-weight: 600 !important;
+}
+
+/* Usuń lub złagodź mocne obramowania (wokół i między kolumnami) */
+body.dark-mode .gradereport-grader-table,
+body.dark-mode .gradereport-grader-table tr,
+body.dark-mode .gradereport-grader-table th,
+body.dark-mode .gradereport-grader-table td {
+  border: 1px solid rgba(255,255,255,0.04) !important;
+}
+
+/* Usuń podwójne, jaskrawe linie - cienkie separatory */
+body.dark-mode .gradereport-grader-table tr.heading th,
+body.dark-mode .gradereport-grader-table tr.heading td {
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* Tło wierszy (alternating) */
+body.dark-mode .gradereport-grader-table tr.userrow.even {
+  background: rgba(255,255,255,0.01);
+}
+body.dark-mode .gradereport-grader-table tr.userrow.odd {
+  background: transparent;
+}
+
+/* Obrazki użytkowników i linki */
+body.dark-mode .gradereport-grader-table .userpicture {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.03);
+}
+body.dark-mode .gradereport-grader-table a.username,
+body.dark-mode .gradereport-grader-table a.gradeitemheader {
+  color: #9fc7ff !important;
+}
+body.dark-mode .gradereport-grader-table a.username:hover,
+body.dark-mode .gradereport-grader-table a.gradeitemheader:hover {
+  color: #d1e8ff !important;
+}
+
+/* Wartości ocen */
+body.dark-mode .gradereport-grader-table .gradevalue {
+  color: #e6f0ff;
+  font-weight: 500;
+}
+
+/* Przyciski menu komórki (trzy kropki) – dostosowane do dark */
+body.dark-mode .gradereport-grader-table .cellmenubtn {
+  background: transparent;
+  color: #c7d6e8;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+body.dark-mode .gradereport-grader-table .cellmenubtn:hover {
+  border-color: rgba(46,132,255,0.3);
+  color: #2e84ff;
+}
+
+/* Dropdown (menu) */
+body.dark-mode .gradereport-grader-table .dropdown-menu {
+  background: #121416;
+  color: #d7e1ea;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+body.dark-mode .gradereport-grader-table .dropdown-item {
+  color: #d7e1ea;
+}
+body.dark-mode .gradereport-grader-table .dropdown-item:hover,
+body.dark-mode .gradereport-grader-table .dropdown-item.dropdown-item-active {
+  background: rgba(46,132,255,0.08);
+  color: #2e84ff;
+}
+
+/* Ikonki (fa) – odcień dla akcentów */
+body.dark-mode .gradereport-grader-table .icon {
+  color: #c7d6e8;
+}
+body.dark-mode .gradereport-grader-table .icon:hover {
+  color: #2e84ff;
+}
+
+/* Drobne poprawki spacing / responsywność */
+body.dark-mode .gradereport-grader-table caption,
+body.dark-mode .gradereport-grader-table .accesshide {
+  color: #9aa6b2 !important;
+}
+
+/* Jeśli chcesz całkowicie usunąć border-box wokół tabeli (zewnętrzny border),
+   dodaj poniżej (uważaj: wpływa na layout): */
+body.dark-mode .gradereport-grader-table {
+  border: none !important;
+}
+
+/* Jeśli chcesz aby nagłówki kolumn miały delikatne tło */
+body.dark-mode .gradereport-grader-table tr.heading th {
+  background: rgba(255,255,255,0.02);
+}
+
+/* Pomocnicze: focus/hover dla wierszy (lepsza widoczność) */
+body.dark-mode .gradereport-grader-table tr.userrow:hover {
+  background: rgba(46,132,255,0.03);
+}
+
+/* Sticky footer - dark mode */
+body.dark-mode #sticky-footer.stickyfooter {
+  background: #0f1112 !important;        /* ciemne tło */
+  border-top: 1px solid rgba(255,255,255,0.04) !important; /* delikatna linia */
+  color: #d8dee9 !important;
+}
+
+/* wrapper / content */
+body.dark-mode #sticky-footer .sticky-footer-content-wrapper,
+body.dark-mode #sticky-footer .sticky-footer-content {
+  background: transparent !important;
+  color: #d8dee9 !important;
+}
+
+/* kolumny/label */
+body.dark-mode #sticky-footer label,
+body.dark-mode #sticky-footer .col,
+body.dark-mode #sticky-footer .col-auto {
+  color: #cfe6ff !important;
+}
+
+/* select (formularz) */
+body.dark-mode #sticky-footer .form-select {
+  background: #141617 !important;
+  color: #e6f0ff !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  box-shadow: none !important;
+}
+
+/* opcje selecta (niektóre przeglądarki) */
+body.dark-mode #sticky-footer .form-select option {
+  background: #141617 !important;
+  color: #e6f0ff !important;
+}
+
+/* focus i hover dla select */
+body.dark-mode #sticky-footer .form-select:focus,
+body.dark-mode #sticky-footer .form-select:hover {
+  border-color: rgba(46,132,255,0.35) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(46,132,255,0.06) !important;
+}
+
+/* przyciski/elementy w footerze (jeśli będą) */
+body.dark-mode #sticky-footer .btn,
+body.dark-mode #sticky-footer .btn-link {
+  color: #cfe6ff !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+}
+body.dark-mode #sticky-footer .btn:hover {
+  color: #ffffff !important;
+}
+
+/* opcjonalnie usuń ostre obramowanie i zmiękcz krawędzie */
+body.dark-mode #sticky-footer,
+body.dark-mode #sticky-footer .sticky-footer-content {
+  border-radius: 0 !important;
+}
+
+body.dark-mode .dropdown-toggle[role="combobox"] {
+    color: #ffffff !important;
+    background-color: #141617 !important;
+    border-color: rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode input.form-control.withclear.rounded::placeholder {
+    color: #ffffff !important;
+    opacity: 0.7; /* żeby wyglądało jak placeholder */
+}
