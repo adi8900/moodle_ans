@@ -533,7 +533,7 @@ body.dark-mode #topofscroll.main-inner a:hover {
 
 body.dark-mode #topofscroll.main-inner p,
 body.dark-mode #topofscroll.main-inner span {
-    color: #e6e6e6 !important;
+    color: #e5e5e5 !important;
 }
 
 body.dark-mode #topofscroll.main-inner .card,
@@ -547,10 +547,8 @@ body.dark-mode #topofscroll.main-inner .card-body {
    DARK MODE – PASEK ZAKŁADEK ADMINA
    (Ogólne / Użytkownicy / Kursy / …)
    ======================================================= */
-
-/* Bazowe zakładki */
-body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link {
-    color: #9acaff !important;
+body.dark-mode .nav.more-nav.nav-tabs .nav-link {
+    color: #9acaff !important;           /* light blue text for unselected tabs */
     background-color: transparent !important;
     border: 1px solid transparent !important;
     border-radius: .25rem .25rem 0 0 !important;
@@ -558,21 +556,38 @@ body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link {
 }
 
 /* Hover */
-body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link:hover {
-    color: #cfe3ff !important;
+body.dark-mode .nav.more-nav.nav-tabs .nav-link:hover {
+    color: #cfe3ff !important;          /* brighter blue on hover */
     background-color: #1b1b1b !important;
     border-color: #2a2a2a #2a2a2a #111111 !important;
 }
 
-/* Aktywna zakładka */
-body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link.active,
-body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link.active_tree_node {
-    color: #ffffff !important;
-    background-color: #245caa !important;
+/* Selected tab */
+body.dark-mode .nav.more-nav.nav-tabs .nav-link[aria-selected="true"] {
+    color: #ffffff !important;          /* white text for the active tab */
+    background-color: #245caa !important; 
     border-color: #245caa #245caa #111111 !important;
     font-weight: 600 !important;
 }
 
+/* Ensure root tab "Ogólne" doesn't look selected if not really active */
+body.dark-mode .nav.more-nav.nav-tabs .nav-link.active_tree_node[aria-selected="false"] {
+    color: #9acaff !important;          /* same as normal unselected tabs */
+    background-color: transparent !important;
+    border-color: transparent !important;
+    font-weight: normal !important;
+}
+
+/* ------------------------------ */
+/*  FIX FOR Ogólne ROOT TAB       */
+/*  Prevents always-active style  */
+/* ------------------------------ */
+body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link.active_tree_node {
+    background-color: transparent !important;
+    color: #9acaff !important;
+    border-color: transparent !important;
+    font-weight: normal !important;
+}
 /* =======================================================
    DARK MODE – GŁÓWNE MENU (PRZYCIEMNIONE)
    ======================================================= */
@@ -3276,4 +3291,109 @@ body.dark-mode .dropdown-toggle[role="combobox"] {
 body.dark-mode input.form-control.withclear.rounded::placeholder {
     color: #ffffff !important;
     opacity: 0.7; /* żeby wyglądało jak placeholder */
+}
+
+/* Calendar block in drawer */
+body.dark-mode #theme_boost-drawers-blocks section.block_calendar_month
+  .maincalendar td.day.clickable:hover .day-number-circle {
+  background-color: #548abb !important;
+  color: #ffffff !important;
+  border-color: #548abb !important;
+}
+
+/* upewnij się, że tekst numeru też zmienia kolor */
+body.dark-mode #theme_boost-drawers-blocks section.block_calendar_month
+  .maincalendar td.day.clickable:hover .day-number-circle .day-number {
+  color: #ffffff !important;
+}
+
+/* Powiadomienia */
+body.dark-mode .alert-info{
+--bs-alert-color: #ffffff !important;
+--bs-alert-bg: #2a2515 !important;
+}
+
+body.dark-mode caption{
+    color: rgb(74 163 255) !important;
+}
+
+body.dark-mode .preferences-container .preference-table tr td:nth-child(even) {
+   border: 0 !important;
+   border-top: 1px solid #333333 !important;
+   border-bottom: 1px solid #333333 !important;
+}
+
+body.dark-mode .preferences-container .preference-table tr th {
+    border-left: 1px solid #333 !important;
+}
+
+body.dark-mode .form-check-input[type="checkbox"]{
+background-color: #4aa3f7 !important;
+}
+
+body.dark-mode .courses .coursebox.even{
+background: #181818;
+}
+body.dark-mode .content-item-container.unread {
+    background-color: #ffffff;
+    color: black;
+}
+body.dark-mode .content-item-container.unread:hover {
+    color: white;
+}
+
+body.dark-mode .version .versionnumber, .notes .requiredby, .pluginname .componentname {
+    color: #fff !important;
+}
+
+body.dark-mode #adminsettings h3, #adminsettings .h3{
+    border-bottom: 1px solid #2b2828;
+}
+
+body.dark-mode .form-text{
+   color: rgb(255 255 255 / 75%);
+}
+
+body.dark-mode .swagger-ui .scheme-container{
+   background: #181818 !important;
+}
+
+body.dark-mode .nav-tabs{
+--bs-nav-tabs-border-color: #245caa !important;
+--bs-nav-tabs-link-active-bg: #245caa !important;
+--bs-nav-tabs-link-hover-border-color: #245caa !important;
+--bs-nav-tabs-link-active-border-color: #245caa !important; 
+}
+
+
+body.dark-mode .fp-iconview .fp-filename-field .fp-filename{
+background: #1a1a1a !important;
+}
+
+body.dark-mode .fp-iconview .fp-thumbnail, .fp-thumbnail img{
+border-color:#074b88 !important; 
+}
+
+body.dark-mode .swagger-ui .opblock .opblock-section-header{
+   background: #181818 !important;
+}
+
+body.dark-mode .swagger-ui .json-schema-2020-12__title {
+   color: #e5e5e5 !important;
+}
+
+body.dark-mode .swagger-ui .expand-methods, .swagger-ui .expand-operation {
+    background-color: #61affe !important;
+}
+
+body.dark-mode .swagger-ui .opblock .opblock-summary-description {
+    color: #fff !important;
+}
+
+body.dark-mode .form-autocomplete-suggestions {
+    background-color: #222 !important;
+}
+
+body.dark-mode ul.form-autocomplete-suggestions li[role="option"] {
+    color: #fff !important;
 }
