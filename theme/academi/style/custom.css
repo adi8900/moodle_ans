@@ -3677,3 +3677,180 @@ line-height: 1 !important;
 line-height: 1 !important;
 color: #fff;
 }
+
+/* ASW - dark mode (only when body has .dark-mode) */
+body.dark-mode .asw-menu-content {
+  background: #0f1215 !important;
+  color: #dbeefc !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6) !important;
+}
+
+/* cards */
+body.dark-mode .asw-menu-content .asw-card {
+  background: #171a1f !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  color: #dceffd !important;
+}
+
+/* card titles */
+body.dark-mode .asw-menu-content .asw-card-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.03) !important;
+  padding-bottom: 0.45rem !important;
+}
+
+/* select (language) */
+body.dark-mode .asw-menu-content .asw-select,
+body.dark-mode .asw-menu-content .asw-select option {
+  background: #0b0d10 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* controls (plus/minus / amount) */
+body.dark-mode .asw-menu-content .asw-minus,
+body.dark-mode .asw-menu-content .asw-plus {
+  background: #212428 !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  padding: 6px !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+}
+body.dark-mode .asw-menu-content .asw-amount {
+  color: #cfe6ff !important;
+  min-width: 44px !important;
+  text-align: center !important;
+}
+
+/* buttons */
+body.dark-mode .asw-menu-content .asw-btn {
+  background: transparent !important;
+  color: #cfe6ff !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  padding: .45rem .6rem !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: .5rem !important;
+}
+body.dark-mode .asw-menu-content .asw-btn:hover,
+body.dark-mode .asw-menu-content .asw-btn:focus {
+  background: rgba(84,138,187,0.12) !important; /* subtle blue */
+  color: #ffffff !important;
+  border-color: rgba(84,138,187,0.28) !important;
+}
+
+/* "filter" / selected state */
+body.dark-mode .asw-menu-content .asw-filter.selected,
+body.dark-mode .asw-menu-content .asw-btn.selected {
+  background: #548abb !important;
+  color: #fff !important;
+  border-color: #548abb !important;
+}
+
+/* SVG icons inside buttons — force visible in dark */
+body.dark-mode .asw-menu-content .asw-btn svg path,
+body.dark-mode .asw-menu-content .asw-card svg path {
+  fill: #cfe6ff !important;
+  stroke: none !important;
+}
+
+/* card footer / reset button */
+body.dark-mode .asw-menu-content .asw-menu-reset {
+  background: transparent !important;
+  color: #ffebc8 !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+}
+
+/* small touches */
+body.dark-mode .asw-menu-content .asw-card + .asw-card {
+  margin-top: 10px !important;
+}
+
+/* ensure text inside paragraphs is readable */
+body.dark-mode .asw-menu-content .asw-card p,
+body.dark-mode .asw-menu-content .asw-card .asw-translate {
+  color: #dbeefc !important;
+}
+
+/* scrollbar for select / long lists (WebKit) */
+body.dark-mode .asw-menu-content .asw-select::-webkit-scrollbar { height:8px; width:8px; }
+body.dark-mode .asw-menu-content .asw-select::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius:6px; }
+
+/* keep specificity high to avoid unwanted overrides */
+
+/* tylko dla bloku "Dostosuj rozmiar czcionki" w dark mode */
+body.dark-mode .asw-menu-content .asw-adjust-font {
+  background: #121417 !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  color: #dbeefc !important;
+  padding: 10px !important;
+  border-radius: 8px !important;
+}
+
+/* etykieta + SVG */
+body.dark-mode .asw-menu-content .asw-adjust-font .asw-label,
+body.dark-mode .asw-menu-content .asw-adjust-font .asw-label .asw-translate {
+  color: #e8f6ff !important;
+  font-weight: 600 !important;
+}
+body.dark-mode .asw-menu-content .asw-adjust-font .asw-label svg path {
+  fill: #cfe6ff !important;
+}
+
+/* przyciski minus/plus */
+body.dark-mode .asw-menu-content .asw-adjust-font .asw-minus,
+body.dark-mode .asw-menu-content .asw-adjust-font .asw-plus {
+  background: #1b1f23 !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  padding: 6px 8px !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+}
+body.dark-mode .asw-menu-content .asw-adjust-font .asw-minus:hover,
+body.dark-mode .asw-menu-content .asw-adjust-font .asw-plus:hover {
+  background: rgba(84,138,187,0.12) !important;
+  border-color: rgba(84,138,187,0.25) !important;
+}
+
+/* wartość procentowa */
+body.dark-mode .asw-menu-content .asw-adjust-font .asw-amount {
+  color: #cfe6ff !important;
+  min-width: 48px !important;
+  text-align: center !important;
+  display: inline-block !important;
+  padding: 6px 8px !important;
+}
+
+/* svg inside plus/minus */
+body.dark-mode .asw-menu-content .asw-adjust-font .asw-minus svg path,
+body.dark-mode .asw-menu-content .asw-adjust-font .asw-plus svg path {
+  fill: #ffffff !important;
+}
+
+/* DARK MODE — stopka Sienna */
+body.dark-mode .asw-footer {
+    background: #121417 !important;
+    border-top: 1px solid rgba(255,255,255,0.05) !important;
+    padding: 12px 10px !important;
+    text-align: center !important;
+}
+
+body.dark-mode .asw-menu-content .asw-footer a {
+    color: #e8f6ff !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+}
+
+body.dark-mode .asw-menu-content .asw-footer a:hover {
+    color: #a8d1ff !important;
+}
+
+body.dark-mode .asw-menu-content .asw-footer span {
+    color: #ffffff !important;  /* "Sienna" */
+    font-weight: 700 !important;
+}
