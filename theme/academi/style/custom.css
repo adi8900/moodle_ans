@@ -547,46 +547,91 @@ body.dark-mode #topofscroll.main-inner .card-body {
    DARK MODE – PASEK ZAKŁADEK ADMINA
    (Ogólne / Użytkownicy / Kursy / …)
    ======================================================= */
-body.dark-mode .nav.more-nav.nav-tabs .nav-link {
-    color: #9acaff !important;           /* light blue text for unselected tabs */
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs .nav-link {
+    color: #9acaff !important;
     background-color: transparent !important;
     border: 1px solid transparent !important;
     border-radius: .25rem .25rem 0 0 !important;
-    transition: 0.15s ease;
+    transition: 0.15s ease !important;
 }
 
-/* Hover */
-body.dark-mode .nav.more-nav.nav-tabs .nav-link:hover {
-    color: #cfe3ff !important;          /* brighter blue on hover */
+/* -------------------------
+   Hover
+   ------------------------- */
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs .nav-link:hover {
+    color: #cfe3ff !important;
     background-color: #1b1b1b !important;
     border-color: #2a2a2a #2a2a2a #111111 !important;
 }
 
-/* Selected tab */
-body.dark-mode .nav.more-nav.nav-tabs .nav-link[aria-selected="true"] {
-    color: #ffffff !important;          /* white text for the active tab */
-    background-color: #245caa !important; 
-    border-color: #245caa #245caa #111111 !important;
+/* -------------------------
+   True active tab (actual)
+   matches aria-selected="true"
+   ------------------------- */
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs > li.nav-item > a.nav-link[aria-selected="true"],
+body.dark-mode .secondary-navigation .moremenu.navigation .nav.more-nav.nav-tabs > li.nav-item > a.nav-link.active[aria-selected="true"] {
+    color: #ffffff !important;
+    background-color: #245caa !important;
+    border-color: #245caa #245caa #181818 !important;
     font-weight: 600 !important;
 }
 
-/* Ensure root tab "Ogólne" doesn't look selected if not really active */
-body.dark-mode .nav.more-nav.nav-tabs .nav-link.active_tree_node[aria-selected="false"] {
-    color: #9acaff !important;          /* same as normal unselected tabs */
+/* ---------------------------------------------------------
+   OVERRIDE: specifically target Ogólne (siteadminnode)
+   and remove the "active" look when it is NOT actually active
+   --------------------------------------------------------- */
+
+/* Primary override — higher specificity than Moodle's rule above */
+body.dark-mode
+  .secondary-navigation
+  .moremenu.navigation
+  .nav.more-nav.nav-tabs
+  > li.nav-item[data-key="siteadminnode"]
+  > a.nav-link.active_tree_node[aria-selected="false"] {
+    color: #9acaff !important;
     background-color: transparent !important;
     border-color: transparent !important;
     font-weight: normal !important;
+    box-shadow: none !important;
 }
 
-/* ------------------------------ */
-/*  FIX FOR Ogólne ROOT TAB       */
-/*  Prevents always-active style  */
-/* ------------------------------ */
-body.dark-mode ul.nav.more-nav.nav-tabs li.nav-item > a.nav-link.active_tree_node {
-    background-color: transparent !important;
+/* Extra fail-safe: if Moodle used a slightly different path or also left .active,
+   explicitly neutralize any .active or matching rule when aria-selected is false */
+body.dark-mode
+  .secondary-navigation
+  .moremenu.navigation
+  .nav.more-nav.nav-tabs
+  > li.nav-item[data-key="siteadminnode"]
+  > a.nav-link.active[aria-selected="false"],
+body.dark-mode
+  .secondary-navigation
+  .moremenu.navigation
+  .nav.more-nav.nav-tabs
+  > li.nav-item[data-key="siteadminnode"]
+  > a.nav-link.active_tree_node.active[aria-selected="false"] {
     color: #9acaff !important;
+    background-color: transparent !important;
     border-color: transparent !important;
     font-weight: normal !important;
+    box-shadow: none !important;
+}
+
+/* ---------------------------------------------------------
+   VERY NUCLEAR fallback — if Moodle still forces the style
+   with a very-specific selector (rare), this will win:
+   (increase specificity by repeating the path)
+   --------------------------------------------------------- */
+body.dark-mode
+  .secondary-navigation.secondary-navigation
+  .moremenu.navigation.moremenu.navigation
+  .nav.more-nav.nav-tabs.nav.more-nav.nav-tabs
+  > li.nav-item[data-key="siteadminnode"]
+  > a.nav-link.active_tree_node[aria-selected="false"] {
+    color: #9acaff !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    font-weight: normal !important;
+    box-shadow: none !important;
 }
 /* =======================================================
    DARK MODE – GŁÓWNE MENU (PRZYCIEMNIONE)
@@ -695,9 +740,8 @@ body.dark-mode .divider-content .add-content:active {
 
 /* Tło całego paska (ten <div class="container-fluid navbar-nav">) */
 body.dark-mode .container-fluid.navbar-nav {
-    background-color: #181818 !important;   /* jak chciałeś – ciemne tło */
+    background-color: #181818 !important;
     border-top: 1px solid #222 !important;
-    border-bottom: 1px solid #222 !important;
 }
 
 /* Lewa część – USOSweb / Mobilny USOS */
@@ -3328,7 +3372,7 @@ body.dark-mode .preferences-container .preference-table tr th {
 }
 
 body.dark-mode .form-check-input[type="checkbox"]{
-background-color: #4aa3f7 !important;
+background-color: #1e1e1e !important;
 }
 
 body.dark-mode .courses .coursebox.even{
@@ -3396,4 +3440,240 @@ body.dark-mode .form-autocomplete-suggestions {
 
 body.dark-mode ul.form-autocomplete-suggestions li[role="option"] {
     color: #fff !important;
+}
+
+body.dark-mode .slotnumber,
+body.dark-mode .slotnumber .inplaceeditable,
+body.dark-mode .slotnumber .quickeditlink,
+body.dark-mode .slotnumber .quickediticon {
+    background-color: #1e1e1e !important;
+    color: #e5e5e5 !important;      
+}
+
+/* Hover effect for quick edit link */
+body.dark-mode .slotnumber .quickeditlink:hover {
+    background-color: #2a2a2a !important;
+    color: #74b0ff !important; /* subtle blue highlight for interaction */
+}
+
+/* Pen icon color adjustment */
+body.dark-mode .slotnumber .quickediticon i {
+    color: #74b0ff !important; /* same blue as hover text */
+}
+
+/* Optional: remove default link underline in dark mode */
+body.dark-mode .slotnumber .quickeditlink {
+    text-decoration: none !important;
+}
+body.dark-mode .editing_move i.fa-arrows-up-down-left-right {
+    font-family: "Font Awesome 6 Free" !important; /* solid FA */
+    font-weight: 900 !important;                   /* solid icons need font-weight 900 */
+    color: #74b0ff;                                /* optional: blue arrow in dark mode */
+}
+
+/* Narzedzia ulatwien dostepu */
+body.dark-mode .mform fieldset {
+   border-bottom: 1px solid #1e1e1e !important;
+}
+/* ===============================
+   DARK MODE – YUI 3 DATA TABLE
+   =============================== */
+
+body.dark-mode .report-eventlist-data-table .yui3-datatable-table {
+    background: #111 !important;
+    border-collapse: collapse !important;
+    width: 100%;
+    color: #e0e0e0 !important;
+}
+
+/* --- TABLE HEADERS ---------------------------------------- */
+
+body.dark-mode .yui3-datatable-header {
+    background: #1b1b1b !important;
+    color: #d7e6ff !important;
+    border-bottom: 1px solid #333 !important;
+    padding: 10px !important;
+}
+
+/* Sortable header hover */
+body.dark-mode .yui3-datatable-header .yui3-datatable-sort-liner:hover {
+    background: #252525 !important;
+}
+
+/* --- TABLE ROWS ------------------------------------------- */
+
+body.dark-mode .yui3-datatable-even {
+    background: #161616 !important;
+}
+
+body.dark-mode .yui3-datatable-odd {
+    background: #1d1d1d !important;
+}
+
+/* Hover on rows */
+body.dark-mode .yui3-datatable-data tr:hover {
+    background: #2a2a2a !important;
+}
+
+/* Cells */
+body.dark-mode .yui3-datatable-cell {
+    border-bottom: 1px solid #2a2a2a !important;
+    padding: 8px 10px !important;
+    color: #e0e0e0 !important;
+}
+
+/* --- LINKS ------------------------------------------------- */
+
+body.dark-mode .report-eventlist-data-table a {
+    color: #9acaff !important;
+}
+
+body.dark-mode .report-eventlist-data-table a:hover {
+    color: #cfe3ff !important;
+}
+
+/* Secondary span below event name */
+body.dark-mode .report-eventlist-name {
+    color: #9e9e9e !important;
+}
+
+/* --- SORT ICON PLACEHOLDER -------------------------------- */
+
+body.dark-mode .yui3-datatable-sort-indicator {
+    filter: brightness(0.7);
+}
+
+/* --- WHEN NO DATA MESSAGE --------------------------------- */
+
+body.dark-mode .yui3-datatable-message-content {
+    background: #181818 !important;
+    color: #aaaaaa !important;
+    padding: 15px !important;
+}
+body.dark-mode .report-eventlist-data-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    color: #e0e0e0 !important;
+    font-family: 'Lato', sans-serif !important;
+}
+
+/* Table header */
+body.dark-mode .report-eventlist-data-table th {
+    background-color: #222 !important;
+    color: #e0e0e0 !important;
+    border-bottom: 1px solid #444 !important;
+    padding: 6px 8px !important;
+}
+
+/* Even rows */
+body.dark-mode .report-eventlist-data-table tr.yui3-datatable-even {
+    background-color: #161616 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Odd rows */
+body.dark-mode .report-eventlist-data-table tr.yui3-datatable-odd {
+    background-color: #1d1d1d !important;
+    color: #e0e0e0 !important;
+}
+
+/* Cells inside all rows */
+body.dark-mode .report-eventlist-data-table tr td {
+    background-color: inherit !important;
+    color: inherit !important;
+    padding: 6px 8px !important;
+    border-bottom: 1px solid #2a2a2a !important;
+}
+
+/* Hover effect for rows */
+body.dark-mode .report-eventlist-data-table tr:hover td {
+    background-color: #2a2a2a !important;
+}
+
+/* Links inside cells */
+body.dark-mode .report-eventlist-data-table td a {
+    color: #9acaff !important;
+    text-decoration: none !important;
+}
+
+body.dark-mode .report-eventlist-data-table td a:hover {
+    color: #cfe3ff !important;
+    text-decoration: underline !important;
+}
+
+/* Inner event name spans */
+body.dark-mode .report-eventlist-data-table .report-eventlist-name {
+    color: #9e9e9e !important;
+    font-size: 0.85em !important;
+    display: block !important;
+    margin-top: 2px !important;
+}
+
+/* Optional: table caption, if any */
+body.dark-mode .report-eventlist-data-table caption {
+    color: #e0e0e0 !important;
+    font-weight: bold !important;
+    margin-bottom: 6px !important;
+}
+
+/* Scrollbar inside the table */
+body.dark-mode .report-eventlist-data-table::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+body.dark-mode .report-eventlist-data-table::-webkit-scrollbar-thumb {
+    background-color: #555 !important;
+    border-radius: 4px !important;
+}
+
+body.dark-mode .report-eventlist-data-table::-webkit-scrollbar-track {
+    background-color: #222 !important;
+}
+
+/* Ensure empty cells show correctly */
+body.dark-mode .report-eventlist-data-table td:empty::after {
+    content: "\00a0" !important; /* non-breaking space */
+}
+/* Remove left border for your table cells only */
+body.dark-mode .report-eventlist-data-table .yui3-datatable-cell,
+body.dark-mode .report-eventlist-data-table .yui3-datatable-header {
+    border: 1px solid #868383 !important;
+}
+
+body.dark-mode .generaltable th, .generaltable td{
+border: 1px solid #868383  !important;
+}
+
+body.dark-mode .generaltable thead th, .generaltable thead td {
+border: 1px solid #868383 !important;
+}
+body.dark-mode [data-fieldtype="modgrade"]{
+background-color: #1e1e1e !important;
+}
+body.dark-mode .alert-success {
+    background-color: #469b3f !important;  /* override the actual background */
+    border-color: #469b3f !important;      /* optional: match border */
+    color: #ffffff !important;              /* optional: text color */
+}
+body.dark-mode .btn-icon:hover{
+    background-color:#6d757d !important;
+}
+
+body.dark-mode .border {
+   border-color: #353637 !important;
+}
+
+body.dark-mode .list-group{
+  --bs-list-group-action-active-bg: #222 !important;
+}
+
+/* dark-mode button */
+
+body.dark-mode #usernavigation .btn.btn-sm.btn-outline-secondary {
+line-height: 1 !important;
+}
+#usernavigation .btn.btn-sm.btn-outline-secondary {
+line-height: 1 !important;
+color: #fff;
 }
