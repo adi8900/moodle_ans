@@ -172,9 +172,10 @@ body.dark-mode h6 {
     color: #ffffff !important;
 }
 
-body.dark-mode p,
-body.dark-mode span,
-body.dark-mode label {
+body.dark-mode p:not(.userinitials),
+body.dark-mode span:not(.userinitials),
+body.dark-mode label:not(.userinitials)
+{
     color: #e5e5e5 !important;
 }
 
@@ -532,7 +533,7 @@ body.dark-mode #topofscroll.main-inner a:hover {
 }
 
 body.dark-mode #topofscroll.main-inner p,
-body.dark-mode #topofscroll.main-inner span {
+body.dark-mode #topofscroll.main-inner span:not(.userinitials) {
     color: #e5e5e5 !important;
 }
 
@@ -3853,4 +3854,23 @@ body.dark-mode .asw-menu-content .asw-footer a:hover {
 body.dark-mode .asw-menu-content .asw-footer span {
     color: #ffffff !important;  /* "Sienna" */
     font-weight: 700 !important;
+}
+/*Zmiana w profilowym*/
+body.dark-mode .userinitials {
+  color: black !important;
+}
+
+/* DARK MODE for quiz navigation buttons */
+body.dark-mode a[id^="quiznavbutton"] {
+    background-color: #181818 !important;
+    border: 2px solid #074B88 !important; /* Twój primary */
+    color: #8ab4f8 !important; /* jasny niebieski tekst */
+    border-radius: 4px !important;
+    transition: background-color .2s, border-color .2s, color .2s;
+}
+
+body.dark-mode a[id^="quiznavbutton"]:hover {
+    background-color: #0f6cbf !important; /* jasny niebieski */
+    border-color: #3fa9ff !important;
+    color: #fff !important;
 }
