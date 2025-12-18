@@ -608,15 +608,16 @@ a:not([class]):focus,
     background: none;
     box-shadow: none;
 }
-
-
+/* --- edytowane, bo header sie rozszerza niepotrzebnie ---*/
+/*
 @media (min-width: 992px) {
     .container-fluid {
         padding-left: 40px;
         padding-right: 40px;
     }
 }
-
+*/
+/* to nie jest tryb edycji */
 @media (max-width: 767px) {
     textarea[cols],
     input[size] {

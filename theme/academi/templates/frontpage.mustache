@@ -41,9 +41,9 @@
         "bodyattributes":"",
         "sidepreblocks": "<h2>Blocks html goes here</h2>",
         "hasblocks":true,
-        "courseindexopen": true,
-        "navdraweropen": false,
-        "blockdraweropen": true,
+        "courseindexopen": false,
+        "navdraweropen": true,
+        "blockdraweropen": false,
         "regionmainsettingsmenu": "",
         "hasregionmainsettingsmenu": false,
         "addblockbutton": ""
@@ -79,7 +79,7 @@
         {{#hasblocks}}
             {{< theme_boost/drawer }}
                 {{$id}}theme_boost-drawers-blocks{{/id}}
-                {{$drawerclasses}}drawer drawer-left{{#blockdraweropen}} show{{/blockdraweropen}}{{/drawerclasses}}
+                {{$drawerclasses}}drawer drawer-left show{{/drawerclasses}}
                 {{$drawercontent}}
                     <section class="d-print-none" aria-label="{{#str}}blocks{{/str}}">
                         {{{ addblockbutton }}}

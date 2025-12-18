@@ -78,6 +78,7 @@ body#page-site-index .stats-banner {
    ========================= */
 
 /* Tablet i mniejsze */
+/* wcześniej 992px */
 @media (max-width: 992px) {
     .stats-banner {
         padding: 32px 20px !important;
@@ -123,6 +124,7 @@ body#page-site-index .stats-banner {
         gap: 16px;
     }
     .stat-hr { width: 56px; }
+    .stat-label { font-size: .50rem; }
 }
 
 /* Header Slider */

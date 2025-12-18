@@ -355,8 +355,8 @@
         }
     }
 }
-
-@media (min-width: 992px) {
+/*min-width: 992px*/
+@media (min-width: 503px) {
     #header {
         &.fixed-top {
             padding: 0 40px;
@@ -380,12 +380,12 @@
         &.navbar .nav-collapse.in .nav .dropdown-submenu.open > a {
             background: $primary;
         }
-        .nav.navbar-nav {
+        /*.nav.navbar-nav {
             display: flex;
             li.nav-item .popover-region {
                 margin-top: 7px;
             }
-        }
+        }*/
         .usermenu .moodle-actionmenu .toggle-display.textmenu {
             padding: 5px 15px;
         }
@@ -432,7 +432,7 @@
         }
     }
 }
-
+/* zmiana pozycji USOS oraz prawej strony (wcześniej 416px */
 @media (max-width: 416px) {
     #header #usernavigation {
         width: auto !important;
@@ -496,15 +496,16 @@
                 }
             }
             .navbar-brand.has-logo {
-                max-width: 200px;
+                max-width: 280px;
                 float: left;
                 padding: 0;
                 margin: 10px 0;
                 .logo {
                     margin-right: 10px;
                     img {
-                        height: auto;
-                        max-height: 90px;
+                        /*height: auto;*/
+			/*max-height: 90px;*/
+                        
                         object-fit: contain;
                     }
                 }
@@ -751,8 +752,8 @@
 /* --------------------------- */
 /* MOBILE HEADER FULL FIX      */
 /* --------------------------- */
-
-@media (max-width: 416px) {//991
+/* bylo 416px */
+@media (max-width: 503px) {//991
   /* Pozwól nagłówkowi rosnąć */
   #header,
   #header .navbar,
@@ -760,7 +761,8 @@
     height: 90px;//61
     margin-inline: auto;
   }
-@media (max-width: 416px) {
+/* bylo 416px */
+@media (max-width: 503px) {
 .navbar-nav.address-head {
         display: flex !important;          /* Upewniamy się, że jest widoczny (mimo klasy hidden-*) */
         width: 100% !important;            /* Zajmuje całą szerokość, spadając do nowej linii */
@@ -768,7 +770,7 @@
         margin: 0 !important;              /* Usuwa ewentualne marginesy boczne */         
     }
   #header.navbar.fixed-top .navbar-nav {
-	height: 75%;
+	height: 69%;
 	}
 }
   /* Główny kontener jako flex zawijany */
@@ -788,6 +790,7 @@
   }
 
   /* Tryb edycji — drugi rząd pod ikonami, cały w navbarze */
+
   #header .editmode-switch-form {
     position: static !important;
     flex: 1 0 100%;
@@ -804,12 +807,14 @@
 }
 
 /* Trochę więcej miejsca na badgety (5 / 1) w nagłówku mobile */
+/* do wyjebania */
+/*
 @media (max-width: 575px) {
   #header.navbar.fixed-top {
     padding-bottom: 10px;   // zwiększ dolny padding nagłówka
   }
 }
-
+*/
 #header .count-container {
   position: relative;
   top: -3px;      // w razie potrzeby zmień na -3 / -4

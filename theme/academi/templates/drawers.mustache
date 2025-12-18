@@ -74,7 +74,7 @@
         {{#hasblocks}}
             {{< theme_boost/drawer }}
                 {{$id}}theme_boost-drawers-blocks{{/id}}
-                {{$drawerclasses}}drawer drawer-left{{#blockdraweropen}} show{{/blockdraweropen}}{{/drawerclasses}}
+                {{$drawerclasses}}drawer drawer-left show{{/drawerclasses}}
                 {{$drawercontent}}
                     <section class="d-print-none" aria-label="{{#str}}blocks{{/str}}">
                         {{{ addblockbutton }}}
@@ -119,9 +119,9 @@
                                 data-placement="left"
                                 title="{{#str}}opendrawerblocks, core{{/str}}"
                             >
-                                <span class="sr-only">{{#str}}opendrawerblocks, core{{/str}}</span>
-                                <span class="dir-rtl-hide">{{#pix}}t/blocks_drawer, core{{/pix}}</span>
-                                <span class="dir-ltr-hide">{{#pix}}t/blocks_drawer_rtl, core{{/pix}}</span>
+<span class="dir-rtl-hide">{{#pix}}t/blocks_drawer, core{{/pix}}</span>
+<span class="sr-only">{{#str}}opendrawerblocks, core{{/str}}</span>
+<span class="dir-ltr-hide">{{#pix}}t/blocks_drawer_rtl, core{{/pix}}</span>
                             </button>
                         </div>
                     {{/hasblocks}}

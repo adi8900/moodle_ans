@@ -64,10 +64,10 @@ $PAGE->set_heading(get_string('mycourses'));
 // - Course overview is a fixed item on the page and cannot be moved/removed.
 // - We do not want new blocks on the page.
 // - Only global blocks (if any) should be visible on the site panel, and cannot be moved int othe centre pane.
-$PAGE->force_lock_all_blocks();
+//$PAGE->force_lock_all_blocks();
 
 // Force the add block out of the default area.
-$PAGE->theme->addblockposition  = BLOCK_ADDBLOCK_POSITION_CUSTOM;
+//$PAGE->theme->addblockposition  = BLOCK_ADDBLOCK_POSITION_CUSTOM;
 
 // Add course management if the user has the capabilities for it.
 $coursecat = core_course_category::user_top();
