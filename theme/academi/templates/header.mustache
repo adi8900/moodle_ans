@@ -35,14 +35,14 @@
     <div class="header-main">
         <div class="container-fluid">
             <nav class="navbar navbar-light bg-faded navbar-expand">
-                <a href="{{{ config.wwwroot }}}/?redirect=0" class="navbar-brand {{# logourl }}has-logo{{/ logourl }}
+                <a href="{{{ config.wwwroot }}}/?redirect=0" class="show-drawer-left navbar-brand {{# logourl }}has-logo{{/ logourl }}
                 {{^ logourl }}
                     hidden-sm-down
                 {{/ logourl }}
                     ">
                 {{#showlogo}}
                     {{# logourl }}
-                        <span class="logo">
+                        <span class="logo show-drawer-left">
                             <img src="{{logourl}}" alt="{{sitename}}">
                         </span>
                     {{/ logourl }}
