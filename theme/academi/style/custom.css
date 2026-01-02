@@ -2590,7 +2590,7 @@ body.dark-mode .tox .tox-icon image {
 }
 body.dark-mode .table thead th,
 body.dark-mode .generaltable thead th {
-    background-color: #2b2b2b !important;
+    background-color: #181818 !important;
     color: #e0e0e0 !important;
     border-color: #444 !important;
 }
@@ -3057,7 +3057,7 @@ body.dark-mode .drawer[data-region="right-hand-drawer"] .emoji-picker .btn-outli
 }
 
 body.dark-mode .table>:not(caption)>*>* {
-    background-color: #2b2b2b;
+    background-color: #181818 !important;
     color: white;
 }
 
@@ -3356,6 +3356,10 @@ body.dark-mode #theme_boost-drawers-blocks section.block_calendar_month
   border-color: #548abb !important;
 }
 
+body.dark-mode .dayblank {
+    background-color: #1a1a1a !important;
+}
+
 /* upewnij się, że tekst numeru też zmienia kolor */
 body.dark-mode #theme_boost-drawers-blocks section.block_calendar_month
   .maincalendar td.day.clickable:hover .day-number-circle .day-number {
@@ -3652,11 +3656,11 @@ body.dark-mode .report-eventlist-data-table .yui3-datatable-header {
     border: 1px solid #868383 !important;
 }
 
-body.dark-mode .generaltable th, .generaltable td{
+body.dark-mode .generaltable th, body.dark-mode .generaltable td{
 border: 1px solid #868383  !important;
 }
 
-body.dark-mode .generaltable thead th, .generaltable thead td {
+body.dark-mode .generaltable thead th, body.dark-mode .generaltable thead td {
 border: 1px solid #868383 !important;
 }
 body.dark-mode [data-fieldtype="modgrade"]{
@@ -3935,3 +3939,117 @@ body.dark-mode .overlay-icon-container{
 .drawer.drawer-left{
 transition: none !important;
 }
+
+/* zarzadzaj kursami */
+body.dark-mode .singlebutton button.btn.btn-secondary {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode .singlebutton button.btn.btn-secondary:hover {
+    background-color: #2a2a2a !important;
+}
+
+body.dark-mode .singlebutton button.btn.btn-secondary:focus {
+    outline: 2px solid #8ab4f8;
+    outline-offset: 2px;
+}
+
+/* ===============================
+   AI DRAWER – DARK MODE (FULL)
+   =============================== */
+
+body.dark-mode .ai-drawer {
+    background-color: #181818 !important;
+    color: #e6e6e6 !important;
+    border-left: 1px solid #2a2a2a;
+}
+
+/* Header */
+body.dark-mode .ai-drawer-header {
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+/* Close button */
+body.dark-mode .ai-drawer-button {
+    color: #e6e6e6 !important;
+}
+
+body.dark-mode .ai-drawer-button:hover {
+    background-color: #2a2a2a;
+}
+
+/* Body */
+body.dark-mode .ai-drawer-body {
+    background-color: #181818;
+}
+
+/* Card */
+body.dark-mode .ai-drawer .card-body {
+    background-color: #1e1e1e;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+}
+
+/* Titles & text */
+body.dark-mode .ai-drawer h3,
+body.dark-mode .ai-drawer .card-text {
+    color: #e6e6e6;
+}
+
+/* Error icon */
+body.dark-mode .ai-drawer .text-danger {
+    color: #ff6b6b !important;
+}
+
+/* Retry button */
+body.dark-mode .ai-drawer button.btn-outline-secondary {
+    color: #8ab4f8 !important;
+    border-color: #3a3a3a !important;
+    background-color: transparent !important;
+}
+
+body.dark-mode .ai-drawer button.btn-outline-secondary:hover {
+    background-color: #2a2a2a !important;
+    border-color: #8ab4f8 !important;
+}
+
+/* ===============================
+   DROPDOWN BUTTON – DARK MODE
+   "Utwórz pole"
+   =============================== */
+
+body.dark-mode a.btn.btn-secondary.dropdown-toggle {
+    background-color: #1e1e1e !important;
+    color: #e6e6e6 !important;
+    border: 1px solid #333 !important;
+}
+
+/* Hover */
+body.dark-mode a.btn.btn-secondary.dropdown-toggle:hover,
+body.dark-mode a.btn.btn-secondary.dropdown-toggle:focus {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border-color: #8ab4f8 !important;
+    box-shadow: none;
+}
+
+/* Active (kliknięty / otwarty) */
+body.dark-mode a.btn.btn-secondary.dropdown-toggle[aria-expanded="true"] {
+    background-color: #2a2a2a !important;
+    border-color: #8ab4f8 !important;
+}
+
+/* Caret */
+body.dark-mode a.btn.btn-secondary.dropdown-toggle .caret {
+    border-top-color: #e6e6e6;
+}
+
+/* Focus outline – wyłącz bootstrapowy */
+body.dark-mode a.btn.btn-secondary.dropdown-toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(138, 180, 248, 0.35);
+}
+
