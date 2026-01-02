@@ -40,8 +40,8 @@
     }
 }}
 {{#footersmall}}
-    <footer id="page-footer" class=" footer-popover footer-dark text-light">
-        <div id="footer">
+    <footer id="page-footer" class=" footer-popover footer-dark text-light show-drawer-left">
+        <div id="footer" class="show-drawer-left">
             <div class="footer-bottom">
                 {{# copyrightfooter}}
                     <p>{{{copyrightfooter}}}</p>
@@ -52,7 +52,7 @@
 {{/footersmall}}
 
 {{^footersmall}}
-    <footer id="page-footer" class="footer-popover footer-dark text-light">
+    <footer id="page-footer" class="footer-popover footer-dark text-light show-drawer-left">
         <div id="footer" {{#footerbgimgclass}} class="{{footerbgimgclass}}" {{/footerbgimgclass}}>
             {{#footerstatus}}
                 <div class="footer-main">

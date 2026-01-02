@@ -52,11 +52,9 @@ $overviewpageclass = $format->get_output_classname('overview\\overviewpage');
 $overview = new $overviewpageclass($course, $expand);
 
 $PAGE->set_pagelayout('incourse');
-
 $PAGE->set_title(get_string('overview_page_title', 'course', $course->fullname));
 $PAGE->set_heading($course->fullname);
 include_course_ajax($course);
-
 echo $renderer->header();
 
 echo $renderer->heading(get_string('activities'), 2, 'h4');
