@@ -250,7 +250,21 @@ body.dark-mode .fa {
 /* =======================================================
    DARK MODE – HEADER / NAVBAR
    ======================================================= */
-
+/* Hover overwrite for message and searchbar on navabar */
+body.dark-mode .simplesearchform a:hover,
+body.dark-mode .simplesearchform a:focus,
+body.dark-mode.simplesearchform button:hover,
+body.dark-mode .simplesearchform button:focus {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: inherit !important;
+}
+body.dark-mode .popover-region .popover-region-toggle:hover,
+body.dark-mode .popover-region .popover-region-toggle:focus {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: inherit !important;
+}
 body.dark-mode .header-main {
     background-color: #1a1a1a !important;
     border-bottom: 1px solid #333;
@@ -4053,3 +4067,10 @@ body.dark-mode a.btn.btn-secondary.dropdown-toggle:focus-visible {
     box-shadow: 0 0 0 2px rgba(138, 180, 248, 0.35);
 }
 
+
+/* Naprawa wciecia na 3 stronach */
+body#page-course-overview,
+body#page-question-banks,
+body#page-enrol-manual-unenrolself {
+    --drawer-w: 0px !important;
+}

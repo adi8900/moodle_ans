@@ -356,7 +356,8 @@
     }
 }
 /*min-width: 992px*/
-@media (min-width: 503px) {
+/*min-width: 503px)*/
+@media (min-width: 517px) {
     #header {
         &.fixed-top {
             padding: 0 40px;
@@ -753,7 +754,8 @@
 /* MOBILE HEADER FULL FIX      */
 /* --------------------------- */
 /* bylo 416px */
-@media (max-width: 503px) {//991
+/* bylo 503px */
+@media (max-width: 517px) {//991
   /* Pozwól nagłówkowi rosnąć */
   #header,
   #header .navbar,
@@ -762,7 +764,8 @@
     margin-inline: auto;
   }
 /* bylo 416px */
-@media (max-width: 503px) {
+/* bylo 503px */
+@media (max-width: 517px) {
 .navbar-nav.address-head {
         display: flex !important;          /* Upewniamy się, że jest widoczny (mimo klasy hidden-*) */
         width: 100% !important;            /* Zajmuje całą szerokość, spadając do nowej linii */
