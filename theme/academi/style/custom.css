@@ -1256,7 +1256,7 @@ body.dark-mode td.day {
     transition: background 0.2s ease;
 }
 
-body.dark-mode td.day:hover {
+body.dark-mode td.day:has([data-asw-org-font-size="17"]):hover {
     background-color: #1f2a3a !important;  
     color: #ffffff !important;            
 }
@@ -4073,4 +4073,121 @@ body#page-course-overview,
 body#page-question-banks,
 body#page-enrol-manual-unenrolself {
     --drawer-w: 0px !important;
+}
+
+/* Animacja ladowania w kokpicie */
+@keyframes bg-pulse-dark {
+  0%   { background-color: #111; }
+  50%  { background-color: #222; }
+  100% { background-color: #111; }
+}
+
+body.dark-mode .bg-pulse-grey {
+  animation: bg-pulse-dark 1.5s infinite;
+}
+
+body.dark-mode .list-group {
+    --bs-list-group-border-color: #444;
+}
+
+/* Zmiana kalendarzy */
+body.dark-mode .border-bottom {
+    border-bottom: var(--bs-border-width) var(--bs-border-style) #444444 !important;
+}
+
+body.dark-mode .maincalendar .calendarmonth td, body.dark-mode .maincalendar .calendarmonth th { 
+    border: 1px dotted #444 !important;
+}
+
+/* Próba zmiany label'a dla przycisku trybu edycji */
+
+@media (max-width: 767.98px) {
+  /* neutralizacja argumentów poniższych elementów, aby napisu nie wypierdalało w kosmos, bo zjeb projektujący motyw academi nie chciał tego tykać, to pobierało z motywu classic z pliku moodle.css */
+  .editmode-switch-form label,
+  .editmode-switch-form label:not(caption) {
+    width: auto !important;
+    height: auto !important;
+    margin-right: 8px !important;
+    padding: initial !important; /* Lub konkretna wartość, jeśli potrzebujesz */
+    overflow: visible !important;
+    clip: auto !important;      /* Kluczowe: wyłącza przycięcie "clip" */
+    white-space: normal !important;
+    border: none !important;    /* Reset braku obramowania */
+    position: static !important; /* Przywraca element do normalnego przepływu dokumentu */
+  }}
+
+/* rzeczywiste nadpisania */
+
+@media (max-width: 767.98px) {
+  .editmode-switch-form label,
+  .editmode-switch-form label:not(caption) {
+}}
+
+/* wyższa warstwa (tło) trybu edycji */
+@media (max-width: 767.98px ) {
+  #header .editmode-switch-form{
+  margin-left: 10px; /* potrafiło się "przytulić" do strzałki rozwijania przy odpowiednio niskiej szerokości ekranu*/
+}}
+
+/* dla trybu telefonicznego, w momencie, gdy opcje w headerze nie mogą się już bardziej skurczyć */
+
+@media (max-width: 400px) {
+  .editmode-switch-form label,
+  .editmode-switch-form label:not(caption) {
+  display: none !important;
+
+}}
+/*Linie białe w kursie zadanie*/
+body.dark-mode.path-mod .activity-information .activity-dates {
+ border-bottom: 1px solid #444 !important;
+}
+
+/* status aktywnosci przeslanego zadania */
+body.dark-mode.path-mod-assign div.submissionstatus{
+color:#fff !important;
+background-color: #444 !important;
+}
+
+/* 4 białe linie w przesłane zadania */
+body.dark-mode .tertiary-navigation .navitem-divider {
+background-color: #444444 !important;
+}
+
+/* Border przed tabelka w przesłane zadania */
+body.dark-mode .tertiary-navigation.full-width-bottom-border {
+border-bottom: 1px solid #444444 !important;
+}
+@media (max-width: 400px) {
+  .calendar-controls .current {
+    font-size: 24px !important;
+    margin-top:45px !important;
+  }
+}
+
+/*Poprawki NAV w MOTYWY ACADEMI LUB INNYCH*/
+@media (max-width: 767.98px) {
+ body.dark-mode .nav-tabs:not(.more-nav) .nav-link:not(.active),body.dark-mode .nav-pills .nav-link:not(.active) {
+    background-color: inherit !important;
+    border: inherit !important;
+  }
+}
+@media (max-width: 767px) {
+ body.dark-mode .nav-tabs:not(.more-nav),body.dark-mode .nav-pills, .nav-item.show {
+    border-radius: inherit !important;
+    background: inherit !important;
+    padding: inherit !important;
+  }
+}
+@media (max-width: 767px) {
+  body.dark-mode.nav-tabs:not(.more-nav) .nav-link{
+    border:inherit !important;
+ }
+}
+
+/* Popover do kalendarza */
+body.dark-mode .popover {
+    --bs-popover-bg: #1c1c1c !important;
+    --bs-popover-header-color: #fff !important;
+    --bs-popover-header-bg: #111 !important;
+    --bs-popover-body-color: #fff !important;
 }

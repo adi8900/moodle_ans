@@ -455,7 +455,6 @@
     }
 }
 
-/* MOBILE ONLY - Blog style cards */
 @media (max-width: 768px) {
 
   #frontpage-category-names .category-tiles-container {
@@ -468,7 +467,15 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    position: relative;
+
+    /* Grid overlay instead of absolute */
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+
+  #frontpage-category-names .category-image {
+    grid-row: 1;
+    grid-column: 1;
   }
 
   #frontpage-category-names .category-image img {
@@ -477,11 +484,13 @@
     object-fit: cover;
   }
 
-  /* Turn card body into overlay */
+  /* Overlay using grid instead of position:absolute */
   #frontpage-category-names .card-body {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    grid-row: 1;
+    grid-column: 1;
+
+    display: flex;
+    align-items: flex-end;
     padding: 10px;
     background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
     text-align: left;
@@ -496,24 +505,29 @@
   #frontpage-category-names .text-muted {
     display: none;
   }
-}
 
-@media (max-width: 768px) {
   #frontpage-category-names .category-tile:hover {
     transform: translateY(-3px);
     transition: 0.2s ease;
   }
 }
 
-/***** MOBILE BLOG-STYLE LOOK *****/
 @media (max-width: 768px) {
 
   .block_institutes_list .category-tile {
-    position: relative;
     height: 130px !important;
     width: 100% !important;
     overflow: hidden;
     border-radius: 10px;
+
+    /* Grid overlay instead of absolute */
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+
+  .block_institutes_list .category-image {
+    grid-row: 1;
+    grid-column: 1;
   }
 
   .block_institutes_list .category-image img {
@@ -522,9 +536,11 @@
     width: 100%;
   }
 
+  /* Overlay */
   .block_institutes_list .category-tile .card-body {
-    position: absolute;
-    inset: 0;
+    grid-row: 1;
+    grid-column: 1;
+
     background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
     display: flex;
     align-items: flex-end;
@@ -541,12 +557,29 @@
     margin: 0;
   }
 
-  /* Hide course count on mobile for cleaner look */
   .block_institutes_list .category-tile p {
     display: none;
   }
 
   .block_institutes_list .category-tiles-container {
     gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #frontpage-category-names .category-image {
+    z-index: 1;
+  }
+
+  #frontpage-category-names .card-body {
+    z-index: 2;
+  }
+
+  .block_institutes_list .category-image {
+    z-index: 1;
+  }
+
+  .block_institutes_list .card-body {
+    z-index: 2;
   }
 }
