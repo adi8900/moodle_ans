@@ -67,7 +67,8 @@ class sync extends scheduled_task {
         if ($idandnamemappings || $additionalprofilemappings) {
             static::mtrace('SDS fields exists in field mapping settings', 2);
             [$profilesyncenabled, $schoolid, $schoolname] = \local_o365\feature\sds\utils::get_profile_sync_status_with_id_name(
-                $apiclient);
+                $apiclient
+            );
 
             if ($profilesyncenabled) {
                 static::mtrace('SDS field mapping enabled and connected to school "' . $schoolname . '"', 2);
@@ -77,8 +78,10 @@ class sync extends scheduled_task {
                     $rawschoolusers = $apiclient->get_school_users($schoolid);
 
                     foreach ($rawschoolusers as $rawschooluser) {
-                        if ($userobjectrecord = $DB->get_record('local_o365_objects', ['type' => 'user',
-                            'objectid' => $rawschooluser['id']])) {
+                        if (
+                            $userobjectrecord = $DB->get_record('local_o365_objects', ['type' => 'user',
+                            'objectid' => $rawschooluser['id']])
+                        ) {
                             $processedschoolusers[$userobjectrecord->moodleid] = $rawschooluser;
                         }
                     }
@@ -86,8 +89,9 @@ class sync extends scheduled_task {
                     static::mtrace('Only basic SDS profile data required', 2);
                 }
 
-                $oidcusers = $DB->get_records('user', ['auth' => 'oidc', 'deleted' => 0]);
-                foreach ($oidcusers as $userid => $oidcuser) {
+                // Use recordset instead of get_records to reduce memory usage.
+                $oidcusersrecordset = $DB->get_recordset('user', ['auth' => 'oidc', 'deleted' => 0]);
+                foreach ($oidcusersrecordset as $userid => $oidcuser) {
                     $completeuser = get_complete_user_data('id', $userid);
                     if ($completeuser) {
                         static::mtrace('Processing user ' . $oidcuser->username, 3);
@@ -117,23 +121,29 @@ class sync extends scheduled_task {
                                 if (isset($processedschooluser['student']['externalId'])) {
                                     $studentexternalid = $processedschooluser['student']['externalId'];
                                 }
+
                                 if (isset($processedschooluser['student']['birthDate'])) {
                                     $studentbirthdate = $processedschooluser['student']['birthDate'];
                                 }
+
                                 if (isset($processedschooluser['student']['grade'])) {
                                     $studentgrade = $processedschooluser['student']['grade'];
                                 }
+
                                 if (isset($processedschooluser['student']['graduationYear'])) {
                                     $studentgraduationyear = $processedschooluser['student']['graduationYear'];
                                 }
+
                                 if (isset($processedschooluser['student']['studentNumber'])) {
                                     $studentstudentnumber = $processedschooluser['student']['studentNumber'];
                                 }
                             }
+
                             if ($primaryrole == 'teacher' && isset($processedschooluser['teacher'])) {
                                 if (isset($processedschooluser['teacher']['externalId'])) {
                                     $teacherexternalid = $processedschooluser['teacher']['externalId'];
                                 }
+
                                 if (isset($processedschooluser['teacher']['teacherNumber'])) {
                                     $teacherteachernumber = $processedschooluser['teacher']['teacherNumber'];
                                 }
@@ -178,6 +188,8 @@ class sync extends scheduled_task {
                         }
                     }
                 }
+
+                $oidcusersrecordset->close();
             } else {
                 static::mtrace('SDS field mapping disabled', 2);
             }
@@ -207,6 +219,7 @@ class sync extends scheduled_task {
                     if ($studentroleid) {
                         $studentrole = $DB->get_record('role', ['id' => $studentroleid], '*', IGNORE_MISSING);
                     }
+
                     if (empty($studentrole)) {
                         $sdscoursesyncroleconfigured = false;
                     }
@@ -216,6 +229,7 @@ class sync extends scheduled_task {
                     if ($teacherroleid) {
                         $teacherrole = $DB->get_record('role', ['id' => $teacherroleid], '*', IGNORE_MISSING);
                     }
+
                     if (empty($teacherrole)) {
                         $sdscoursesyncroleconfigured = false;
                     }
@@ -250,8 +264,12 @@ class sync extends scheduled_task {
                 static::mtrace('Processing school section ' . $schoolclass['displayName'], 3);
 
                 // Create the course.
-                $course = static::get_or_create_class_course($schoolclass['id'], $schoolclass['mailNickname'],
-                    $schoolclass['displayName'], $coursecat->id);
+                $course = static::get_or_create_class_course(
+                    $schoolclass['id'],
+                    $schoolclass['mailNickname'],
+                    $schoolclass['displayName'],
+                    $coursecat->id
+                );
                 $coursecontext = context_course::instance($course->id);
 
                 // Associate the section group with the course.
@@ -339,6 +357,7 @@ class sync extends scheduled_task {
                         if (!in_array($classmember['id'], $teachersobjectids)) {
                             $classuserids[] = $classmember['id'];
                         }
+
                         $objectrec = $DB->get_record('local_o365_objects', ['type' => 'user', 'objectid' => $classmember['id']]);
                         if (!empty($objectrec)) {
                             if (get_config('local_o365', 'sdssyncenrolmenttosds')) {
@@ -371,6 +390,7 @@ class sync extends scheduled_task {
                     if (!$enrolledusers) {
                         continue;
                     }
+
                     [$moodleuseridsql, $params] = $DB->get_in_or_equal(array_keys($enrolledusers), SQL_PARAMS_NAMED);
                     $sql = 'SELECT objectid, moodleid AS userid
                               FROM {local_o365_objects}
@@ -383,11 +403,12 @@ class sync extends scheduled_task {
                     if ($userstoberemoved) {
                         $enrols = $DB->get_records('enrol', ['courseid' => $course->id]);
                     }
+
                     if ($enrols) {
                         [$enrolsql, $enrolparams] = $DB->get_in_or_equal(array_keys($enrols), SQL_PARAMS_NAMED);
                         foreach ($userstoberemoved as $userobjectid) {
                             $userid = $courseuserobjectids[$userobjectid]->userid;
-                            static::mtrace('Unenrol user '. $userid . ' from course ' . $course->id, 5);
+                            static::mtrace('Unenrol user ' . $userid . ' from course ' . $course->id, 5);
                             $sql = 'SELECT *
                                       FROM {user_enrolments}
                                      WHERE userid = :userid
@@ -435,8 +456,12 @@ class sync extends scheduled_task {
      * @param int $categoryid The ID of the category to create the course in (if necessary).
      * @return object The course object.
      */
-    public static function get_or_create_class_course(string $classobjectid, string $shortname, string $fullname,
-        int $categoryid = 0): object {
+    public static function get_or_create_class_course(
+        string $classobjectid,
+        string $shortname,
+        string $fullname,
+        int $categoryid = 0
+    ): object {
         global $DB, $CFG;
 
         require_once($CFG->dirroot . '/course/lib.php');
@@ -456,6 +481,7 @@ class sync extends scheduled_task {
         }
 
         // Create new course category and object record.
+        $fullname = substr($fullname, 0, 254); // Course full name max length is 254, while class display name can be 256.
         $data = ['category' => $categoryid, 'shortname' => $shortname, 'fullname' => $fullname, 'idnumber' => $classobjectid];
         $course = create_course((object) $data);
 
@@ -540,8 +566,22 @@ class sync extends scheduled_task {
         static::mtrace('Running course sync cleanup', 1);
 
         // Get existing synced records.
-        $syncedsdsschools = $DB->get_records('local_o365_objects', ['type' => 'sdsschool']);
-        $syncedsdssections = $DB->get_records('local_o365_objects', ['type' => 'sdssection']);
+        // Use recordset instead of get_records to reduce memory usage.
+        $syncedsdsschoolsrecordset = $DB->get_recordset('local_o365_objects', ['type' => 'sdsschool']);
+        $syncedsdsschools = [];
+        foreach ($syncedsdsschoolsrecordset as $school) {
+            $syncedsdsschools[$school->id] = $school;
+        }
+
+        $syncedsdsschoolsrecordset->close();
+
+        $syncedsdssectionsrecordset = $DB->get_recordset('local_o365_objects', ['type' => 'sdssection']);
+        $syncedsdssections = [];
+        foreach ($syncedsdssectionsrecordset as $section) {
+            $syncedsdssections[$section->id] = $section;
+        }
+
+        $syncedsdssectionsrecordset->close();
 
         // Clean up schools.
         $enabledschools = get_config('local_o365', 'sdsschools');
@@ -550,6 +590,7 @@ class sync extends scheduled_task {
         } else {
             $enabledschools = [];
         }
+
         foreach ($syncedsdsschools as $syncedsdsschool) {
             if (!in_array($syncedsdsschool->objectid, $enabledschools)) {
                 static::mtrace('Deleting SDS sync record for school ' . $syncedsdsschool->o365name . ' (' .
@@ -565,6 +606,7 @@ class sync extends scheduled_task {
         if (!$apiclient) {
             return;
         }
+
         foreach ($enabledschools as $schoolobjectid) {
             try {
                 $schoolclasses = $apiclient->get_school_classes($schoolobjectid);
@@ -574,13 +616,16 @@ class sync extends scheduled_task {
                 static::mtrace('Error getting school classes. Details: ' . $e->getMessage(), 2);
             }
         }
+
         foreach ($sectionsinenabledschools as $sectionsinenabledschool) {
             $sectionsinenabledschoolids[] = $sectionsinenabledschool['id'];
         }
+
         $sdsschoolsyncdisabledaction = get_config('local_o365', 'sdsschooldisabledaction');
         if (!$sdsschoolsyncdisabledaction) {
             $sdsschoolsyncdisabledaction = SDS_SCHOOL_DISABLED_ACTION_KEEP_CONNECTED;
         }
+
         foreach ($syncedsdssections as $syncedsdssection) {
             if (!in_array($syncedsdssection->objectid, $sectionsinenabledschoolids)) {
                 static::mtrace('Deleting SDS sync record for school section ' . $syncedsdssection->o365name . ' (' .

@@ -102,8 +102,13 @@ class utils {
      * @return bool|token|null A token, or null if none available.
      * @throws moodle_exception
      */
-    public static function get_application_token(string $tokenresource, clientdata $clientdata, httpclientinterface $httpclient,
-        bool $forcecreate = false, bool $throwexception = true) {
+    public static function get_application_token(
+        string $tokenresource,
+        clientdata $clientdata,
+        httpclientinterface $httpclient,
+        bool $forcecreate = false,
+        bool $throwexception = true
+    ) {
         $token = null;
         try {
             if (static::is_configured_apponlyaccess() === true) {
@@ -139,6 +144,7 @@ class utils {
                 return $tenant;
             }
         }
+
         return null;
     }
 
@@ -153,6 +159,7 @@ class utils {
         if (empty($entratenant) && empty($entratenantid)) {
             return false;
         }
+
         return true;
     }
 
@@ -176,6 +183,7 @@ class utils {
         if (empty($userids)) {
             return [];
         }
+
         $tokenresource = unified::get_tokenresource();
         [$idsql, $idparams] = $DB->get_in_or_equal($userids);
         $sql = 'SELECT u.id as userid
@@ -191,6 +199,7 @@ class utils {
         foreach ($records as $record) {
             $return[$record->userid] = (int)$record->userid;
         }
+
         return array_values($return);
     }
 
@@ -236,9 +245,9 @@ class utils {
     public static function tostring($val) {
         if (is_scalar($val)) {
             if (is_bool($val)) {
-                return '(bool)'.(string)(int)$val;
+                return '(bool)' . (string)(int)$val;
             } else {
-                return '('.gettype($val).')'.(string)$val;
+                return '(' . gettype($val) . ')' . (string)$val;
             }
         } else if (is_null($val)) {
             return '(null)';
@@ -253,6 +262,7 @@ class utils {
                 $valinfo['errorcode'] = $val->errorcode;
                 $valinfo['module'] = $val->module;
             }
+
             return json_encode($valinfo, JSON_PRETTY_PRINT);
         } else {
             return json_encode($val, JSON_PRETTY_PRINT);
@@ -299,6 +309,7 @@ class utils {
         } else {
             $token = static::get_application_token($tokenresource, $clientdata, $httpclient);
         }
+
         if (empty($token)) {
             throw new moodle_exception('errornotokenforsysmemuser', 'local_o365');
         }
@@ -326,11 +337,13 @@ class utils {
         if (!array_key_exists($tenantid, $additionaltenants)) {
             $additionaltenants[$tenantid] = $tenantdomainnames;
         }
+
         $additionaltenantsencoded = json_encode($additionaltenants);
         $existingmultitenantssetting = get_config('local_o365', 'multitenants');
         if ($existingmultitenantssetting != $additionaltenantsencoded) {
             add_to_config_log('multitenants', $existingmultitenantssetting, $additionaltenantsencoded, 'local_o365');
         }
+
         set_config('multitenants', $additionaltenantsencoded, 'local_o365');
 
         // Cleanup legacy multi tenants configurations.
@@ -341,10 +354,16 @@ class utils {
             if (is_array($configuredlegacytenants)) {
                 $configuredlegacytenants = array_diff($configuredlegacytenants, $tenantdomainnames);
             }
+
             if ($originalconfiguredlegacytenants != json_encode($configuredlegacytenants)) {
-                add_to_config_log('legacymultitenants', $originalconfiguredlegacytenants, json_encode($configuredlegacytenants),
-                    'local_o365');
+                add_to_config_log(
+                    'legacymultitenants',
+                    $originalconfiguredlegacytenants,
+                    json_encode($configuredlegacytenants),
+                    'local_o365'
+                );
             }
+
             set_config('legacymultitenants', json_encode($configuredlegacytenants), 'local_o365');
         }
 
@@ -356,6 +375,7 @@ class utils {
                 $newrestrictions[] = '@' . str_replace('.', '\.', $configuredtenantdomain) . '$';
             }
         }
+
         $userrestrictions = get_config('auth_oidc', 'userrestrictions');
         $userrestrictions = explode("\n", $userrestrictions);
         $userrestrictions = array_merge($userrestrictions, $newrestrictions);
@@ -365,6 +385,7 @@ class utils {
         if ($existinguserrestrictionssetting != $userrestrictions) {
             add_to_config_log('userrestrictions', $existinguserrestrictionssetting, $userrestrictions, 'auth_oidc');
         }
+
         set_config('userrestrictions', $userrestrictions, 'auth_oidc');
     }
 
@@ -394,32 +415,46 @@ class utils {
                     // Configuration array keys are not numbers - already migrated.
                     return true;
                 }
+
                 foreach ($multitenantsconfig as $currenttenantid => $currenttenantdomainnames) {
                     if (is_int($currenttenantid) || strlen($currenttenantid) != 36) {
                         // Not real tenant ID, this contains settings in old format.
                         if (is_array($currenttenantdomainnames)) {
                             $legacyadditionaltenantdomains = array_merge($legacyadditionaltenantdomains, $currenttenantdomainnames);
                         } else {
-                            $legacyadditionaltenantdomains = array_merge($legacyadditionaltenantdomains,
-                                [$currenttenantdomainnames]);
+                            $legacyadditionaltenantdomains = array_merge(
+                                $legacyadditionaltenantdomains,
+                                [$currenttenantdomainnames]
+                            );
                         }
                     } else {
                         $additionaltenantdomains[$currenttenantid] = $currenttenantdomainnames;
                     }
                 }
+
                 $existinglegacymultitenantssetting = get_config('local_o365', 'legacymultitenants');
                 if ($existinglegacymultitenantssetting != json_encode($legacyadditionaltenantdomains)) {
-                    add_to_config_log('legacymultitenants', $existinglegacymultitenantssetting,
-                        json_encode($legacyadditionaltenantdomains), 'local_o365');
+                    add_to_config_log(
+                        'legacymultitenants',
+                        $existinglegacymultitenantssetting,
+                        json_encode($legacyadditionaltenantdomains),
+                        'local_o365'
+                    );
                 }
+
                 set_config('legacymultitenants', json_encode($legacyadditionaltenantdomains), 'local_o365');
             }
 
             $existingmultitenantssetting = get_config('local_o365', 'multitenants');
             if ($existingmultitenantssetting != json_encode($additionaltenantdomains)) {
-                add_to_config_log('multitenants', $existingmultitenantssetting, json_encode($additionaltenantdomains),
-                    'local_o365');
+                add_to_config_log(
+                    'multitenants',
+                    $existingmultitenantssetting,
+                    json_encode($additionaltenantdomains),
+                    'local_o365'
+                );
             }
+
             set_config('multitenants', json_encode($additionaltenantdomains), 'local_o365');
         }
     }
@@ -435,6 +470,7 @@ class utils {
         if (empty($o365config->multitenants)) {
             return true;
         }
+
         $configuredtenants = json_decode($o365config->multitenants, true);
         if (!is_array($configuredtenants)) {
             $configuredtenants = [];
@@ -448,6 +484,7 @@ class utils {
             if ($existingmultitenantssetting != json_encode($configuredtenants)) {
                 add_to_config_log('multitenants', $existingmultitenantssetting, json_encode($configuredtenants), 'local_o365');
             }
+
             set_config('multitenants', json_encode($configuredtenants), 'local_o365');
         }
 
@@ -459,10 +496,12 @@ class utils {
             $regex = '@' . str_replace('.', '\.', $revokeddomain) . '$';
             $userrestrictions = array_diff($userrestrictions, [$regex]);
         }
+
         $userrestrictions = implode("\n", $userrestrictions);
         if ($originaluserrestrictions != $userrestrictions) {
             add_to_config_log('userrestrictions', $originaluserrestrictions, $userrestrictions, 'auth_oidc');
         }
+
         set_config('userrestrictions', $userrestrictions, 'auth_oidc');
     }
 
@@ -477,16 +516,23 @@ class utils {
         if (empty($o365config->legacymultitenants)) {
             return true;
         }
+
         $configuredlegacytenants = json_decode($o365config->legacymultitenants, true);
         if (!is_array($configuredlegacytenants)) {
             $configuredlegacytenants = [];
         }
+
         $configuredlegacytenants = array_diff($configuredlegacytenants, [$tenant]);
         $existinglegacymultitenantssetting = get_config('local_o365', 'legacymultitenants');
         if ($existinglegacymultitenantssetting != json_encode($configuredlegacytenants)) {
-            add_to_config_log('legacymultitenants', $existinglegacymultitenantssetting, json_encode($configuredlegacytenants),
-                'local_o365');
+            add_to_config_log(
+                'legacymultitenants',
+                $existinglegacymultitenantssetting,
+                json_encode($configuredlegacytenants),
+                'local_o365'
+            );
         }
+
         set_config('legacymultitenants', json_encode($configuredlegacytenants), 'local_o365');
     }
 
@@ -511,6 +557,7 @@ class utils {
         } catch (moodle_exception $e) {
             return '';
         }
+
         return '';
     }
 
@@ -535,6 +582,7 @@ class utils {
         } catch (moodle_exception $e) {
             return '';
         }
+
         return '';
     }
 
@@ -562,10 +610,13 @@ class utils {
 
         $connectedusers = [];
 
-        $userobjectrecords = $DB->get_records('local_o365_objects', ['type' => 'user']);
-        foreach ($userobjectrecords as $userobjectrecord) {
+        // Use recordset instead of get_records to reduce memory usage.
+        $userobjectrecordset = $DB->get_recordset('local_o365_objects', ['type' => 'user']);
+        foreach ($userobjectrecordset as $userobjectrecord) {
             $connectedusers[$userobjectrecord->moodleid] = $userobjectrecord->objectid;
         }
+
+        $userobjectrecordset->close();
 
         return $connectedusers;
     }
@@ -596,16 +647,19 @@ class utils {
             return false;
         }
 
-        $existingcacherecords = $DB->get_records('local_o365_groups_cache');
+        // Use recordset instead of get_records to reduce memory usage.
+        $existingcacherecordset = $DB->get_recordset('local_o365_groups_cache');
         $existinggroupsbyoid = [];
         $existingnotfoundgroupsbyoid = [];
-        foreach ($existingcacherecords as $existingcacherecord) {
+        foreach ($existingcacherecordset as $existingcacherecord) {
             if ($existingcacherecord->not_found_since) {
                 $existingnotfoundgroupsbyoid[$existingcacherecord->objectid] = $existingcacherecord;
             } else {
                 $existinggroupsbyoid[$existingcacherecord->objectid] = $existingcacherecord;
             }
         }
+
+        $existingcacherecordset->close();
 
         foreach ($grouplist as $group) {
             if (array_key_exists($group['id'], $existingnotfoundgroupsbyoid)) {
@@ -623,9 +677,9 @@ class utils {
                     $cacherecord->description = $group['description'];
                     $DB->update_record('local_o365_groups_cache', $cacherecord);
                     static::mtrace("Updated group ID {$group['id']} in cache.", $baselevel + 1);
-                } else {
-                    static::mtrace("Group ID {$group['id']} in cache is up to date.", $baselevel + 1);
                 }
+
+                // Removed the "up to date" message to reduce unnecessary output.
                 unset($existinggroupsbyoid[$group['id']]);
             } else {
                 $cacherecord = new stdClass();
@@ -661,17 +715,23 @@ class utils {
         static::mtrace('Clean up non-existing groups from database', $baselevel);
 
         $cutofftime = strtotime('-5 minutes');
-        $sql = "SELECT *
+        $sql = "SELECT objectid
                   FROM {local_o365_groups_cache}
                  WHERE not_found_since != 0
                    AND not_found_since < :cutofftime";
         $records = $DB->get_records_sql($sql, ['cutofftime' => $cutofftime]);
 
-        foreach ($records as $record) {
-            $DB->delete_records('local_o365_groups_cache', ['objectid' => $record->objectid]);
-            $DB->delete_records('local_o365_objects', ['objectid' => $record->objectid]);
-            $DB->delete_records('local_o365_teams_cache', ['objectid' => $record->objectid]);
-            static::mtrace('Deleted non-existing group ' . $record->objectid . ' from groups cache.', $baselevel + 1);
+        if (!empty($records)) {
+            $objectids = array_keys($records);
+
+            // Use bulk delete with IN clause for better performance.
+            [$insql, $inparams] = $DB->get_in_or_equal($objectids, SQL_PARAMS_NAMED);
+            $DB->delete_records_select('local_o365_groups_cache', "objectid $insql", $inparams);
+            $DB->delete_records_select('local_o365_objects', "objectid $insql", $inparams);
+            $DB->delete_records_select('local_o365_teams_cache', "objectid $insql", $inparams);
+
+            $count = count($objectids);
+            static::mtrace("Deleted $count non-existing groups from database.", $baselevel + 1);
         }
 
         static::mtrace('Finished cleaning up non-existing groups from database.', $baselevel);
@@ -690,6 +750,7 @@ class utils {
         if ($level) {
             $message = str_repeat('...', $level) . ' ' . $message;
         }
+
         mtrace($message, $eol);
     }
 
