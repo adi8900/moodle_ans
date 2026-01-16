@@ -79,7 +79,7 @@ body#page-site-index .stats-banner {
 
 /* Tablet i mniejsze */
 /* wcześniej 992px */
-@media (max-width: 992px) {
+@media (max-width: 1072px) {
     .stats-banner {
         padding: 32px 20px !important;
         gap: 24px;
@@ -996,7 +996,7 @@ border: #074B88;
 width: 355px;
 max-width: 355px; 
 }}
-
+/* szuflada bloków - zmiana minimalnego rozmiaru końca scrollowania */
 
 /* ============================================
    DARK MODE – szuflada bloków (blocks drawer)
@@ -2328,14 +2328,16 @@ body.dark-mode .course-content .divider-content {
  *************************************************/
 
 /* Całe pytanie – ramka */
-body.dark-mode.path-mod-quiz #responseform .que {
+body.dark-mode.path-mod-quiz #responseform .que,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que {
     background-color: #111 !important;
     border: 1px solid #333 !important;
     border-radius: 8px !important;
 }
 
 /* Jasne niebieskie tło w środku pytania -> ciemne */
-body.dark-mode.path-mod-quiz #responseform .que .formulation {
+body.dark-mode.path-mod-quiz #responseform .que .formulation,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .formulation {
     background-color: #181818 !important;
     padding: 16px !important;
     color: #fff !important;
@@ -2343,116 +2345,203 @@ body.dark-mode.path-mod-quiz #responseform .que .formulation {
 
 /* Treść pytania i tekst w środku */
 body.dark-mode.path-mod-quiz #responseform .que .qtext,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .qtext,
 body.dark-mode.path-mod-quiz #responseform .que .qtext p,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .qtext p,
 body.dark-mode.path-mod-quiz #responseform .que .formulation p,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .formulation p,
 body.dark-mode.path-mod-quiz #responseform .que .formulation span,
-body.dark-mode.path-mod-quiz #responseform .que .formulation label {
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .formulation span,
+body.dark-mode.path-mod-quiz #responseform .que .formulation label,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .formulation label {
     color: #fff !important;
 }
 
-/* Blok z odpowiedziami (Prawda/Fałsz itd.) */
+/* Blok z odpowiedziami */
 body.dark-mode.path-mod-quiz #responseform .que .answer,
-body.dark-mode.path-mod-quiz #responseform .que fieldset.ablock {
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .answer,
+body.dark-mode.path-mod-quiz #responseform .que fieldset.ablock,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que fieldset.ablock {
     background-color: transparent !important;
     border: none !important;
 }
 
-/* Radio / checkbox – niebieski akcent, ale wyraźny */
+/* Radio / checkbox */
 body.dark-mode.path-mod-quiz #responseform .que input[type="radio"],
-body.dark-mode.path-mod-quiz #responseform .que input[type="checkbox"] {
+body.dark-mode.path-mod-quiz .questionflagsaveform .que input[type="radio"],
+body.dark-mode.path-mod-quiz #responseform .que input[type="checkbox"],
+body.dark-mode.path-mod-quiz .questionflagsaveform .que input[type="checkbox"] {
     accent-color: #4aa3ff;
 }
 
-/* Krótkie odpowiedzi / pola numeryczne */
-body.dark-mode.path-mod-quiz #responseform .que .form-control {
+/* Pola tekstowe */
+body.dark-mode.path-mod-quiz #responseform .que .form-control,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .form-control {
     background-color: #111 !important;
     border: 1px solid #444 !important;
     color: #fff !important;
 }
 
-body.dark-mode.path-mod-quiz #responseform .que .form-control::placeholder {
+body.dark-mode.path-mod-quiz #responseform .que .form-control::placeholder,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .form-control::placeholder {
     color: #888 !important;
 }
 
 /* Lewy panel info pytania */
-body.dark-mode.path-mod-quiz #responseform .que .info {
+body.dark-mode.path-mod-quiz #responseform .que .info,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info {
     background-color: #111 !important;
     border-right: 1px solid #333 !important;
     color: #fff !important;
 }
 
 body.dark-mode.path-mod-quiz #responseform .que .info .state,
-body.dark-mode.path-mod-quiz #responseform .que .info .grade {
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info .state,
+body.dark-mode.path-mod-quiz #responseform .que .info .grade,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info .grade {
     color: #c0c0c0 !important;
 }
 
-/* Linki w panelu info (Oflaguj, Edytuj pytanie) */
+/* Linki w panelu info */
 body.dark-mode.path-mod-quiz #responseform .que .questionflag a,
-body.dark-mode.path-mod-quiz #responseform .que .editquestion a {
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .questionflag a,
+body.dark-mode.path-mod-quiz #responseform .que .editquestion a,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .editquestion a {
     color: #8ab4f8 !important;
 }
 
 body.dark-mode.path-mod-quiz #responseform .que .questionflag a:hover,
-body.dark-mode.path-mod-quiz #responseform .que .editquestion a:hover {
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .questionflag a:hover,
+body.dark-mode.path-mod-quiz #responseform .que .editquestion a:hover,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .editquestion a:hover {
     color: #a3c7ff !important;
 }
 
-/* Ikonka flagi – jasna w ciemnym tle */
-body.dark-mode.path-mod-quiz #responseform .que .questionflagimage {
+/* Ikona flagi */
+body.dark-mode.path-mod-quiz #responseform .que .questionflagimage,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .questionflagimage {
     filter: invert(100%) hue-rotate(180deg) !important;
 }
 
 /* Badge wersji pytania */
-body.dark-mode.path-mod-quiz #responseform .que .badge.bg-primary {
+body.dark-mode.path-mod-quiz #responseform .que .badge.bg-primary,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .badge.bg-primary {
     background-color: #245caa !important;
     color: #ffffff !important;
 }
 
-/* TinyMCE – ciemny motyw */
-body.dark-mode.path-mod-quiz #responseform .tox.tox-tinymce {
+/* TinyMCE */
+body.dark-mode.path-mod-quiz #responseform .tox.tox-tinymce,
+body.dark-mode.path-mod-quiz .questionflagsaveform .tox.tox-tinymce {
     background-color: #111 !important;
     border: 1px solid #333 !important;
     color: #fff !important;
 }
 
 body.dark-mode.path-mod-quiz #responseform .tox .tox-editor-header,
+body.dark-mode.path-mod-quiz .questionflagsaveform .tox .tox-editor-header,
 body.dark-mode.path-mod-quiz #responseform .tox .tox-toolbar__primary,
-body.dark-mode.path-mod-quiz #responseform .tox .tox-menubar {
+body.dark-mode.path-mod-quiz .questionflagsaveform .tox .tox-toolbar__primary,
+body.dark-mode.path-mod-quiz #responseform .tox .tox-menubar,
+body.dark-mode.path-mod-quiz .questionflagsaveform .tox .tox-menubar {
     background-color: #181818 !important;
     border-bottom: 1px solid #222 !important;
 }
 
 body.dark-mode.path-mod-quiz #responseform .tox .tox-mbtn,
-body.dark-mode.path-mod-quiz #responseform .tox .tox-tbtn {
+body.dark-mode.path-mod-quiz .questionflagsaveform .tox .tox-mbtn,
+body.dark-mode.path-mod-quiz #responseform .tox .tox-tbtn,
+body.dark-mode.path-mod-quiz .questionflagsaveform .tox .tox-tbtn {
     background-color: #181818 !important;
     color: #fff !important;
 }
 
 body.dark-mode.path-mod-quiz #responseform .tox .tox-mbtn:hover,
-body.dark-mode.path-mod-quiz #responseform .tox .tox-tbtn:hover {
+body.dark-mode.path-mod-quiz .questionflagsaveform .tox .tox-mbtn:hover,
+body.dark-mode.path-mod-quiz #responseform .tox .tox-tbtn:hover,
+body.dark-mode.path-mod-quiz .questionflagsaveform .tox .tox-tbtn:hover {
     background-color: #245caa !important;
     color: #ffffff !important;
 }
 
-/* Wnętrze edytora (tekst ucznia) */
-body.dark-mode.path-mod-quiz #responseform iframe.tox-edit-area__iframe {
+/* Wnętrze edytora */
+body.dark-mode.path-mod-quiz #responseform iframe.tox-edit-area__iframe,
+body.dark-mode.path-mod-quiz .questionflagsaveform iframe.tox-edit-area__iframe {
     background-color: #111 !important;
 }
 
-/* Jeśli łapie body TinyMCE w tym samym arkuszu */
-body.dark-mode.path-mod-quiz #responseform .mce-content-body {
+body.dark-mode.path-mod-quiz #responseform .mce-content-body,
+body.dark-mode.path-mod-quiz .questionflagsaveform .mce-content-body {
     background-color: #111 !important;
     color: #fff !important;
 }
 
-/* Info-box nad quizem (ten pomarańczowy) też przyciemnijmy */
-body.dark-mode.path-mod-quiz .quizattempt .box.generalbox,
-body.dark-mode.path-mod-quiz .quizattempt .box.info,
-body.dark-mode.path-mod-quiz .quizattempt .generalbox.info {
-    background-color: #181818 !important;
-    border-color: #333 !important;
+/*************************************************
+ * QUIZ – DARK MODE poprawka lewego panelu (info)
+ *************************************************/
+
+/* Główna ramka pytania */
+body.dark-mode.path-mod-quiz #responseform .que,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que {
+    border: 1px solid #333 !important;
+    background-color: #111 !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+/* Lewy panel */
+body.dark-mode.path-mod-quiz #responseform .que .info,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info {
+    background-color: #111 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px !important;
+}
+
+/* Pseudo-elementy OFF */
+body.dark-mode.path-mod-quiz #responseform .que .info::before,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info::before,
+body.dark-mode.path-mod-quiz #responseform .que .info::after,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info::after,
+body.dark-mode.path-mod-quiz #responseform .que::before,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que::before,
+body.dark-mode.path-mod-quiz #responseform .que::after,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Tekst info */
+body.dark-mode.path-mod-quiz #responseform .que .info h3.no,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info h3.no,
+body.dark-mode.path-mod-quiz #responseform .que .info .state,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info .state,
+body.dark-mode.path-mod-quiz #responseform .que .info .grade,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info .grade {
     color: #fff !important;
 }
+
+/* Linki */
+body.dark-mode.path-mod-quiz #responseform .que .info a,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info a {
+    color: #8ab4f8 !important;
+}
+body.dark-mode.path-mod-quiz #responseform .que .info a:hover,
+body.dark-mode.path-mod-quiz .questionflagsaveform .que .info a:hover {
+    color: #a3c7ff !important;
+}
+
+/* Tekstbox pytanie essay - przeglad testu */
+body.dark-mode .que.essay .qtype_essay_response.readonly {
+background-color: #111 !important;
+}
+
+/* Przeglad testu - Informacja zwrotna */
+body.dark-mode .que .outcome, body.dark-mode .que .comment {
+background-color: #111 !important;
+color: #ffffff !important;
+}
+
 
 /********************************************
  * DARK MODE – alert-warning (ostrzeżenie)
@@ -2472,55 +2561,6 @@ body.dark-mode .alert.alert-warning p {
 /* Usunięcie animacji fade, jeśli robi artefakty */
 body.dark-mode .alert.alert-warning.fade.in {
     opacity: 1 !important;
-}
-
-/*************************************************
- * QUIZ – DARK MODE poprawka lewego panelu (info)
- *************************************************/
-
-/* Główna ramka pytania */
-body.dark-mode.path-mod-quiz #responseform .que {
-    border: 1px solid #333 !important;         /* jedna, czysta ramka */
-    background-color: #111 !important;
-    border-radius: 8px !important;
-    overflow: hidden;                          /* usuwa pseudo-bordery */
-}
-
-/* Lewy panel info pytania */
-body.dark-mode.path-mod-quiz #responseform .que .info {
-    background-color: #111 !important;
-    border: none !important;                   /* wyłącz border, robił podwójną linię */
-    box-shadow: none !important;               /* Motyw Academi dorzuca shadow – wyłączamy */
-    padding: 10px !important;
-}
-
-/* Usuwamy wszelkie pseudo-linie generowane przez motyw */
-body.dark-mode.path-mod-quiz #responseform .que .info::before,
-body.dark-mode.path-mod-quiz #responseform .que .info::after {
-    content: none !important;
-    display: none !important;
-}
-
-/* Usuwamy też pseudo-bordery z .que */
-body.dark-mode.path-mod-quiz #responseform .que::before,
-body.dark-mode.path-mod-quiz #responseform .que::after {
-    content: none !important;
-    display: none !important;
-}
-
-/* Tekst w panelu */
-body.dark-mode.path-mod-quiz #responseform .que .info h3.no,
-body.dark-mode.path-mod-quiz #responseform .que .info .state,
-body.dark-mode.path-mod-quiz #responseform .que .info .grade {
-    color: #fff !important;
-}
-
-/* Linki */
-body.dark-mode.path-mod-quiz #responseform .que .info a {
-    color: #8ab4f8 !important;
-}
-body.dark-mode.path-mod-quiz #responseform .que .info a:hover {
-    color: #a3c7ff !important;
 }
 
 /* DARK MODE - tabele */
@@ -4190,4 +4230,26 @@ body.dark-mode .popover {
     --bs-popover-header-color: #fff !important;
     --bs-popover-header-bg: #111 !important;
     --bs-popover-body-color: #fff !important;
+}
+
+body.dark-mode .coursebox {
+    box-shadow: 0 4px 8px rgb(255 255 255 / .07);
+    border-bottom: 0 !important;
+}
+
+/* Tryb edycji switch /*
+/* stan domyślny (unchecked) */
+body.dark-mode #header .editmode-switch-form .form-check-input {
+    background-color: #fff !important;
+    border-color: #555 !important;
+}
+
+/* stan po kliknięciu (checked) */
+body.dark-mode #header .editmode-switch-form .form-check-input:checked {
+    background-color: #4aa3f0 !important;
+    border-color: #4aa3f0 !important;
+}
+
+.tooltip-inner, .tooltip-arrow, .tooltip-arrow::before{
+display: none;
 }
