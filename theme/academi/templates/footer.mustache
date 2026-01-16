@@ -198,4 +198,49 @@ require(['theme_boost/footer-popover'], function(FooterPopover) {
     FooterPopover.init();
 });
 {{/js}}
+{{#js}}
+require(['theme_boost/drawer', 'jquery'], function(Drawer, $) {
+    Drawer.init();
 
+    const targets = document.querySelectorAll(
+        '.stats-banner, .homepage-carousel, #frontpage-category-names, .logo'
+    );
+
+    const page = document.getElementById('page');
+
+    const update = () => {
+        if (!page) return;
+
+        // 1. Oryginalna logika: Przełączanie klas CSS na elementach
+        const isDrawerOpen = page.classList.contains('show-drawer-left');
+        
+        targets.forEach(el => {
+            el.classList.toggle('show-drawer-left', isDrawerOpen);
+        });
+
+        // 2. Dodana logika: Odświeżanie karuzeli i trigger resize
+        setTimeout(function () {
+            // Wymuszenie przeliczenia szerokości okna
+            window.dispatchEvent(new Event('resize'));
+
+            // Specyficzne odświeżenie Owl Carousel (jeśli jQuery jest załadowane)
+            if ($) {
+                $('.homepage-carousel').trigger('refresh.owl.carousel');
+            }
+        }, 3);
+    };
+
+    // Wywołanie początkowe (żeby ustawić stan na start)
+    update();
+
+    // Obserwowanie zmian w DOM
+    new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+            // Upewniamy się, że reagujemy tylko na zmianę klasy (tak jak w drugim skrypcie)
+            if (m.type === 'attributes' && m.attributeName === 'class') {
+                update();
+            }
+        });
+    }).observe(page, { attributes: true });
+});
+{{/js}}

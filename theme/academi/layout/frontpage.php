@@ -3,7 +3,6 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once(dirname(__FILE__) . '/includes/layoutdata.php');
 require_once($CFG->dirroot . '/theme/academi/classes/helper.php');
-
 use theme_academi\helper;
 $headerslider = \theme_academi\helper::get_headerslider();
 $sliderconfig = [];
