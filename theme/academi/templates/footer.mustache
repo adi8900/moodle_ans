@@ -200,7 +200,16 @@ require(['theme_boost/footer-popover'], function(FooterPopover) {
 {{/js}}
 {{#js}}
 require(['theme_boost/drawer', 'jquery'], function(Drawer, $) {
+
+// Desktop = true / Mobile = false — decyzja TYLKO RAZ
+    const IS_DESKTOP = window.matchMedia('(min-width: 992px)').matches;
+
     Drawer.init();
+
+    // jeśli nie desktop → nie rejestrujemy logiki
+    if (!IS_DESKTOP) {
+        return;
+    }
 
     const targets = document.querySelectorAll(
         '.stats-banner, .homepage-carousel, #frontpage-category-names, .logo'
