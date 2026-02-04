@@ -2464,6 +2464,25 @@ body.dark-mode.path-mod-quiz .questionflagsaveform .tox .tox-tbtn:hover {
     color: #ffffff !important;
 }
 
+/* Stopka tinymce */
+body.dark-mode .tox .tox-statusbar__path-item, body.dark-mode .tox .tox-statusbar__wordcount {
+    color: rgb(255 255 255) !important;
+
+}
+
+body.dark-mode .tox .tox-statusbar {
+background-color: #111111 !important;
+}
+
+body.dark-mode .tox .tox-statusbar__branding svg {
+    fill: rgb(255 255 255) !important;
+}
+
+/* Animacja ładowania */
+body.dark-mode .tox .tox-throbber__busy-spinner {
+background-color: rgb(21 21 21 / 60%) !important;
+}
+
 /* Wnętrze edytora */
 body.dark-mode.path-mod-quiz #responseform iframe.tox-edit-area__iframe,
 body.dark-mode.path-mod-quiz .questionflagsaveform iframe.tox-edit-area__iframe {
@@ -2572,6 +2591,7 @@ body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-da
 body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-datatable-table) td,
 body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-datatable-table) th {
     border-color: #074b88 !important;
+    background-color: #181818 !important;
 }
 
 body.dark-mode .block, body.dark-mode .block .card, body.dark-mode .block .card-body, body.dark-mode .card-text, body.dark-mode .block .content, body.dark-mode .content, body.dark-mode .block-region .block, body.dark-mode .block-region .card {
@@ -4111,7 +4131,10 @@ body.dark-mode a.btn.btn-secondary.dropdown-toggle:focus-visible {
 /* Naprawa wciecia na 3 stronach */
 body#page-course-overview,
 body#page-question-banks,
-body#page-enrol-manual-unenrolself {
+body#page-enrol-manual-unenrolself,
+body#page-admin-roles-assign,
+body#page-login-logout
+ {
     --drawer-w: 0px !important;
 }
 
@@ -4252,4 +4275,132 @@ body.dark-mode #header .editmode-switch-form .form-check-input:checked {
 
 .tooltip-inner, .tooltip-arrow, .tooltip-arrow::before{
 display: none;
+}
+
+/* Komentarze do zadań, testów itp. */
+body.dark-mode .comment-message {
+background: #1e1e1e !important;
+}
+
+/* Zalegle zadania - kolor tekstu */
+body.dark-mode .overdue {
+color: #ca3120 !important;
+}
+
+body.dark-mode td[id^="guide-criteria-NEWID"][id$="-shortname-cell"].description {
+  background-color: #111111 !important;
+}
+
+
+body.dark-mode td.controls {
+  background-color: #111111 !important;
+}
+
+body.dark-mode 
+.gradingform_guide.editor 
+.criterion 
+.controls 
+.delete input {
+    background: none !important;
+
+    -webkit-mask: url(/moodle/pix/t/delete.svg) no-repeat center;
+    mask: url(/moodle/pix/t/delete.svg) no-repeat center;
+
+    background-color: white !important;
+}
+
+body.dark-mode .gradingform_guide.editor .movedown input {
+    background: none !important;
+
+    -webkit-mask: url(/moodle/pix/t/down.svg) no-repeat center;
+    mask: url(/moodle/pix/t/down.svg) no-repeat center;
+
+    background-color: white !important;
+}
+
+body.dark-mode .gradingform_guide.editor .moveup input {
+    background: none !important;
+
+    -webkit-mask: url(/moodle/pix/t/up.svg) no-repeat center;
+    mask: url(/moodle/pix/t/up.svg) no-repeat center;
+
+    background-color: white !important;
+}
+
+body.dark-mode td[id^="guide-comments-"][id$="-description-cell"] 
+.plainvalue.empty {
+    background: #1e1e1e !important;
+}
+
+body.dark-mode .gradingform_guide .criterion.even {
+background: #2f2f2f !important;
+}
+
+body.dark-mode .gradingform_guide .criterion {
+border: none !important;
+}
+
+/* Ukryte aktywnosci */
+body.dark-mode .activity-item.hiddenactivity .activityiconcontainer, body.dark-mode .activity-item.hiddenactivity .badge {
+mix-blend-mode: unset !important;
+
+}
+
+/* Animacja do ladowania tresci */
+body.dark-mode .bg-pulse-grey {
+  animation: bg-pulse-dark 1.5s infinite;
+}
+
+/* Fix do dark mode dla listy dropdown */
+body.dark-mode .reportbuilder-filters-sidebar{
+background: transparent !important;
+}
+body.dark-mode .dropdown-menu{
+color: #fff !important;
+}
+
+/* Oceny */
+body.dark-mode .path-grade-report-user .user-report-container {
+background-color: #111111 !important;
+}
+
+body.dark-mode .path-grade-report-user .user-grade th.category {
+background-color: #1e1e1e !important;
+}
+
+/* Ukryte aktywnosci */
+body.dark-mode .activity-item.focus-control.hiddenactivity {
+  background-color: #074b88 !important;
+}
+
+/* Dziennik ocen */
+body.dark-mode .gradetree-wrapper {
+  background-color: #111111 !important;
+}
+
+/* Backup */
+body.dark-mode.path-backup .backup-section {
+--bs-body-bg: #111111 !important; 
+}
+
+
+/* Ukryte aktywnosci */
+body.dark-mode .activity-item.focus-control.hiddenactivity:hover {
+  background-color: #9bccff !important;
+}
+
+body.dark-mode .activity-item.focus-control.hiddenactivity {
+  background-color: #4aa3ff !important;
+}
+
+/* Tabele */
+body.dark-mode .table-warning{
+--bs-table-hover-bg: #074b88;
+}
+
+
+/* Ikona nagrywania */
+body.dark-mode span.tox-icon:has(image[href*="/tiny_recordrtc/"][href*="/audio"])
+{
+filter: invert(1);
 }
