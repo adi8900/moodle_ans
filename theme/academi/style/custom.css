@@ -3475,7 +3475,7 @@ body.dark-mode .content-item-container.unread:hover {
     color: white;
 }
 
-body.dark-mode .version .versionnumber, .notes .requiredby, .pluginname .componentname {
+body.dark-mode .version .versionnumber, body.dark-mode .notes .requiredby, body.dark-mode .pluginname .componentname {
     color: #fff !important;
 }
 
