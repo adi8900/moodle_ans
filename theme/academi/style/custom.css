@@ -2594,8 +2594,8 @@ body.dark-mode table:not(.table):not(.ygtvtable):not(.table-reboot):not(.yui3-da
     background-color: #181818 !important;
 }
 
-body.dark-mode .block, body.dark-mode .block .card, body.dark-mode .block .card-body, body.dark-mode .card-text, body.dark-mode .block .content, body.dark-mode .content, body.dark-mode .block-region .block, body.dark-mode .block-region .card {
-    background-color: #181818 !important;
+body.dark-mode .block, body.dark-mode .block .card,body.dark-mode .content ,body.dark-mode .block .card-body, body.dark-mode .card-text, body.dark-mode .block .content, body.dark-mode .block-region .block, body.dark-mode .block-region .card {
+    background-color: #111 !important;
     border: 0 !important;
     color: #fff !important;
     border-radius: 10px !important;
@@ -2940,7 +2940,6 @@ body.dark-mode .message-app .nav-pills .nav-link.active {
 /* Header / footer po prawej */
 body.dark-mode .message-app .header-container [data-region],
 body.dark-mode .message-app .footer-container [data-region] {
-    background: #171717 !important;
     border-color: #333 !important;
     color: #e9ecef !important;
 }
@@ -3465,7 +3464,7 @@ background-color: #1e1e1e !important;
 }
 
 body.dark-mode .courses .coursebox.even{
-background: #181818;
+background: #111;
 }
 body.dark-mode .content-item-container.unread {
     background-color: #ffffff;
@@ -4403,4 +4402,68 @@ body.dark-mode .table-warning{
 body.dark-mode span.tox-icon:has(image[href*="/tiny_recordrtc/"][href*="/audio"])
 {
 filter: invert(1);
+}
+
+/* Testy */
+body.dark-mode[id^="page-question-type-"] div[id^=fgroup_id_][id*=answeroptions_],
+body.dark-mode[id^="page-question-type-"] div[id^=fitem_id_][id*=answer_],
+body.dark-mode[id^="page-question-type-"] div[id^=fgroup_id_][id*=answertolerance_],
+body.dark-mode[id^="page-question-type-"] div[id^=fgroup_id_][id*=answerdisplay_],
+body.dark-mode[id^="page-question-type-"] div[id^=fitem_id_][id*=feedback_],
+body.dark-mode[id^="page-question-type-"] div[id^=fitem_id_][id*=fraction_] {
+    background-color: #222 !important;
+}
+
+/* layout-expand-right */
+img[src*="layout-expand-right"] {
+    filter: invert(1);
+}
+
+/* layout-default */
+img[src*="layout-default"] {
+    filter: invert(1);
+}
+
+/* layout-expand-left */
+img[src*="layout-expand-left"] {
+    filter: invert(1);
+}
+
+/* Poradniki background */
+body.dark-mode li.section.course-section.main.clearfix .content,
+body.dark-mode li.section.course-section.main.clearfix .content .section,
+body.dark-mode li.section.course-section.main.clearfix .activity-item {
+    background-color: #181818 !important;
+}
+
+/* tylko obszar main */
+[role="main"] .btn,
+[role="main"] .form-select,
+[role="main"] .form-control {
+    white-space: normal !important;
+    word-break: break-word;
+}
+
+/* kontenery flex — pozwól się zawijać */
+[role="main"] .d-flex {
+    flex-wrap: wrap !important;
+}
+
+/* żeby select + button nie wyjeżdżały */
+[role="main"] .bulk-actions .d-flex {
+    gap: 6px;
+}
+
+/* ograniczenie szerokości przycisków */
+[role="main"] .btn {
+    max-width: 100%;
+}
+
+[role="main"] select.form-select {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.card {
+word-wrap: unset !important;
 }
